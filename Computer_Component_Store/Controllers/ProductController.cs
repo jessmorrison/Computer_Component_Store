@@ -27,6 +27,7 @@ namespace Computer_Component_Store.Controllers
                     Name = "Exotic Sode",
                     Description = "wow great soda",
                     Price = 1.99m
+                    
 
                 }, new ComputerComponentProduct
                 {
@@ -52,9 +53,8 @@ namespace Computer_Component_Store.Controllers
                     Name = product.Name,
                     Description = product.Description,
                     Price = product.Price ?? 0m,
-                    ImagePath = product.ImageURL
-
-                    //ImagePath = "~/images/exotic_soda.jpg"
+                    ImagePath = product.ImageURL,
+                    Category = product.Category
                 };
                 return View(model);
             }
@@ -62,7 +62,15 @@ namespace Computer_Component_Store.Controllers
             return NotFound();
         }
 
-        public IActionResult List()
+        public IActionResult AllProducts()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult Motherboards()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult VideoCards()
         {
             return View(_context.ComputerComponentProducts);
         }

@@ -26,15 +26,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Computer_Component_Store</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Computer Component Store</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-controller="Products" asp-action="Index" asp-route-id="1">Graphics Card</a></li>
-                    <li><a asp-controller="Products" asp-action="Index" asp-route-id="2">Motherboard</a></li>
+                    <li><a asp-controller="Products" asp-action="AllProducts">All Products</a></li>
+                    <li><a asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
+                    <li><a asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
+                    <li><a asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+
 
                 </ul>
                 <partial name="_LoginPartial" />

@@ -25,6 +25,8 @@ namespace Computer_Component_Store.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Category");
+
                     b.Property<DateTime?>("Created");
 
                     b.Property<string>("Description");

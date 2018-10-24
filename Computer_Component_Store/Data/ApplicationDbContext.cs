@@ -23,6 +23,7 @@ namespace Computer_Component_Store.Data
         public string Description { get; set; }
         public string ImageURL { get; set; }
         public decimal? Price { get; set; }
+        public string Category { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? LastModified { get; set; }
     }
