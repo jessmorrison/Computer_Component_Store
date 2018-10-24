@@ -37,3 +37,4 @@ C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Componen
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Motherboards.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\VideoCards.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\AllProducts.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.g.cshtml.cs

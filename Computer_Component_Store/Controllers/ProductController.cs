@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Computer_Component_Store.Data;
 using Computer_Component_Store.Models;
@@ -33,8 +31,8 @@ namespace Computer_Component_Store.Controllers
                 }, new ComputerComponentProduct
                 {
                     ImageURL = "~/images/video_card_1.jpg",
-                    Name = "Green Soda",
-                    Description = "wow great sodaa",
+                    Name = "ComputerComponent",
+                    Description = "wow great ComputerComponent",
                     Price = 2.99m
 
                 });
@@ -109,143 +107,7 @@ namespace Computer_Component_Store.Controllers
         }
 
 
-
-        /*
-         * 
-         * using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SodaStore.Data;
-using SodaStore.Models;
-
-namespace SodaStore.Controllers
-{
-    public class ProductsController : Controller
-    {
-        private ApplicationDbContext _context;
-
-        public ProductsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        private void PopulateEmptyProducts()
-        {
-            if(_context.SodaProducts.Count() == 0)
-            {
-                _context.SodaProducts.AddRange(new SodaProduct
-                {
-                    ImageURL = "~/images/exotic_soda.jpg",
-                    Name = "Exotic Sode",
-                    Description = "wow great soda",
-                    Price = 1.99m
-
-                }, new SodaProduct
-                {
-                    ImageURL = "~/images/green_cream.jpg",
-                    Name = "Green Soda",
-                    Description = "wow great sodaa",
-                    Price = 2.99m
-
-                });
-                _context.SaveChanges();
-            }
-        }
-
-        public IActionResult Index(int? id)
-        {
-            SodaProduct product = _context.SodaProducts.Find(id);
-
-            if (product != null)
-            {
-
-                ProductViewModel model = new ProductViewModel
-                {
-                    Name = product.Name,
-                    Description = product.Description,
-                    Price = product.Price ?? 0m,
-                    ImagePath = product.ImageURL,
-                    ID = product.ID
-
-                    //ImagePath = "~/images/exotic_soda.jpg"
-                };
-                return View(model);
-            }
-          
-
-            return NotFound();
-        }
-
-        [HttpPost]
-        public IActionResult Index(int id, int quantity)
-        {
-            SodaCart sodaCart = null;
-            if (Request.Cookies.ContainsKey("SodaCartID"))
-            {
-                if (Guid.TryParse(Request.Cookies["SodaCartId"], out Guid cookieId))
-                {
-                    sodaCart = _context.SodaCarts.Include(x => x.SodaCartItems).ThenInclude(x => x.SodaProduct).FirstOrDefault(x => x.CookieID == cookieId);
-                }
-            }
-
-            if (sodaCart == null) // either couldnt find the cart for the cookie or the user had no cookie
-            {
-                sodaCart = new SodaCart
-                {
-                    CookieID = Guid.NewGuid(),
-                    Created = DateTime.UtcNow,
-                };
-                _context.SodaCarts.Add(sodaCart);
-            }
-            sodaCart.LastModified = DateTime.UtcNow;
-
-            SodaCartItem sodaCartItem = null;
-            sodaCartItem = sodaCart.SodaCartItems.FirstOrDefault(x => x.SodaProduct.ID == id);
-
-            if (sodaCartItem == null) //if still null, this is the first time this item has been added to the cart
-            {
-                sodaCartItem = new SodaCartItem
-                    { 
-                        Quantity = 0,
-                        SodaProduct = _context.SodaProducts.Find(id),
-                        Created = DateTime.UtcNow,
-                };
-                sodaCart.SodaCartItems.Add(sodaCartItem);
-            }
-            sodaCartItem.Quantity += quantity;
-            sodaCartItem.LastModified = DateTime.UtcNow;
-            _context.SaveChanges();
-            Response.Cookies.Append("SodaCartID", sodaCart.CookieID.Value.ToString());
-
-            return RedirectToAction("Index", "Cart");
-        }
-
-        public IActionResult List()
-        {
-            return View(_context.SodaProducts);
-        }
-    }
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public IActionResult AllProducts()
+       public IActionResult AllProducts()
         {
             return View(_context.ComputerComponentProducts);
         }

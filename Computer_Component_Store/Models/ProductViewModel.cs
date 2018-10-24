@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Computer_Component_Store.Models
+﻿namespace Computer_Component_Store.Models
 {
     public class ProductViewModel
     {
