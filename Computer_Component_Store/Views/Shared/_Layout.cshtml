@@ -4,53 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Computer Component Store</title>
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/custom.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Computer Component Store</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">JMO's CC Store</a>
             </div>
-            <div class="navbar-collapse collapse">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    @*FIND BOOTSTRAP*@
-                    <li><a asp-controller="Products" asp-action="AllProducts">All Products</a></li>
-                    <li><a asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
-                    <li><a asp-controller="Products" asp-action="Processors">Processors</a></li>
-                    <li><a asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
-                    <li><a asp-controller="Products" asp-action="RAM">RAM</a></li>
-                    <li><a asp-controller="Products" asp-action="Storage">Storage</a></li>
-                    <li><a asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
-                    <li><a asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
-                    <li><a asp-controller="Products" asp-action="Cables">Cables</a></li>
-                    @*<li><a asp-controller="Home" asp-action="About">About</a></li>
-        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>*@
-
-
-
-
+                    <li><a href="#">Featured</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
+                            <li><a asp-controller="Products" asp-action="Processors">Processors</a></li>
+                            <li><a asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
+                            <li><a asp-controller="Products" asp-action="RAM">RAM</a></li>
+                            <li><a asp-controller="Products" asp-action="Storage">Storage</a></li>
+                            <li><a asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
+                            <li><a asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
+                            <li><a asp-controller="Products" asp-action="Cables">Cables</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                      <partial name="_LoginPartial" />
-            </div>
-        </div>
+                <partial name="_LoginPartial" />
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </nav>
 
     <partial name="_CookieConsentPartial" />

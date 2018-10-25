@@ -49,3 +49,5 @@ C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Componen
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\CoolingSystems.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Cables.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Peripherals.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Checkout\Index.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Receipt\Index.g.cshtml.cs
