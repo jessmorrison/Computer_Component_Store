@@ -50,7 +50,7 @@ namespace Computer_Component_Store
 
 
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<ComputerUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

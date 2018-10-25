@@ -18,7 +18,16 @@ namespace Computer_Component_Store.Controllers
         public IActionResult Index()
         {
             ComputerComponentCart computerComponentCart = null;
-            if (Request.Cookies.ContainsKey("ComputerComponentCartID"))
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentComputerUser = _context.Users.Include(x => x.ComputerComponentCart).ThenInclude(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).First(x => x.UserName == User.Identity.Name);
+                if (currentComputerUser.ComputerComponentCart != null)
+                {
+                    computerComponentCart = currentComputerUser.ComputerComponentCart;
+                }
+            }
+            else if (Request.Cookies.ContainsKey("ComputerComponentCartID"))
             {
                 if (Guid.TryParse(Request.Cookies["ComputerComponentCartID"], out Guid cookieId))
                 {
@@ -32,7 +41,18 @@ namespace Computer_Component_Store.Controllers
         public IActionResult Index(ComputerComponentCart model)
         {
             ComputerComponentCart computerComponentCart = null;
-            if (Request.Cookies.ContainsKey("ComputerComponentCartID"))
+
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentComputerUser = _context.Users.Include(x => x.ComputerComponentCart).ThenInclude(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).First(x => x.UserName == User.Identity.Name);
+                if (currentComputerUser.ComputerComponentCart != null)
+                {
+                    computerComponentCart = currentComputerUser.ComputerComponentCart;
+                }
+            }
+
+            else if (Request.Cookies.ContainsKey("ComputerComponentCartID"))
             {
                 if (Guid.TryParse(Request.Cookies["ComputerComponentCartID"], out Guid cookieId))
                 {

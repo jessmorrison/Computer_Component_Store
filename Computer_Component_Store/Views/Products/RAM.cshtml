@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Computer_Component_Store.Data.ComputerComponentProduct>
+@{
+    ViewData["Title"] = "RAM";
+}
+<div class="row">
+    @foreach (var product in Model.Where(x => x.Category == "RAM"))
+    {
+        <div class="col-xs-4">
+            <div class="well">
+                <h2>@product.Name</h2>
+                <img class="img-responsive" src="@Url.Content(product.ImageURL)" />
+                <p>@product.Description</p>
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="@product.ID" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                </form>
+            </div>
+        </div>
+    }
+</div>

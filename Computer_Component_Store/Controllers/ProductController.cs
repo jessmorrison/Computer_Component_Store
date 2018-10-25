@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Computer_Component_Store.Data;
 using Computer_Component_Store.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Computer_Component_Store.Controllers
 {
@@ -65,9 +66,29 @@ namespace Computer_Component_Store.Controllers
         public IActionResult Index(int id, int quantity)
         {
             ComputerComponentCart computerComponentCart = null;
-            if (Request.Cookies.ContainsKey("ComputerComponentCartID"))
+            if (User.Identity.IsAuthenticated)
             {
-                if (Guid.TryParse(Request.Cookies["ComputerComponentCartId"], out Guid cookieId))
+                var currentComputerUser = _context.Users.Include(x => x.ComputerComponentCart).ThenInclude(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).First(x => x.UserName == User.Identity.Name);
+                if (currentComputerUser.ComputerComponentCart != null)
+                {
+                    computerComponentCart = currentComputerUser.ComputerComponentCart;
+                }
+                else
+                {
+                    computerComponentCart = new ComputerComponentCart
+                    {
+                        CookieID = Guid.NewGuid(),
+                        Created = DateTime.UtcNow
+                    };
+                    currentComputerUser.ComputerComponentCart = computerComponentCart;
+                    _context.SaveChanges();
+                }
+            }
+
+
+            if ((computerComponentCart == null) && (Request.Cookies.ContainsKey("ComputerComponentCartID")))
+            {
+                if (Guid.TryParse(Request.Cookies["ComputerComponentCartID"], out Guid cookieId))
                 {
                     computerComponentCart = _context.ComputerComponentCarts.Include(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).FirstOrDefault(x => x.CookieID == cookieId);
                 }
@@ -101,8 +122,11 @@ namespace Computer_Component_Store.Controllers
             computerComponentCartItem.LastModified = DateTime.UtcNow;
             _context.SaveChanges();
 
-            Response.Cookies.Append("ComputerComponentCartID", computerComponentCart.CookieID.Value.ToString());
 
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Cookies.Append("ComputerComponentCartID", computerComponentCart.CookieID.Value.ToString());
+            }
             return RedirectToAction("Index", "Cart");
         }
 
@@ -115,7 +139,32 @@ namespace Computer_Component_Store.Controllers
         {
             return View(_context.ComputerComponentProducts);
         }
+        public IActionResult Processors()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
         public IActionResult VideoCards()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+
+        public IActionResult RAM()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult Storage()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult CoolingSystems()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult Peripherals()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult Cables()
         {
             return View(_context.ComputerComponentProducts);
         }

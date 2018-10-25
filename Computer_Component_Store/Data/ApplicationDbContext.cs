@@ -5,12 +5,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Computer_Component_Store.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ComputerUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
         public DbSet<ComputerComponentProduct> ComputerComponentProducts { get; set; }
         public DbSet<ComputerComponentCart> ComputerComponentCarts { get; set; }
         public DbSet<ComputerComponentCartItem> ComputerComponentCartItems { get; set; }
+    }
+
+    public class ComputerUser : Microsoft.AspNetCore.Identity.IdentityUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public ComputerComponentCart ComputerComponentCart { get; set; }
     }
 
     public class ComputerComponentProduct
