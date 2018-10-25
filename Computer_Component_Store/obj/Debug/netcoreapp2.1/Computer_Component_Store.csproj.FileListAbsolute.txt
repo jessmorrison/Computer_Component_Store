@@ -51,3 +51,8 @@ C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Componen
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Peripherals.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Checkout\Index.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Receipt\Index.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Create.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Delete.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Details.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Edit.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Index.g.cshtml.cs

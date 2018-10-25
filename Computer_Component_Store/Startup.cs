@@ -49,8 +49,11 @@ namespace Computer_Component_Store
            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
-
-            services.AddDefaultIdentity<ComputerUser>()
+            services.AddIdentity<ComputerUser, IdentityRole>()
+                .AddDefaultUI()
+                .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

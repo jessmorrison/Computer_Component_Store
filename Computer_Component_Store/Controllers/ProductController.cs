@@ -39,10 +39,29 @@ namespace Computer_Component_Store.Controllers
                 });
                 _context.SaveChanges();
             }
+
+            if (_context.Roles.Count() == 0)
+            {
+                _context.Roles.Add(new IdentityRole("Administrator"));
+                _context.SaveChanges();
+            }
+
+            if ((_context.UserRoles.Count() == 0) && (_context.Users.Count() > 0))
+            {
+                _context.UserRoles.Add(
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = _context.Roles.Single(x => x.Name == "Administrator").Id,
+                        UserId = _context.Users.First().Id
+                    });
+                _context.SaveChanges();
+            }
         }
 
         public IActionResult Index(int? id)
         {
+            PopulateEmptyProducts();
+
             ComputerComponentProduct product = _context.ComputerComponentProducts.Find(id);
 
             if (product != null)
@@ -129,9 +148,13 @@ namespace Computer_Component_Store.Controllers
             }
             return RedirectToAction("Index", "Cart");
         }
+        public IActionResult Products()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
 
 
-       public IActionResult AllProducts()
+        public IActionResult AllProducts()
         {
             return View(_context.ComputerComponentProducts);
         }

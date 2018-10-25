@@ -10,3 +10,4 @@
         <li>@item.ProductName : @item.Quantity</li>
     }
 </ul> 
+<p>You paid @((Model.ComputerComponentOrderItems.Sum(x => x.Quantity * x.ProductPrice)).Value.ToString("c"))</p>
