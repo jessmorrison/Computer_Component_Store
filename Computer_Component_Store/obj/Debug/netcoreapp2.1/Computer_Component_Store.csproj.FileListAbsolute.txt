@@ -42,7 +42,6 @@ C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Componen
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
-C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Processors.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\RAM.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Storage.g.cshtml.cs
@@ -56,3 +55,4 @@ C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Componen
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Details.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Edit.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Index.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
