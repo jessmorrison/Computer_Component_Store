@@ -22,6 +22,7 @@ namespace Computer_Component_Store.Controllers
             _emailSender = emailSender;
             _braintreeGateway = braintreeGateway;
         }
+        
         public async Task<IActionResult> Index()
         {
             CheckoutViewModel model = new CheckoutViewModel();
@@ -34,12 +35,15 @@ namespace Computer_Component_Store.Controllers
                 model.FirstName = user.FirstName;
                 model.LastName = user.LastName;
             }
+
+            this.ViewData["ClientToken"] = await _braintreeGateway.ClientToken.GenerateAsync();
+
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(CheckoutViewModel model)
+        public async Task<IActionResult> Index(CheckoutViewModel model, string payment_method_nonce)
         {
             if (ModelState.IsValid)
             {
@@ -75,15 +79,16 @@ namespace Computer_Component_Store.Controllers
                     TransactionRequest braintreeTranscation = new TransactionRequest
                     {
                         Amount = computerComponentCart.ComputerComponentCartItems.Sum(x => x.Quantity * (x.ComputerComponentProduct.Price ?? 0)),
-                        CreditCard = new TransactionCreditCardRequest
-                        {
-                            CardholderName = "Test User",
-                            CVV = "123",
-                            ExpirationMonth = DateTime.Now.Month.ToString().PadLeft(2, '0'),
-                            ExpirationYear = DateTime.Now.AddYears(1).Year.ToString(),
-                            Number = "4111111111111111"
+                        PaymentMethodNonce = payment_method_nonce
+                        //CreditCard = new TransactionCreditCardRequest
+                        //{
+                        //    CardholderName = "Test User",
+                        //    CVV = "123",
+                        //    ExpirationMonth = DateTime.Now.Month.ToString().PadLeft(2, '0'),
+                        //    ExpirationYear = DateTime.Now.AddYears(1).Year.ToString(),
+                        //    Number = "4111111111111111"
 
-                        }
+                        //}
                     };
 
                     var transactionResult = await _braintreeGateway.Transaction.SaleAsync(braintreeTranscation);
