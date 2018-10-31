@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Braintree;
+using System.ComponentModel.DataAnnotations;
 
 namespace Computer_Component_Store.Models
 {
@@ -24,5 +25,19 @@ namespace Computer_Component_Store.Models
 
         [Required]
         public string ShippingPostalCode { get; set; }
+
+        public string CreditCardNumber { get; set; }
+
+        public int? CreditCardExpirationMonth { get; set; }
+
+        public int? CreditCardExpirationYear { get; set; }
+
+        public string CreditCardVerificationValue { get; set; }
+
+        public bool CreditCardSave { get; set; }
+
+        public CreditCard[] CreditCards { get; set; }
+
+        public string SavedCreditCardToken { get; set; }
     }
 }

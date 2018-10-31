@@ -98,166 +98,75 @@
     </div>
 
     @* BEGIN: Added for Braintree *@
-    <div class="row">
-        <div class="form-group col-sm-8">
-            <label class="control-label">Card Number</label>
-            <!--  Hosted Fields div container -->
-            <div class="form-control" id="card-number"></div>
-            <span class="helper-text"></span>
+    @if (User.Identity.IsAuthenticated && Model.CreditCards != null && Model.CreditCards.Any())
+    {
+        <div class="form-group">
+            <select class="form-control" asp-for="SavedCreditCardToken">
+                <option value="">Enter a new credit card</option>
+                @foreach (var creditCard in Model.CreditCards)
+                {
+                    <option value="@creditCard.Token">@creditCard.MaskedNumber</option>
+                }
+            </select>
         </div>
-        <div class="form-group col-sm-4">
+    }
+
+    <div class="form-row">
+        <div class="form-group col-4">
+            <label asp-for="CreditCardNumber"></label>
+            <input asp-for="CreditCardNumber" type="text" class="form-control" maxlength="16" />
+        </div>
+        <div class="form-group col-4">
             <div class="row">
-                <label class="control-label col-xs-12">Expiration Date</label>
-                <div class="col-xs-6">
-                    <!--  Hosted Fields div container -->
-                    <div class="form-control" id="expiration-month"></div>
+                <label asp-for="CreditCardExpirationMonth" class="col-12"></label>
+                <div class="col-6">
+                    <select class="form-control" asp-for="CreditCardExpirationMonth">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <option value="@i">@i.ToString().PadLeft(2, '0')</option>
+                        }
+                    </select>
                 </div>
-                <div class="col-xs-6">
-                    <!--  Hosted Fields div container -->
-                    <div class="form-control" id="expiration-year"></div>
+                <div class="col-6">
+                    <select class="form-control" asp-for="CreditCardExpirationYear">
+                        @for (int i = DateTime.Now.Year; i <= DateTime.Now.AddYears(10).Year; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-sm-6">
-            <label class="control-label">Security Code</label>
-            <!--  Hosted Fields div container -->
-            <div class="form-control" id="cvv"></div>
-        </div>
-        <div class="form-group col-sm-6">
-            <label class="control-label">Zipcode</label>
-            <!--  Hosted Fields div container -->
-            <div class="form-control" id="postal-code"></div>
+        <div class="form-group col-4">
+            <label asp-for="CreditCardVerificationValue"></label>
+            <input type="text" asp-for="CreditCardVerificationValue" class="form-control" />
         </div>
     </div>
-    <input type="hidden" id="payment-method-nonce" name="payment_method_nonce" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" asp-for="CreditCardSave">
+            <label class="form-check-label" asp-for="CreditCardSave"></label>
+        </div>
+    }
+
     @* END: Added for Braintree *@
     <input type="submit" value="Place Your Order" class="btn btn-primary" />
 </form>
 
 @section scripts{
-    <script src="https://js.braintreegateway.com/web/3.37.0/js/client.js"></script>
-    <script src="https://js.braintreegateway.com/web/3.37.0/js/hosted-fields.js"></script>
-    <script>
-
-        var form = document.querySelector('#checkout-form');
-        var authorization = '@ViewData["ClientToken"]';
-        var payment_method_nonce = document.querySelector("#payment-method-nonce");
-
-
-        braintree.client.create({
-            authorization: authorization
-        }, function (err, clientInstance) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-
-            braintree.hostedFields.create({
-                client: clientInstance,
-                styles: {
-                    'input': {
-                        'font-size': '14px',
-                        'font-family': 'helvetica, tahoma, calibri, sans-serif',
-                        'color': '#3a3a3a'
-                    },
-                    ':focus': {
-                        'color': 'black'
-                    }
-                },
-                fields: {
-                    number: {
-                        selector: '#card-number',
-                        placeholder: '4111 1111 1111 1111'
-                    },
-                    cvv: {
-                        selector: '#cvv',
-                        placeholder: '123'
-                    },
-                    expirationMonth: {
-                        selector: '#expiration-month',
-                        placeholder: 'MM'
-                    },
-                    expirationYear: {
-                        selector: '#expiration-year',
-                        placeholder: 'YY'
-                    },
-                    postalCode: {
-                        selector: '#postal-code',
-                        placeholder: '90210'
-                    }
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $('#SavedCreditCardToken').change((e) => {
+                console.log("changed drop-down");
+                if ($(e.target).val() !== "") {
+                    $("input[id^='CreditCard'], select[id^='CreditCard']").prop('disabled', 'disabled');
+                } else {
+                    $("input[id^='CreditCard'], select[id^='CreditCard']").removeAttr('disabled');
                 }
-            }, function (err, hostedFieldsInstance) {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-
-                hostedFieldsInstance.on('validityChange', function (event) {
-                    var field = event.fields[event.emittedBy];
-
-                    if (field.isValid) {
-                        if (event.emittedBy === 'expirationMonth' || event.emittedBy === 'expirationYear') {
-                            if (!event.fields.expirationMonth.isValid || !event.fields.expirationYear.isValid) {
-                                return;
-                            }
-                        } else if (event.emittedBy === 'number') {
-                            $('#card-number').next('span').text('');
-                        }
-
-                        // Remove any previously applied error or warning classes
-                        $(field.container).parents('.form-group').removeClass('has-warning');
-                        $(field.container).parents('.form-group').removeClass('has-success');
-                        // Apply styling for a valid field
-                        $(field.container).parents('.form-group').addClass('has-success');
-                    } else if (field.isPotentiallyValid) {
-                        // Remove styling  from potentially valid fields
-                        $(field.container).parents('.form-group').removeClass('has-warning');
-                        $(field.container).parents('.form-group').removeClass('has-success');
-                        if (event.emittedBy === 'number') {
-                            $('#card-number').next('span').text('');
-                        }
-                    } else {
-                        // Add styling to invalid fields
-                        $(field.container).parents('.form-group').addClass('has-warning');
-                        // Add helper text for an invalid card number
-                        if (event.emittedBy === 'number') {
-                            $('#card-number').next('span').text('Looks like this card number has an error.');
-                        }
-                    }
-                });
-
-                hostedFieldsInstance.on('cardTypeChange', function (event) {
-                    // Handle a field's change, such as a change in validity or credit card type
-                    if (event.cards.length === 1) {
-                        $('#card-type').text(event.cards[0].niceType);
-                    } else {
-                        $('#card-type').text('Card');
-                    }
-                });
-
-
-
-                $('#checkout-form').submit(function (event) {
-                    if (!payment_method_nonce.value) {
-                        event.preventDefault();
-                        hostedFieldsInstance.tokenize(function (err, payload) {
-                            if (err) {
-                                console.error(err);
-                                return;
-                            }
-
-                            payment_method_nonce.value = payload.nonce;
-
-                            $('#checkout-form').submit();
-                        });
-                    }
-
-                });
             });
         });
-
     </script>
 
+    function toggleCreditCardFields
 }

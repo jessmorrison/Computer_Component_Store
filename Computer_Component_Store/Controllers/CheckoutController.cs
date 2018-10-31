@@ -34,25 +34,35 @@ namespace Computer_Component_Store.Controllers
                 model.ContactEmail = user.Email;
                 model.FirstName = user.FirstName;
                 model.LastName = user.LastName;
+
+                CustomerSearchRequest customerSearchRequest = new CustomerSearchRequest();
+                customerSearchRequest.Email.Is(User.Identity.Name);
+
+                var customers = await _braintreeGateway.Customer.SearchAsync(customerSearchRequest);
+                if (customers.Ids.Any())
+                {
+                    Customer customer = customers.FirstItem;
+                    model.CreditCards = customer.CreditCards;
+                }
             }
-
-            this.ViewData["ClientToken"] = await _braintreeGateway.ClientToken.GenerateAsync();
-
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(CheckoutViewModel model, string payment_method_nonce)
+        public async Task<IActionResult> Index(CheckoutViewModel model)
         {
             if (ModelState.IsValid)
             {
-              
-
                 ComputerComponentCart computerComponentCart = null;
                 if (User.Identity.IsAuthenticated)
                 {
-                    var currentComputerUser = await _context.Users.Include(x => x.ComputerComponentCart).ThenInclude(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).FirstAsync(x => x.UserName == User.Identity.Name);
+                    var currentComputerUser = await _context.Users
+                        .Include(x => x.ComputerComponentCart)
+                        .ThenInclude(x => x.ComputerComponentCartItems)
+                        .ThenInclude(x => x.ComputerComponentProduct)
+                        .FirstAsync(x => x.UserName == User.Identity.Name);
+
                     if (currentComputerUser.ComputerComponentCart != null)
                     {
                         computerComponentCart = currentComputerUser.ComputerComponentCart;
@@ -62,7 +72,10 @@ namespace Computer_Component_Store.Controllers
                 {
                     if (Guid.TryParse(Request.Cookies["ComputerComponentCartID"], out Guid cookieId))
                     {
-                        computerComponentCart = await _context.ComputerComponentCarts.Include(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).FirstOrDefaultAsync(x => x.CookieID == cookieId);
+                        computerComponentCart = await _context.ComputerComponentCarts
+                            .Include(x => x.ComputerComponentCartItems)
+                            .ThenInclude(x => x.ComputerComponentProduct)
+                            .FirstOrDefaultAsync(x => x.CookieID == cookieId);
                     }
                 }
                 if (computerComponentCart == null)
@@ -71,32 +84,82 @@ namespace Computer_Component_Store.Controllers
                 }
                 else
                 {
+                    if ((User.Identity.IsAuthenticated) && model.CreditCardSave)
+                    {
+                        //First, check if the customer exists
+                        CustomerSearchRequest customerSearchRequest = new CustomerSearchRequest();
+                        customerSearchRequest.Email.Is(User.Identity.Name);
+
+                        Customer customer = null;
+                        var customers = await _braintreeGateway.Customer.SearchAsync(customerSearchRequest);
+                        if (customers.Ids.Any())
+                        {
+                            customer = customers.FirstItem;
+                        }
+                        else
+                        {
+                            CustomerRequest newCustomer = new CustomerRequest();
+                            newCustomer.Email = User.Identity.Name;
+                            var createResult = await _braintreeGateway.Customer.CreateAsync(newCustomer);
+                            if (createResult.IsSuccess())
+                            {
+                                customer = createResult.Target;
+                            }
+                            else
+                            {
+                                throw new Exception(createResult.Message);
+                            }
+                        }
+
+                        CreditCardRequest newPaymentMethod = new CreditCardRequest();
+                        newPaymentMethod.CustomerId = customer.Id;
+                        newPaymentMethod.Number = model.CreditCardNumber;
+                        newPaymentMethod.CVV = model.CreditCardVerificationValue;
+                        newPaymentMethod.ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0');
+                        newPaymentMethod.ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString();
+
+                        var createPaymentResult = await _braintreeGateway.CreditCard.CreateAsync(newPaymentMethod);
+                        if (!createPaymentResult.IsSuccess())
+                        {
+                            throw new Exception(createPaymentResult.Message);
+                        }
+                        else
+                        {
+                            model.SavedCreditCardToken = createPaymentResult.Target.Token;
+                        }
+
+                    }
+
+
+
 
                     // TODO: Do some more advanced validation 
                     //  - the address info is required, but is it real? I can use an API to find out!
                     //  - the credit card is required, but does it have available funds?  Again, I can use an API
 
-                    TransactionRequest braintreeTranscation = new TransactionRequest
+                    TransactionRequest braintreeTransaction = new TransactionRequest
                     {
-                        Amount = computerComponentCart.ComputerComponentCartItems.Sum(x => x.Quantity * (x.ComputerComponentProduct.Price ?? 0)),
-                        PaymentMethodNonce = payment_method_nonce
-                        //CreditCard = new TransactionCreditCardRequest
-                        //{
-                        //    CardholderName = "Test User",
-                        //    CVV = "123",
-                        //    ExpirationMonth = DateTime.Now.Month.ToString().PadLeft(2, '0'),
-                        //    ExpirationYear = DateTime.Now.AddYears(1).Year.ToString(),
-                        //    Number = "4111111111111111"
-
-                        //}
+                        Amount = computerComponentCart.ComputerComponentCartItems.Sum(x => x.Quantity * (x.ComputerComponentProduct.Price ?? 0))
                     };
+                    if (model.SavedCreditCardToken == null)
+                    {
+                        braintreeTransaction.CreditCard = new TransactionCreditCardRequest
+                        {
+                            CVV = model.CreditCardVerificationValue,
+                            ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0'),
+                            ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString(),
+                            Number = model.CreditCardNumber   
+                        };
+                    }
+                    else
+                    {
+                        braintreeTransaction.PaymentMethodToken = model.SavedCreditCardToken;
+                    }
 
-                    var transactionResult = await _braintreeGateway.Transaction.SaleAsync(braintreeTranscation);
+                    var transactionResult = await _braintreeGateway.Transaction.SaleAsync(braintreeTransaction);
                     if (transactionResult.IsSuccess())
                     {
 
-                        // Take the existing cart, and convert the cart and cart items to an  "order" with "order items"
-                        //  - when creating order items, I'm going to "denormalize" the info to copy the price, description, etc. of what the customer ordered.
                         ComputerComponentOrder order = new ComputerComponentOrder
                         {
                             ContactEmail = model.ContactEmail,
@@ -126,7 +189,12 @@ namespace Computer_Component_Store.Controllers
 
                         if (User.Identity.IsAuthenticated)
                         {
-                            var currentComputerUser = await _context.Users.Include(x => x.ComputerComponentCart).ThenInclude(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).FirstAsync(x => x.UserName == User.Identity.Name);
+                            var currentComputerUser = await _context.Users
+                                .Include(x => x.ComputerComponentCart)
+                                .ThenInclude(x => x.ComputerComponentCartItems)
+                                .ThenInclude(x => x.ComputerComponentProduct)
+                                .FirstAsync(x => x.UserName == User.Identity.Name);
+
                             currentComputerUser.ComputerComponentCart = null;
                         }
                         Response.Cookies.Delete("ComputerComponentCartID");
