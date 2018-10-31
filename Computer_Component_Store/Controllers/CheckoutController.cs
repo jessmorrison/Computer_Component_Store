@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Threading.Tasks;
 using Braintree;
+using SmartyStreets;
+using SmartyStreets.USStreetApi;
 
 namespace Computer_Component_Store.Controllers
 {
@@ -14,15 +16,17 @@ namespace Computer_Component_Store.Controllers
     {
         private ApplicationDbContext _context;
         private IEmailSender _emailSender;
-        private readonly IBraintreeGateway _braintreeGateway;
+        private IBraintreeGateway _braintreeGateway;
+        private IClient<Lookup> _streetClient;
 
-        public CheckoutController(ApplicationDbContext context, IEmailSender emailSender, IBraintreeGateway braintreeGateway)
+        public CheckoutController(ApplicationDbContext context, IEmailSender emailSender, IBraintreeGateway braintreeGateway, IClient<Lookup> streetClient)
         {
             _context = context;
             _emailSender = emailSender;
             _braintreeGateway = braintreeGateway;
+            _streetClient = streetClient;
         }
-        
+
         public async Task<IActionResult> Index()
         {
             CheckoutViewModel model = new CheckoutViewModel();
@@ -98,8 +102,10 @@ namespace Computer_Component_Store.Controllers
                         }
                         else
                         {
-                            CustomerRequest newCustomer = new CustomerRequest();
-                            newCustomer.Email = User.Identity.Name;
+                            CustomerRequest newCustomer = new CustomerRequest
+                            {
+                                Email = User.Identity.Name
+                            };
                             var createResult = await _braintreeGateway.Customer.CreateAsync(newCustomer);
                             if (createResult.IsSuccess())
                             {
@@ -111,12 +117,14 @@ namespace Computer_Component_Store.Controllers
                             }
                         }
 
-                        CreditCardRequest newPaymentMethod = new CreditCardRequest();
-                        newPaymentMethod.CustomerId = customer.Id;
-                        newPaymentMethod.Number = model.CreditCardNumber;
-                        newPaymentMethod.CVV = model.CreditCardVerificationValue;
-                        newPaymentMethod.ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0');
-                        newPaymentMethod.ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString();
+                        CreditCardRequest newPaymentMethod = new CreditCardRequest
+                        {
+                            CustomerId = customer.Id,
+                            Number = model.CreditCardNumber,
+                            CVV = model.CreditCardVerificationValue,
+                            ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0'),
+                            ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString()
+                        };
 
                         var createPaymentResult = await _braintreeGateway.CreditCard.CreateAsync(newPaymentMethod);
                         if (!createPaymentResult.IsSuccess())
@@ -130,91 +138,102 @@ namespace Computer_Component_Store.Controllers
 
                     }
 
-
-
-
-                    // TODO: Do some more advanced validation 
-                    //  - the address info is required, but is it real? I can use an API to find out!
-                    //  - the credit card is required, but does it have available funds?  Again, I can use an API
-
-                    TransactionRequest braintreeTransaction = new TransactionRequest
+                    //Smarty Streets Address Lookup
+                    Lookup lookup = new Lookup
                     {
-                        Amount = computerComponentCart.ComputerComponentCartItems.Sum(x => x.Quantity * (x.ComputerComponentProduct.Price ?? 0))
+                        Street = model.ShippingStreet,
+                        City = model.ShippingCity,
+                        State = model.ShippingState,
+                        ZipCode = model.ShippingPostalCode
                     };
-                    if (model.SavedCreditCardToken == null)
+                    _streetClient.Send(lookup);
+
+
+                    if (lookup.Result.Any())
                     {
-                        braintreeTransaction.CreditCard = new TransactionCreditCardRequest
+                        TransactionRequest braintreeTransaction = new TransactionRequest
                         {
-                            CVV = model.CreditCardVerificationValue,
-                            ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0'),
-                            ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString(),
-                            Number = model.CreditCardNumber   
+                            Amount = computerComponentCart.ComputerComponentCartItems.Sum(x => x.Quantity * (x.ComputerComponentProduct.Price ?? 0))
                         };
-                    }
-                    else
-                    {
-                        braintreeTransaction.PaymentMethodToken = model.SavedCreditCardToken;
-                    }
-
-                    var transactionResult = await _braintreeGateway.Transaction.SaleAsync(braintreeTransaction);
-                    if (transactionResult.IsSuccess())
-                    {
-
-                        ComputerComponentOrder order = new ComputerComponentOrder
+                        if (model.SavedCreditCardToken == null)
                         {
-                            ContactEmail = model.ContactEmail,
-                            Created = DateTime.UtcNow,
-                            FirstName = model.FirstName,
-                            LastModified = DateTime.UtcNow,
-                            LastName = model.LastName,
-                            ShippingCity = model.ShippingCity,
-                            ShippingPostalCode = model.ShippingPostalCode,
-                            ShippingState = model.ShippingState,
-                            ShippingStreet = model.ShippingStreet,
-                            ComputerComponentOrderItems = computerComponentCart.ComputerComponentCartItems.Select(x => new ComputerComponentOrderItem
+                            braintreeTransaction.CreditCard = new TransactionCreditCardRequest
                             {
-                                Created = DateTime.UtcNow,
-                                LastModified = DateTime.UtcNow,
-                                ProductDescription = x.ComputerComponentProduct.Description,
-                                ProductID = x.ComputerComponentProduct.ID,
-                                ProductName = x.ComputerComponentProduct.Name,
-                                ProductPrice = x.ComputerComponentProduct.Price,
-                                Quantity = x.Quantity
-                            }).ToHashSet()
-                        };
-
-                        await _context.ComputerComponentOrders.AddAsync(order);
-                        // Delete the cart, cart items, and clear the cookie or "user cart" info so that the user will get a new cart next time.
-                        _context.ComputerComponentCarts.Remove(computerComponentCart);
-
-                        if (User.Identity.IsAuthenticated)
-                        {
-                            var currentComputerUser = await _context.Users
-                                .Include(x => x.ComputerComponentCart)
-                                .ThenInclude(x => x.ComputerComponentCartItems)
-                                .ThenInclude(x => x.ComputerComponentProduct)
-                                .FirstAsync(x => x.UserName == User.Identity.Name);
-
-                            currentComputerUser.ComputerComponentCart = null;
+                                CVV = model.CreditCardVerificationValue,
+                                ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0'),
+                                ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString(),
+                                Number = model.CreditCardNumber
+                            };
                         }
-                        Response.Cookies.Delete("ComputerComponentCartID");
+                        else
+                        {
+                            braintreeTransaction.PaymentMethodToken = model.SavedCreditCardToken;
+                        }
 
-                        await _context.SaveChangesAsync();
+                        var transactionResult = await _braintreeGateway.Transaction.SaleAsync(braintreeTransaction);
+                        if (transactionResult.IsSuccess())
+                        {
 
-                        string subject = "Congratulations, order # " + order.ID + " has been placed";
-                        UriBuilder builder = new UriBuilder(Request.Scheme, Request.Host.Host, Request.Host.Port ?? 80, "receipt/index/" + order.ID);
-                        string htmlContent = string.Format("<a href=\"{0}\">Check out your order</a>", builder.ToString());
-                        await _emailSender.SendEmailAsync(model.ContactEmail, subject, htmlContent);
+                            ComputerComponentOrder order = new ComputerComponentOrder
+                            {
+                                ContactEmail = model.ContactEmail,
+                                Created = DateTime.UtcNow,
+                                FirstName = model.FirstName,
+                                LastModified = DateTime.UtcNow,
+                                LastName = model.LastName,
+                                ShippingCity = model.ShippingCity,
+                                ShippingPostalCode = model.ShippingPostalCode,
+                                ShippingState = model.ShippingState,
+                                ShippingStreet = model.ShippingStreet,
+                                ComputerComponentOrderItems = computerComponentCart.ComputerComponentCartItems.Select(x => new ComputerComponentOrderItem
+                                {
+                                    Created = DateTime.UtcNow,
+                                    LastModified = DateTime.UtcNow,
+                                    ProductDescription = x.ComputerComponentProduct.Description,
+                                    ProductID = x.ComputerComponentProduct.ID,
+                                    ProductName = x.ComputerComponentProduct.Name,
+                                    ProductPrice = x.ComputerComponentProduct.Price,
+                                    Quantity = x.Quantity
+                                }).ToHashSet()
+                            };
 
-                        // Redirect to the receipt page
-                        return RedirectToAction("Index", "Receipt", new { order.ID });
+                            await _context.ComputerComponentOrders.AddAsync(order);
+                            // Delete the cart, cart items, and clear the cookie or "user cart" info so that the user will get a new cart next time.
+                            _context.ComputerComponentCarts.Remove(computerComponentCart);
+
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                var currentComputerUser = await _context.Users
+                                    .Include(x => x.ComputerComponentCart)
+                                    .ThenInclude(x => x.ComputerComponentCartItems)
+                                    .ThenInclude(x => x.ComputerComponentProduct)
+                                    .FirstAsync(x => x.UserName == User.Identity.Name);
+
+                                currentComputerUser.ComputerComponentCart = null;
+                            }
+                            Response.Cookies.Delete("ComputerComponentCartID");
+
+                            await _context.SaveChangesAsync();
+
+                            string subject = "Congratulations, order # " + order.ID + " has been placed";
+                            UriBuilder builder = new UriBuilder(Request.Scheme, Request.Host.Host, Request.Host.Port ?? 80, "receipt/index/" + order.ID);
+                            string htmlContent = string.Format("<a href=\"{0}\">Check out your order</a>", builder.ToString());
+                            await _emailSender.SendEmailAsync(model.ContactEmail, subject, htmlContent);
+
+                            // Redirect to the receipt page
+                            return RedirectToAction("Index", "Receipt", new { order.ID });
+                        }
+                        else
+                        {
+                            foreach (var transactionError in transactionResult.Errors.All())
+                            {
+                                this.ModelState.AddModelError(transactionError.Code.ToString(), transactionError.Message);
+                            }
+                        }
                     }
                     else
                     {
-                        foreach (var transactionError in transactionResult.Errors.All())
-                        {
-                            this.ModelState.AddModelError(transactionError.Code.ToString(), transactionError.Message);
-                        }
+                        ModelState.AddModelError("ShippingStreet", "Unable to validate this address. Please make sure you enter it correctly");
                     }
                 }
             }

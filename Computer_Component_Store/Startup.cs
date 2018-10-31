@@ -73,6 +73,18 @@ namespace Computer_Component_Store
                 }
             );
 
+
+            services.AddTransient<SmartyStreets.IClient<SmartyStreets.USStreetApi.Lookup>>((s) =>
+            {
+                SmartyStreets.ClientBuilder builder = new SmartyStreets.ClientBuilder
+                (
+                    Configuration.GetValue<string>("SmartyStreets:AuthId"),
+                    Configuration.GetValue<string>("SmartyStreets:AuthToken")
+                );
+                return builder.BuildUsStreetApiClient();
+            });
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
