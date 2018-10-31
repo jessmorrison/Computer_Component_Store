@@ -97,6 +97,12 @@
         <span asp-validation-for="ShippingPostalCode"></span>
     </div>
 
+    <div class="form-group">
+        <button id="ValidateAddress" class="btn btn-secondary">Validate Address</button>
+    </div>
+
+
+
     @* BEGIN: Added for Braintree *@
     @if (User.Identity.IsAuthenticated && Model.CreditCards != null && Model.CreditCards.Any())
     {
@@ -165,8 +171,45 @@
                     $("input[id^='CreditCard'], select[id^='CreditCard']").removeAttr('disabled');
                 }
             });
+            $("#ValidateAddress").click((e) => {
+                e.preventDefault();
+
+                $("input[id^='Shipping'], select[id^='Shipping']").removeClass('is-valid is-invalid');
+                $(e.target).prop('disabled', 'disabled').removeClass('btn-success btn-danger').html('<progress></progress>');
+                var street, city, state, postalCode;
+
+                street = $("#ShippingStreet").val();
+                city = $("#ShippingCity").val();
+                state = $("#ShippingState").val();
+                postalCode = $("#ShippingPostalCode").val();
+
+                var lookup = {
+                    street: street,
+                    city: city,
+                    zipCode: postalCode,
+                    state: state
+                };
+
+                $.ajax({
+                    url: "/Checkout/ValidateAddress",
+                    data: JSON.stringify(lookup),
+                    contentType: "application/json",
+                    method: "POST"
+                })
+                .done((data, textStatus, jqxhr) => {
+                    if (data.length > 0) {
+                        $("#ValidateAddress").addClass("btn-success").removeClass("btn-danger").html("Validate Address <i class=\"fas fa-check\"></i>");
+                        $("input[id^='Shipping'], select[id^='Shipping']").addClass('is-valid');
+                    } else {
+
+                        $("#ValidateAddress").addClass("btn-danger").removeClass("btn-success").html("Validate Address <i class=\"fas fa-times\"></i>");
+                        $("input[id^='Shipping'], select[id^='Shipping']").addClass('is-invalid');
+                    }
+                })
+                .always(() => {
+                    $("#ValidateAddress").removeAttr('disabled');
+                });
+            });
         });
     </script>
-
-    function toggleCreditCardFields
 }

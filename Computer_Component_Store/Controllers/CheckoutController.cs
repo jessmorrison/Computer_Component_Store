@@ -26,7 +26,6 @@ namespace Computer_Component_Store.Controllers
             _braintreeGateway = braintreeGateway;
             _streetClient = streetClient;
         }
-
         public async Task<IActionResult> Index()
         {
             CheckoutViewModel model = new CheckoutViewModel();
@@ -38,10 +37,8 @@ namespace Computer_Component_Store.Controllers
                 model.ContactEmail = user.Email;
                 model.FirstName = user.FirstName;
                 model.LastName = user.LastName;
-
                 CustomerSearchRequest customerSearchRequest = new CustomerSearchRequest();
                 customerSearchRequest.Email.Is(User.Identity.Name);
-
                 var customers = await _braintreeGateway.Customer.SearchAsync(customerSearchRequest);
                 if (customers.Ids.Any())
                 {
@@ -51,7 +48,19 @@ namespace Computer_Component_Store.Controllers
             }
             return View(model);
         }
-
+        [HttpPost]
+        public IActionResult ValidateAddress([FromBody]Lookup lookup)
+        {
+            try
+            {
+                _streetClient.Send(lookup);
+                return Json(lookup.Result);
+            }
+            catch (SmartyException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(CheckoutViewModel model)
@@ -93,7 +102,6 @@ namespace Computer_Component_Store.Controllers
                         //First, check if the customer exists
                         CustomerSearchRequest customerSearchRequest = new CustomerSearchRequest();
                         customerSearchRequest.Email.Is(User.Identity.Name);
-
                         Customer customer = null;
                         var customers = await _braintreeGateway.Customer.SearchAsync(customerSearchRequest);
                         if (customers.Ids.Any())
@@ -116,7 +124,6 @@ namespace Computer_Component_Store.Controllers
                                 throw new Exception(createResult.Message);
                             }
                         }
-
                         CreditCardRequest newPaymentMethod = new CreditCardRequest
                         {
                             CustomerId = customer.Id,
@@ -125,7 +132,6 @@ namespace Computer_Component_Store.Controllers
                             ExpirationMonth = (model.CreditCardExpirationMonth ?? 0).ToString().PadLeft(2, '0'),
                             ExpirationYear = (model.CreditCardExpirationYear ?? 0).ToString()
                         };
-
                         var createPaymentResult = await _braintreeGateway.CreditCard.CreateAsync(newPaymentMethod);
                         if (!createPaymentResult.IsSuccess())
                         {
@@ -135,9 +141,7 @@ namespace Computer_Component_Store.Controllers
                         {
                             model.SavedCreditCardToken = createPaymentResult.Target.Token;
                         }
-
                     }
-
                     //Smarty Streets Address Lookup
                     Lookup lookup = new Lookup
                     {
@@ -147,8 +151,6 @@ namespace Computer_Component_Store.Controllers
                         ZipCode = model.ShippingPostalCode
                     };
                     _streetClient.Send(lookup);
-
-
                     if (lookup.Result.Any())
                     {
                         TransactionRequest braintreeTransaction = new TransactionRequest
@@ -169,11 +171,9 @@ namespace Computer_Component_Store.Controllers
                         {
                             braintreeTransaction.PaymentMethodToken = model.SavedCreditCardToken;
                         }
-
                         var transactionResult = await _braintreeGateway.Transaction.SaleAsync(braintreeTransaction);
                         if (transactionResult.IsSuccess())
                         {
-
                             ComputerComponentOrder order = new ComputerComponentOrder
                             {
                                 ContactEmail = model.ContactEmail,
@@ -196,7 +196,6 @@ namespace Computer_Component_Store.Controllers
                                     Quantity = x.Quantity
                                 }).ToHashSet()
                             };
-
                             await _context.ComputerComponentOrders.AddAsync(order);
                             // Delete the cart, cart items, and clear the cookie or "user cart" info so that the user will get a new cart next time.
                             _context.ComputerComponentCarts.Remove(computerComponentCart);
@@ -225,6 +224,7 @@ namespace Computer_Component_Store.Controllers
                         }
                         else
                         {
+                            this.ModelState.AddModelError("CreditCardNumber", transactionResult.Message);
                             foreach (var transactionError in transactionResult.Errors.All())
                             {
                                 this.ModelState.AddModelError(transactionError.Code.ToString(), transactionError.Message);

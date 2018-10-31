@@ -102,7 +102,7 @@ WriteAttributeValue("", 385, Url.Content(product.ImageURL), 385, 30, false);
             WriteLiteral("</p>\r\n                ");
             EndContext();
             BeginContext(482, 572, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78b86ffd23ff437bb0595b2e09b187ef", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0bbf1a583359467f873132ae7ad694a1", async() => {
                 BeginContext(521, 52, true);
                 WriteLiteral("\r\n                    <input type=\"hidden\" name=\"id\"");
                 EndContext();
@@ -126,7 +126,7 @@ WriteAttributeValue("", 581, product.ID, 581, 11, false);
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(852, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0e92a3d20fb4a099133a930d978db77", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ebd65e4cee0645f196db5604eb4021d7", async() => {
                     BeginContext(872, 1, false);
 #line 19 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CoolingSystems.cshtml"
                                           Write(i);
