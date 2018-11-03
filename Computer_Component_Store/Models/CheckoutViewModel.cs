@@ -1,4 +1,5 @@
 ﻿using Braintree;
+using Computer_Component_Store.Data;
 using System.ComponentModel.DataAnnotations;
 
 namespace Computer_Component_Store.Models
@@ -39,5 +40,7 @@ namespace Computer_Component_Store.Models
         public CreditCard[] CreditCards { get; set; }
 
         public string SavedCreditCardToken { get; set; }
+
+        public ComputerComponentProduct[] ComputerComponentProducts { get; set; }
     }
 }

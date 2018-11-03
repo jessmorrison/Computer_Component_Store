@@ -196,20 +196,21 @@
                     contentType: "application/json",
                     method: "POST"
                 })
-                .done((data, textStatus, jqxhr) => {
-                    if (data.length > 0) {
-                        $("#ValidateAddress").addClass("btn-success").removeClass("btn-danger").html("Validate Address <i class=\"fas fa-check\"></i>");
-                        $("input[id^='Shipping'], select[id^='Shipping']").addClass('is-valid');
-                    } else {
+                    .done((data, textStatus, jqxhr) => {
+                        if (data.length > 0) {
+                            $("#ValidateAddress").addClass("btn-success").removeClass("btn-danger").html("Validate Address <i class=\"fas fa-check\"></i>");
+                            $("input[id^='Shipping'], select[id^='Shipping']").addClass('is-valid');
+                        } else {
 
-                        $("#ValidateAddress").addClass("btn-danger").removeClass("btn-success").html("Validate Address <i class=\"fas fa-times\"></i>");
-                        $("input[id^='Shipping'], select[id^='Shipping']").addClass('is-invalid');
-                    }
-                })
-                .always(() => {
-                    $("#ValidateAddress").removeAttr('disabled');
-                });
+                            $("#ValidateAddress").addClass("btn-danger").removeClass("btn-success").html("Validate Address <i class=\"fas fa-times\"></i>");
+                            $("input[id^='Shipping'], select[id^='Shipping']").addClass('is-invalid');
+                        }
+                    })
+                    .always(() => {
+                        $("#ValidateAddress").removeAttr('disabled');
+                    });
             });
         });
     </script>
 }
+

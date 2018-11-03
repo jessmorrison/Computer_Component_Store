@@ -73,7 +73,10 @@ namespace Computer_Component_Store.Controllers
                     Description = product.Description,
                     Price = product.Price ?? 0m,
                     ImagePath = product.ImageURL,
-                    Category = product.Category
+                    Category = product.Category,
+                    CompatibilityType = product.CompatibilityType,
+                    ComputerComponentProducts = _context.ComputerComponentProducts.Where(x => x.CompatibilityType == product.CompatibilityType && x.ID != product.ID).ToArray()
+                    
                 };
                 return View(model);
             }

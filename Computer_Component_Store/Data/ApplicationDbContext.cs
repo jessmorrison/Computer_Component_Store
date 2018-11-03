@@ -37,6 +37,7 @@ namespace Computer_Component_Store.Data
         public string ImageURL { get; set; }
         public decimal? Price { get; set; }
         public string Category { get; set; }
+        public string CompatibilityType { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? LastModified { get; set; }
         public ICollection<ComputerComponentCartItem> ComputerComponentCartItems { get; set; }
@@ -52,7 +53,7 @@ namespace Computer_Component_Store.Data
         public Guid? CookieID { get; set; }
         public ICollection<ComputerComponentCartItem> ComputerComponentCartItems { get; set; }
         public DateTime? Created { get; set; }
-        public DateTime? LastModified { get; set; }
+        public DateTime? LastModified { get; set; }       
     }
     public class ComputerComponentCartItem
     {

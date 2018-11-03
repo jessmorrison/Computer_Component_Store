@@ -48,6 +48,7 @@ namespace Computer_Component_Store.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
         public IActionResult ValidateAddress([FromBody]Lookup lookup)
         {

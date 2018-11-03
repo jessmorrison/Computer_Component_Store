@@ -7,8 +7,8 @@
     {
         <div class="col-xs-4">
             <div class="well">
-                <h2>@product.Name</h2>
-                <img class="img-responsive" src="@Url.Content(product.ImageURL)" />
+                <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                <a href="/products/index/@product.ID"><img class="img-responsive" src="@Url.Content(product.ImageURL)" /></a>
                 <p>@product.Description</p>
                 <form method="post" asp-action="index">
                     <input type="hidden" name="id" value="@product.ID" />
@@ -25,6 +25,3 @@
         </div>  
     }
 </div>
-
-
-
