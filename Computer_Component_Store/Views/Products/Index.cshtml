@@ -2,37 +2,17 @@
 @{
     ViewData["Title"] = Model.Name;
 }
-<h2>@Model.Name</h2>
-<img src="@Url.Content(Model.ImagePath)" alt="@Model.Name" class="img-responsive" />
-<p>@Model.Description</p>
-<h3>@Model.Price.ToString("C")</h3>
 
-<form method="post">
-    <input type="hidden" name="id" value="@Model.ID" />
-    <label for="quantity">How many would you like?</label>
-    <select name="quantity" class="form-control">
-        @for (int i = 1; i <= 10; i++)
-        {
-            <option value="@i">@i</option>
-        }
-    </select>
-    <input type="submit" class="btn btn-primary" value="Add To Cart" />
-</form>
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <h2>@Model.Name</h2>
+            <img src="@Url.Content(Model.ImagePath)" alt="@Model.Name" class="img-fluid" />
+            <p>@Model.Description</p>
+            <h3>@Model.Price.ToString("C")</h3>
 
-<h1>Compatible Products :^]</h1>
-<br />
-<br />
-@if (Model.ComputerComponentProducts != null && Model.ComputerComponentProducts.Any())
-{
-    @foreach (var product in Model.ComputerComponentProducts)
-    {
-        <div class="col-xs-4">
-            <div class="well">
-                <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
-                <a href="/products/index/@product.ID"><img class="img-responsive" src="@Url.Content(product.ImageURL)" /></a>
-            </div>
-            <form method="post" asp-action="index">
-                <input type="hidden" name="id" value="@product.ID" />
+            <form method="post">
+                <input type="hidden" name="id" value="@Model.ID" />
                 <label for="quantity">How many would you like?</label>
                 <select name="quantity" class="form-control">
                     @for (int i = 1; i <= 10; i++)
@@ -43,23 +23,54 @@
                 <input type="submit" class="btn btn-primary" value="Add To Cart" />
             </form>
         </div>
-    }
+    </div>
+</div>
 
-}
+<h1>Compatible Products :^]</h1>
+<br />
+<br />
+<div class="row">
+    @if (Model.ComputerComponentProducts != null && Model.ComputerComponentProducts.Any())
+    {
+        @foreach (var product in Model.ComputerComponentProducts)
+        {
+            <div class="col-12 col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
 
-
-@*<div class="container">
-        <h2>Compatible Products</h2>
-        <div class="row">
-            @foreach (var product in Model.ComputerComponentProducts.Where(x => x.CompatibilityType == "A"))
-            {
-                <div class="col-xs-4">
-                    <div class="well">
-                        <h2>@product.Name</h2>
-                        <img class="img-responsive" src="@Url.Content(product.ImageURL)" />
-                        <p>@product.Description</p>
+                        <form method="post" asp-action="index">
+                            <input type="hidden" name="id" value="@product.ID" />
+                            <label for="quantity">How many would you like?</label>
+                            <select name="quantity" class="form-control">
+                                @for (int i = 1; i <= 10; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                            <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                        </form>
                     </div>
                 </div>
-            }
-        </div>
-    </div>*@
+            </div>
+        }
+
+    }
+</div>
+
+        @*<div class="container">
+                <h2>Compatible Products</h2>
+                <div class="row">
+                    @foreach (var product in Model.ComputerComponentProducts.Where(x => x.CompatibilityType == "A"))
+                    {
+                        <div class="col-xs-4">
+                            <div class="well">
+                                <h2>@product.Name</h2>
+                                <img class="img-responsive" src="@Url.Content(product.ImageURL)" />
+                                <p>@product.Description</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>*@

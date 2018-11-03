@@ -5,10 +5,11 @@
 <div class="row">
     @foreach (var product in Model.Where(x => x.Category == "STORAGE"))
     {
-        <div class="col-xs-4">
-            <div class="well">
+    <div class="col-12 col-sm-4">
+        <div class="card">
+            <div class="card-body">
                 <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
-                <a href="/products/index/@product.ID"><img class="img-responsive" src="@Url.Content(product.ImageURL)" /></a>
+                <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                 <p>@product.Description</p>
                 <form method="post" asp-action="index">
                     <input type="hidden" name="id" value="@product.ID" />
@@ -23,5 +24,6 @@
                 </form>
             </div>
         </div>
+    </div>
     }
 </div>

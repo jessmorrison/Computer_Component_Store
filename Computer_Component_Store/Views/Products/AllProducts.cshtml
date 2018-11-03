@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "All Products";
 }
-<div class="row">
+@*<div class="row">
     @foreach (var product in Model)
     {
-        <div class="col-xs-4">
+        <div class="col-4">
             <div class="well">
                 <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                 <a href="/products/index/@product.ID"><img class="img-responsive" src="@Url.Content(product.ImageURL)" /></a>
@@ -23,4 +23,37 @@
             </form>
         </div>
     }
+</div>*@
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-12">
+            <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+        </div>
+        <div class="col-12 col-sm-4">
+            <a href="/products/index/@product.ID">
+                <img src="@Url.Content(@product.ImageURL)" alt="@product.Name" class="img-fluid" />
+                </a>
 </div>
+        <div class="col-12 col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <p>@product.Description</p>
+                    <h3>@product.Price.ToString()</h3>
+                    <form method="post">
+                        <input type="hidden" name="id" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                        <input type="submit" class="btn btn-block btn-primary" value="Add To Cart" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
