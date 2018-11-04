@@ -10,14 +10,14 @@
         <div class="card">
             <div class="card-body">
                 <select class="form-control form-control-lg" onchange="setMotherboardValue(event)">
-                    <option disabled selected>Choose Motherboard</option>
+                    <option selected>Choose Motherboard</option>
                     @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD"))
                     {
                         <option value="@product.ID">@product.Name</option>
                     }
                 </select>
 
-                <form method="post" asp-action="index">
+                <form  asp-action="index">
                     <input type="hidden" name="id" value="" id="motherboardID"/>
                     <label for="quantity">How many would you like?</label>
                     <select name="quantity" class="form-control">
@@ -26,7 +26,7 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButton" value="Add To Cart"  disabled/>
                 </form>
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="card">
             <div class="card-body">
                 <select class="form-control form-control-lg" onchange="setCableValue(event)">
-                    <option disabled selected>Choose Cable</option>
+                    <option selected>Choose Cable</option>
                     @foreach (var product in Model.Where(x => x.Category == "CABLE"))
                     {
                         <option value="@product.ID">@product.Name</option>
@@ -53,7 +53,7 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButton" disabled/>
                 </form>
             </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="card">
             <div class="card-body">
                 <select class="form-control form-control-lg" onchange="setCoolingSystemValue(event)">
-                    <option disabled selected>Choose Cooling System</option>
+                    <option selected>Choose Cooling System</option>
                     @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM"))
                     {
                         <option value="@product.ID">@product.Name</option>
@@ -81,7 +81,7 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="coolingSystemSubmitButton" disabled />
                 </form>
             </div>
         </div>
@@ -90,16 +90,22 @@
 
 
 <script type="text/javascript">
-    function setMotherboardValue(e) {
+    function setMotherboardValue(e)
+    {
         document.getElementById("motherboardID").value = e.target.value;
         console.log(e.target.value);
+        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButton").disabled = true : document.getElementById("motherboardSubmitButton").disabled = false;
     }
-    function setCableValue(e) {
+    function setCableValue(e)
+    {
         document.getElementById("cableID").value = e.target.value;
         console.log(e.target.value);
+        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButton").disabled = true : document.getElementById("cableSubmitButton").disabled = false;
     }
-    function setCoolingSystemValue(e) {
+    function setCoolingSystemValue(e)
+    {
         document.getElementById("CoolingSystemID").value = e.target.value;
         console.log(e.target.value);
-    }   
+        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButton").disabled = true : document.getElementById("coolingSystemSubmitButton").disabled = false;
+    } 
 </script>
