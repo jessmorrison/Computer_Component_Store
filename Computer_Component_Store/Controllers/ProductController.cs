@@ -155,8 +155,6 @@ namespace Computer_Component_Store.Controllers
         {
             return View(_context.ComputerComponentProducts);
         }
-
-
         public IActionResult AllProducts()
         {
             return View(_context.ComputerComponentProducts);
@@ -191,6 +189,10 @@ namespace Computer_Component_Store.Controllers
             return View(_context.ComputerComponentProducts);
         }
         public IActionResult Cables()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult Partpicker()
         {
             return View(_context.ComputerComponentProducts);
         }

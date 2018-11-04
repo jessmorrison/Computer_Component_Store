@@ -113,7 +113,7 @@ namespace Computer_Component_Store
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Products}/{action=AllProducts}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

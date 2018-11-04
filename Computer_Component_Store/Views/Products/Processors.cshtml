@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Computer_Component_Store.Data.ComputerComponentProduct>
 @{
-    ViewData["Title"] = "Processors";
+    ViewData["Title"] = "Processor";
 }
 <div class="row">
-    @foreach (var product in Model.Where(x => x.Category == "PROCESSORS"))
+    @foreach (var product in Model.Where(x => x.Category == "PROCESSOR"))
     {
     <div class="col-12 col-sm-4">
         <div class="card">

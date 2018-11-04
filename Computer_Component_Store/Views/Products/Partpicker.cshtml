@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Computer_Component_Store.Data.ComputerComponentProduct>
+@{
+    ViewData["Title"] = "Part Picker";
+}
+
+<h2>Part Picker</h2>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setMotherboardValue(event)">
+                    <option disabled selected>Choose Motherboard</option>
+                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD"))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="motherboardID"/>
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCableValue(event)">
+                    <option disabled selected>Choose Cable</option>
+                    @foreach (var product in Model.Where(x => x.Category == "CABLE"))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="cableID" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCoolingSystemValue(event)">
+                    <option disabled selected>Choose Cooling System</option>
+                    @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM"))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="CoolingSystemID" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function setMotherboardValue(e) {
+        document.getElementById("motherboardID").value = e.target.value;
+        console.log(e.target.value);
+    }
+    function setCableValue(e) {
+        document.getElementById("cableID").value = e.target.value;
+        console.log(e.target.value);
+    }
+    function setCoolingSystemValue(e) {
+        document.getElementById("CoolingSystemID").value = e.target.value;
+        console.log(e.target.value);
+    }   
+</script>
