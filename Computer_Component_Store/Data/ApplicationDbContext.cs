@@ -21,7 +21,6 @@ namespace Computer_Component_Store.Data
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public ComputerComponentCart ComputerComponentCart { get; set; }
     }
 

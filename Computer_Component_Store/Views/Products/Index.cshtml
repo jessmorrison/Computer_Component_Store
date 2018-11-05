@@ -10,6 +10,7 @@
             <img src="@Url.Content(Model.ImagePath)" alt="@Model.Name" class="img-fluid" />
             <p>@Model.Description</p>
             <h3>@Model.Price.ToString("C")</h3>
+            <h1>@Model.ID</h1>
 
             <form method="post">
                 <input type="hidden" name="id" value="@Model.ID" />
@@ -25,6 +26,7 @@
         </div>
     </div>
 </div>
+
 
 <h1>Compatible Products</h1>
 <br />

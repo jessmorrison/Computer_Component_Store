@@ -70,6 +70,7 @@ namespace Computer_Component_Store.Controllers
                 ProductViewModel model = new ProductViewModel
                 {
                     Name = product.Name,
+                    ID = product.ID,
                     Description = product.Description,
                     Price = product.Price ?? 0m,
                     ImagePath = product.ImageURL,

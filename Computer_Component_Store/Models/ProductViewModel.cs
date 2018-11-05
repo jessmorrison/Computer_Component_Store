@@ -14,5 +14,3 @@ namespace Computer_Component_Store.Models
         public ComputerComponentProduct[] ComputerComponentProducts { get; set; }
     }
 }
-
-

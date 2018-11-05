@@ -13,11 +13,12 @@
                     <option selected>Choose Motherboard</option>
                     @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD"))
                     {
-                        <option value="@product.ID">@product.Name</option>
+                        <option value="@product.ID" compatibility="@product.CompatibilityType">@product.Name</option>
+                       
                     }
                 </select>
 
-                <form  asp-action="index">
+                <form asp-action="index">
                     <input type="hidden" name="id" value="" id="motherboardID"/>
                     <label for="quantity">How many would you like?</label>
                     <select name="quantity" class="form-control">
@@ -32,7 +33,7 @@
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row" id="cablePicker">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -60,7 +61,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="coolingSystemPicker">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -68,7 +69,7 @@
                     <option selected>Choose Cooling System</option>
                     @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM"))
                     {
-                        <option value="@product.ID">@product.Name</option>
+                        <option value="@product.ID" >@product.Name</option>
                     }
                 </select>
 
@@ -90,17 +91,24 @@
 
 
 <script type="text/javascript">
+
+
+
     function setMotherboardValue(e)
     {
         document.getElementById("motherboardID").value = e.target.value;
         console.log(e.target.value);
         e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButton").disabled = true : document.getElementById("motherboardSubmitButton").disabled = false;
+        document.getElementById("cablePicker").style.display = "flex";
     }
+
+
     function setCableValue(e)
     {
         document.getElementById("cableID").value = e.target.value;
         console.log(e.target.value);
         e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButton").disabled = true : document.getElementById("cableSubmitButton").disabled = false;
+        document.getElementById("coolingSystemPicker").style.display = "flex";
     }
     function setCoolingSystemValue(e)
     {
