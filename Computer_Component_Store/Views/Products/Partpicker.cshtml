@@ -13,7 +13,7 @@
                     <option selected>Choose Motherboard</option>
                     @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD"))
                     {
-                        <option value="@product.ID" compatibility="@product.CompatibilityType">@product.Name</option>
+                        <option value="@product.ID">@product.Name</option>
                        
                     }
                 </select>
@@ -92,21 +92,20 @@
 
 <script type="text/javascript">
 
-
+    var compatibilityType = "ALL";
 
     function setMotherboardValue(e)
     {
         document.getElementById("motherboardID").value = e.target.value;
-        console.log(e.target.value);
         e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButton").disabled = true : document.getElementById("motherboardSubmitButton").disabled = false;
         document.getElementById("cablePicker").style.display = "flex";
+
     }
 
 
     function setCableValue(e)
     {
         document.getElementById("cableID").value = e.target.value;
-        console.log(e.target.value);
         e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButton").disabled = true : document.getElementById("cableSubmitButton").disabled = false;
         document.getElementById("coolingSystemPicker").style.display = "flex";
     }

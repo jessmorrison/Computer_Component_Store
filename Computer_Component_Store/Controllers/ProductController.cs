@@ -5,6 +5,7 @@ using Computer_Component_Store.Data;
 using Computer_Component_Store.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace Computer_Component_Store.Controllers
 {
@@ -197,6 +198,7 @@ namespace Computer_Component_Store.Controllers
         {
             return View(_context.ComputerComponentProducts);
         }
+
     }
 }
  

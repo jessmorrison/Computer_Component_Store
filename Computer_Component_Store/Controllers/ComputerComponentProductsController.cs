@@ -3,11 +3,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Computer_Component_Store.Data;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Computer_Component_Store.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    //[Authorize(Roles = "Administrator")]
     public class ComputerComponentProductsController : Controller
     {
         private readonly ApplicationDbContext _context;

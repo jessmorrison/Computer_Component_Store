@@ -10,20 +10,21 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" asp-controller="Products" asp-action="AllProducts">JMO's CC Store</a>
+        <a class="navbar-brand" asp-controller="Home" asp-action="AllProducts">Just Get A PC: Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Products" asp-action="Partpicker">Part Picker</a>
+                    <a class="nav-link" asp-controller="Products" asp-action="Partpicker">Build Custom PC</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Products
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-controller="Products" asp-action="All Product">All Products</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Motherboards">Motherboards</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Processors">Processors</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a>
@@ -37,10 +38,6 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
             <partial name="_LoginPartial" />
         </div>
     </nav>
@@ -49,7 +46,38 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - Computer_Component_Store</p>
+            <div class="row">
+                <div class="col-sm">
+                    <ul>
+                        <li><a class="navbar-brand" asp-controller="Home" asp-action="AllProducts">JMO's CC Store</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                </div>
+                <div class="col-sm">
+                    <ul>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="All Product">All Products</a></li>
+                        <li><a class="nav-link" asp-controller="Products" asp-action="Partpicker">Build Custom PC</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="col-sm">
+                    <ul>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Processors">Processors</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="RAM">RAM</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Storage">Storage</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
+                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Cables">Cables</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
