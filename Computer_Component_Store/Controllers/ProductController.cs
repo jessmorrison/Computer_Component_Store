@@ -151,6 +151,10 @@ namespace Computer_Component_Store.Controllers
             }
             return RedirectToAction("Index", "Cart");
         }
+        public IActionResult Home()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
         public IActionResult AllProducts()
         {
             return View(_context.ComputerComponentProducts);

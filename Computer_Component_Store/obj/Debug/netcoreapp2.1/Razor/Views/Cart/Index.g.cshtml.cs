@@ -77,7 +77,7 @@ using Computer_Component_Store.Models;
             WriteLiteral("    <div class=\"alert alert-warning\">\r\n        <p>You have nothing in your cart. ");
             EndContext();
             BeginContext(263, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef3894aeba7b4b909b7c07f80f7ebdac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "410eeeec314446e4a4d1330abbaf5747", async() => {
                 BeginContext(317, 24, true);
                 WriteLiteral("check out some products!");
                 EndContext();
@@ -111,7 +111,7 @@ else
             WriteLiteral("    ");
             EndContext();
             BeginContext(379, 2255, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee9ea5d4a2574eaea736c7b3035e4153", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6230dcc8ffd4f51a6e6df1385c7ba48", async() => {
                 BeginContext(399, 362, true);
                 WriteLiteral(@"
         <table class=""table table-striped"">
@@ -209,7 +209,7 @@ WriteAttributeValue("", 1525, i, 1525, 2, false);
                 WriteLiteral("                                        ");
                 EndContext();
                 BeginContext(1878, 39, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6cbe4b425904ed7a68281722d59ce24", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3068185d64fa4a71a42a1756503359d6", async() => {
                     BeginContext(1907, 1, false);
 #line 39 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Cart\Index.cshtml"
                                                                Write(j);
@@ -255,7 +255,7 @@ WriteAttributeValue("", 1525, i, 1525, 2, false);
                 WriteLiteral("                                        ");
                 EndContext();
                 BeginContext(2079, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6175634273e4eabaf3f09b7152a3ee8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24fb181acc8b4762b10d4c2e3a5287f3", async() => {
                     BeginContext(2099, 1, false);
 #line 43 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Cart\Index.cshtml"
                                                       Write(j);
@@ -334,7 +334,7 @@ WriteAttributeValue("", 1525, i, 1525, 2, false);
             WriteLiteral("\r\n    ");
             EndContext();
             BeginContext(2640, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c197fc72b0745ec8e78daa2afdd313f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "256d89b5c4cf48c891d4b75144995e37", async() => {
                 BeginContext(2712, 8, true);
                 WriteLiteral("Checkout");
                 EndContext();

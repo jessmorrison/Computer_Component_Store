@@ -11,7 +11,6 @@
                 <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                 <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                 <p>@product.Description</p>
-                <p>@product.ID</p>
                 <form method="post" asp-action="index">
                     <input type="hidden" name="id" value="@product.ID" />
                     <label for="quantity">How many would you like?</label>

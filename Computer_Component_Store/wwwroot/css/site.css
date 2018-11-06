@@ -19,7 +19,6 @@ a:hover {
     color: #e8e8e8;
     text-decoration:none;
 }
-
 h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     color:#e8e8e8;
 }
@@ -42,17 +41,21 @@ h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 .dropdown-item {
     color: #9b333f;
 }
-
-
-
-/* Part Picker */
 #cablePicker {
     display: none;
 }
 #coolingSystemPicker {
     display:none;
 }
-/**/
+.container-fluid {
+    margin-top: 50px;
+}
+
+
+.col-12.col-sm-4 {
+    margin-top:33px;
+}
+/* standard css */
 body {
     padding-bottom: 20px;
     background-color: #1C1C1C !important;
@@ -76,7 +79,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 39px;
+    padding-top: 40px;
 }
 
 /* Carousel */

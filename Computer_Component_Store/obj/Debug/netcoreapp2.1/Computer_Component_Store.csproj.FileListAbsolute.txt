@@ -57,3 +57,4 @@ C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Componen
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\ComputerComponentProducts\Index.g.cshtml.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Partpicker.g.cshtml.cs
+C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\obj\Debug\netcoreapp2.1\Razor\Views\Products\Home.g.cshtml.cs
