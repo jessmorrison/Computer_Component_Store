@@ -1,11 +1,53 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 
+/* custom css */
+.bg-dark {
+    background-color: #1C1C1C !important;
+    border-bottom: .1px solid #9b333f;
+}
+.container-fluid {
+    margin-top:25px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #9b333f;
+}
+a {
+    color: #9b333f;
+}
+a:hover {
+    color: #e8e8e8;
+    text-decoration:none;
+}
+
+h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color:#e8e8e8;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #9b333f;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: #e8e8e8;
+}
+.navbar {
+    padding:0 1rem;
+}
+.nav-link {
+    display: block;
+    padding: 1.5rem 1rem;
+}
+.dropdown-menu {
+    background-color:#1C1C1C;
+}
+.dropdown-item {
+    color: #9b333f;
+}
+
 
 
 /* Part Picker */
 #cablePicker {
-    display:none;
+    display: none;
 }
 #coolingSystemPicker {
     display:none;
@@ -13,6 +55,7 @@ for details on configuring this project to bundle and minify static web assets. 
 /**/
 body {
     padding-bottom: 20px;
+    background-color: #1C1C1C !important;
 }
 .btn.btn-primary {
     margin-top: 15px;

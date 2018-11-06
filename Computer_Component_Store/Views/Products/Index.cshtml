@@ -1,6 +1,7 @@
 ﻿@model Computer_Component_Store.Models.ProductViewModel
 @{
     ViewData["Title"] = Model.Name;
+    
 }
 
 <div class="row">
@@ -10,6 +11,7 @@
             <img src="@Url.Content(Model.ImagePath)" alt="@Model.Name" class="img-fluid" />
             <p>@Model.Description</p>
             <h3>@Model.Price.ToString("C")</h3>
+
             
             <form method="post">
                 <input type="hidden" name="id" value="@Model.ID" />

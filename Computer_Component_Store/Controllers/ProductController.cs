@@ -5,7 +5,6 @@ using Computer_Component_Store.Data;
 using Computer_Component_Store.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
 
 namespace Computer_Component_Store.Controllers
 {
@@ -109,7 +108,6 @@ namespace Computer_Component_Store.Controllers
                 }
             }
 
-
             if ((computerComponentCart == null) && (Request.Cookies.ContainsKey("ComputerComponentCartID")))
             {
                 if (Guid.TryParse(Request.Cookies["ComputerComponentCartID"], out Guid cookieId))
@@ -153,10 +151,6 @@ namespace Computer_Component_Store.Controllers
             }
             return RedirectToAction("Index", "Cart");
         }
-        public IActionResult Products()
-        {
-            return View(_context.ComputerComponentProducts);
-        }
         public IActionResult AllProducts()
         {
             return View(_context.ComputerComponentProducts);
@@ -198,7 +192,6 @@ namespace Computer_Component_Store.Controllers
         {
             return View(_context.ComputerComponentProducts);
         }
-
     }
 }
  

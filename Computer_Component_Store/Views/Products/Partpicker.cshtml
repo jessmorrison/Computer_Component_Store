@@ -9,17 +9,17 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <select class="form-control form-control-lg" onchange="setMotherboardValue(event)">
+                <select class="form-control form-control-lg" onchange="setMotherboardValue(event)" id="motherboardSelection">
                     <option selected>Choose Motherboard</option>
                     @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD"))
                     {
                         <option value="@product.ID">@product.Name</option>
-                       
+
                     }
                 </select>
 
                 <form asp-action="index">
-                    <input type="hidden" name="id" value="" id="motherboardID"/>
+                    <input type="hidden" name="id" value="" id="motherboardID" />
                     <label for="quantity">How many would you like?</label>
                     <select name="quantity" class="form-control">
                         @for (int i = 1; i <= 10; i++)
@@ -27,20 +27,24 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButton" value="Add To Cart"  disabled/>
+                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButton" value="Add To Cart" disabled />
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
 <div class="row" id="cablePicker">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+
                 <select class="form-control form-control-lg" onchange="setCableValue(event)">
                     <option selected>Choose Cable</option>
-                    @foreach (var product in Model.Where(x => x.Category == "CABLE"))
+                    @foreach (var product in Model.Where(x => x.Category == "CABLE")) /*for each product in the model where the category is CABLE and the compatibility is = to the compatibility set by Mother  */
                     {
+
                         <option value="@product.ID">@product.Name</option>
                     }
                 </select>
@@ -54,12 +58,14 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButton" disabled/>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButton" disabled />
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="row" id="coolingSystemPicker">
     <div class="col-12">
@@ -69,7 +75,7 @@
                     <option selected>Choose Cooling System</option>
                     @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM"))
                     {
-                        <option value="@product.ID" >@product.Name</option>
+                        <option value="@product.ID">@product.Name</option>
                     }
                 </select>
 
@@ -90,29 +96,26 @@
 </div>
 
 
+
+
 <script type="text/javascript">
-
-    var compatibilityType = "ALL";
-
-    function setMotherboardValue(e)
-    {
+    function setMotherboardValue(e) {
+     
         document.getElementById("motherboardID").value = e.target.value;
         e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButton").disabled = true : document.getElementById("motherboardSubmitButton").disabled = false;
         document.getElementById("cablePicker").style.display = "flex";
-
     }
 
 
-    function setCableValue(e)
-    {
+    function setCableValue(e) {
         document.getElementById("cableID").value = e.target.value;
         e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButton").disabled = true : document.getElementById("cableSubmitButton").disabled = false;
         document.getElementById("coolingSystemPicker").style.display = "flex";
+
     }
-    function setCoolingSystemValue(e)
-    {
+    function setCoolingSystemValue(e) {
         document.getElementById("CoolingSystemID").value = e.target.value;
         console.log(e.target.value);
         e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButton").disabled = true : document.getElementById("coolingSystemSubmitButton").disabled = false;
-    } 
+    }
 </script>
