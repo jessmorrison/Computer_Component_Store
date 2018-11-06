@@ -86,7 +86,15 @@ namespace Computer_Component_Store.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int id, int quantity)
+        public IActionResult Index(
+            int id, 
+            int quantity, 
+            int? MotherboardIDHardcore, 
+            int? cableIDHardcore, 
+            int? CoolingSystemIDHardcore, 
+            int? Peripheral, 
+            int? Processors
+            )
         {
             ComputerComponentCart computerComponentCart = null;
             if (User.Identity.IsAuthenticated)
@@ -132,16 +140,61 @@ namespace Computer_Component_Store.Controllers
 
             if (computerComponentCartItem == null) //if still null, this is the first time this item has been added to the cart
             {
-                computerComponentCartItem = new ComputerComponentCartItem
+               
+                /* HARDCORE */
+                if (MotherboardIDHardcore.HasValue)
                 {
-                    Quantity = 0,
-                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(id),
-                    Created = DateTime.UtcNow,
-                };
-                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+                    var mainboard = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(MotherboardIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(mainboard);
+                    mainboard.Quantity += quantity;
+                    mainboard.LastModified = DateTime.UtcNow;
+                }
+                if (CoolingSystemIDHardcore.HasValue)
+                {
+                    var maincoolingsystem = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(CoolingSystemIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(maincoolingsystem);
+                    maincoolingsystem.Quantity += quantity;
+                    maincoolingsystem.LastModified = DateTime.UtcNow;
+                }
+                if (cableIDHardcore.HasValue)
+                {
+                    var maincable = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(cableIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(maincable);
+                    maincable.Quantity += quantity;
+                    maincable.LastModified = DateTime.UtcNow;
+
+                }
+
+                if (id > 0)
+                {
+                    computerComponentCartItem = new ComputerComponentCartItem
+                    {
+                        Quantity = quantity,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(id),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+                    computerComponentCartItem.Quantity += quantity;
+                    computerComponentCartItem.LastModified = DateTime.UtcNow;
+                }
+
             }
-            computerComponentCartItem.Quantity += quantity;
-            computerComponentCartItem.LastModified = DateTime.UtcNow;
+            
             _context.SaveChanges();
 
 

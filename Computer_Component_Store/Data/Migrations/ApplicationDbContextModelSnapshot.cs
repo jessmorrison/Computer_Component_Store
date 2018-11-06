@@ -25,11 +25,17 @@ namespace Computer_Component_Store.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CableIDHardcore");
+
                     b.Property<Guid?>("CookieID");
+
+                    b.Property<int?>("CoolingSystemIDHardcore");
 
                     b.Property<DateTime?>("Created");
 
                     b.Property<DateTime?>("LastModified");
+
+                    b.Property<int?>("MotherboardIDHardcore");
 
                     b.HasKey("ID");
 
@@ -42,13 +48,19 @@ namespace Computer_Component_Store.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CableIDHardcore");
+
                     b.Property<int?>("ComputerComponentCartID");
 
                     b.Property<int?>("ComputerComponentProductID");
 
+                    b.Property<int?>("CoolingSystemIDHardcore");
+
                     b.Property<DateTime?>("Created");
 
                     b.Property<DateTime?>("LastModified");
+
+                    b.Property<int?>("MotherboardIDHardcore");
 
                     b.Property<int>("Quantity");
 
@@ -124,9 +136,13 @@ namespace Computer_Component_Store.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CableIDHardcore");
+
                     b.Property<string>("Category");
 
                     b.Property<string>("CompatibilityType");
+
+                    b.Property<int?>("CoolingSystemIDHardcore");
 
                     b.Property<DateTime?>("Created");
 
@@ -135,6 +151,8 @@ namespace Computer_Component_Store.Data.Migrations
                     b.Property<string>("ImageURL");
 
                     b.Property<DateTime?>("LastModified");
+
+                    b.Property<int?>("MotherboardIDHardcore");
 
                     b.Property<string>("Name");
 
