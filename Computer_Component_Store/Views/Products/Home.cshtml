@@ -53,12 +53,14 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="row">
+
+<div id="homepage-divider"></div>
+<div class="row" style="margin-top:3rem;">
     <div class="col-sm">
-        <h1><a href="/products/Motherboards">Motherboards</a></h1>
+    <h1><a href="/products/Motherboards">Motherboards</a></h1>
         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.ID == 1))
         {
-            <div class="card">
+            <div class="card" style="margin-top:3rem;">
                 <div class="card-body">
                     <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
@@ -78,7 +80,8 @@
                 </div>
             </div>
         }
-    </div>
+     </div>
+
     <div class="col-sm">
         <h1><a href="/products/VideoCards">Video Cards</a></h1>
         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && x.ID == 13))
