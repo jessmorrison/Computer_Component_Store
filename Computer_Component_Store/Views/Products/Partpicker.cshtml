@@ -8,18 +8,14 @@
     <label for="Hardcore" class="partpicker-label">Hardcore</label>
     <input type="checkbox" name="Hardcore" id="Hardcore" data-on="Yes" data-off="No" />
 </div>
-
 <div>
     <label for="Casual" class="partpicker-label">Casual</label>
     <input type="checkbox" name="Casual" id="Casual" data-on="Yes" data-off="No" />
 </div>
-
 <div>
     <label for="Pleb" class="partpicker-label">Pleb</label>
     <input type="checkbox" name="Pleb" id="Pleb" data-on="Yes" data-off="No" />
 </div>
-
-
 
 @* Hardcore *@
 <form asp-action="index" method="post">
@@ -76,7 +72,6 @@
             </div>
         </div>
     </div>
-
     <input type="submit" class="btn btn-primary" id="HardcoreSubmitButton" value="Add To Cart" disabled />
 </form>
 
@@ -255,18 +250,32 @@
 
 
 <script type="text/javascript">
+    var Hardcore = document.getElementById('Hardcore');
+    var Casual = document.getElementById('Casual');
+    var Pleb = document.getElementById('Pleb');
 
+    var Hardcorepicker = document.getElementById('HardcorePicker');
+    var CasualPicker = document.getElementById('CasualPicker');
+    var PlebPicker = document.getElementById('PlebPicker');
+
+    var disableHardcore = document.getElementById('Hardcore');
+    var disableCasual = document.getElementById('Casual');
+    var disablePleb = document.getElementById('Pleb');
+            
 
     /* High Roller */
-    var Hardcore = document.getElementById('Hardcore');
+    
 
     Hardcore.addEventListener('click', function () {
-        var Hardcorepicker = document.getElementById('HardcorePicker');
         if (this.checked) {
             Hardcorepicker.style.display = 'block';
+            disableCasual.disabled = true;
+            disablePleb.disabled = true;
         }
         else {
             Hardcorepicker.style.display = 'none';
+            disableCasual.disabled = false;
+            disablePleb.disabled = false;
         }
     });
 
@@ -288,14 +297,17 @@
 
 
     /*Casual */
-    var Casual = document.getElementById('Casual');
+    
     Casual.addEventListener('click', function () {
-        var CasualPicker = document.getElementById('CasualPicker');
         if (this.checked) {
             CasualPicker.style.display = 'block';
+            disableHardcore.disabled = true;
+            disablePleb.disabled = true;
         }
         else {
             CasualPicker.style.display = 'none';
+            disableHardcore.disabled = false;
+            disablePleb.disabled = false;
         }
     });
 
@@ -318,14 +330,17 @@
 
 
     /* Pleb */
-    var Pleb = document.getElementById('Pleb');
+    
     Pleb.addEventListener('click', function () {
-        var PlebPicker = document.getElementById('PlebPicker');
         if (this.checked) {
             PlebPicker.style.display = 'block';
+            disableHardcore.disabled = true;
+            disableCasual.disabled = true;
         }
         else {
             PlebPicker.style.display = 'none';
+            disableHardcore.disabled = false;
+            disableCasual.disabled = false;
         }
     });
 

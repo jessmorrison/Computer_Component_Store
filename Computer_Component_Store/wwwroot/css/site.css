@@ -1,23 +1,63 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 
-/* custom css */
-.bg-dark {
-    background-color: #1C1C1C !important;
-    border-bottom: .1px solid #9b333f;
-}
-.navbar-dark .navbar-nav .nav-link {
-    color: #9b333f;
-}
+/* custom class */
 a {
     color: #9b333f;
 }
 a:hover {
     color: #e8e8e8;
-    text-decoration:none;
+    text-decoration: none;
+}
+.bg-dark {
+    background-color: #1C1C1C !important;
+    border-bottom: .1px solid #9b333f;
+}
+.cardbody p {
+    color:#000;
+}
+.col-12.col-sm-4 {
+    margin-bottom: 33px;
+}
+.container-fluid {
+    margin-top: 66px;
+}
+.carousel-caption {
+    bottom:13.5%;
+}
+.carousel-caption p {
+    font-weight: 900;
+    font-size: 4.5em !important;
+    margin-bottom: 0;
+}
+.dropdown-item {
+    color: #9b333f;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #e8e8e8;
+    text-decoration: none;
+    background-color: #9b333f;
+}
+.dropdown-menu {
+    background-color: #1C1C1C;
+}
+
+footer {
+    border-top: 1px solid #9b333f;
+    padding-top: 3.6rem;
 }
 h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    color:#e8e8e8;
+    color: #e8e8e8;
+}
+.nav-link {
+    display: block;
+    padding: 1.5rem 1rem;
+}
+.navbar {
+    padding: 0 1rem;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #9b333f;
 }
 .navbar-dark .navbar-nav .nav-link:hover {
     background-color: #9b333f;
@@ -25,82 +65,49 @@ h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
     color: #e8e8e8;
 }
-.navbar {
-    padding:0 1rem;
-}
-.nav-link {
-    display: block;
-    padding: 1.5rem 1rem;
-}
-.dropdown-menu {
-    background-color:#1C1C1C;
-}
-.dropdown-item {
-    color: #9b333f;
-}
 
 
 
-#cablePickerHardcore {
-    display: none;
-}
-
-#coolingSystemPickerHardcore {
-    display: none;
-}
-
-
-
-
-
+/* custom ID */
 #cablePickerCasual {
     display: none;
 }
-
-#coolingSystemPickerCasual {
+#cablePickerHardcore {
     display: none;
 }
-
-
-
-
-
-
 #cablePickerPleb {
     display: none;
 }
-
+#coolingSystemPickerCasual {
+    display: none;
+}
+#coolingSystemPickerHardcore {
+    display: none;
+}
 #coolingSystemPickerPleb {
     display: none;
 }
-
-
-
-
-
-
-
-.container-fluid {
-    margin-top: 66px;
-}
-.col-12.col-sm-4 {
-    margin-bottom:33px;
+#homeCard {
+    margin-top: 3rem;
 }
 #homepage-col-spacing {
     margin-top:30px;
 }
 #homepage-divider {
-    width:100%;
-    height:1px;
-    padding-top:1.8rem;
-    padding-bottom:1.8rem;
+    width: 100%;
+    height: 1px;
+    margin-top: 2.7rem;
+    margin-bottom: 1.8rem;
     border-bottom: 1px solid #e8e8e8;
-
 }
+
+
+
 /* standard css */
 body {
     padding-bottom: 20px;
     background-color: #1C1C1C !important;
+    color: #e8e8e8;
 }
 .btn.btn-primary {
     margin-top: 15px;
