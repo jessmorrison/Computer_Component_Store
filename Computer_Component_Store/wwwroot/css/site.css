@@ -38,12 +38,48 @@ h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 .dropdown-item {
     color: #9b333f;
 }
-#cablePicker {
+
+
+
+#cablePickerHardcore {
     display: none;
 }
-#coolingSystemPicker {
-    display:none;
+
+#coolingSystemPickerHardcore {
+    display: none;
 }
+
+
+
+
+
+#cablePickerCasual {
+    display: none;
+}
+
+#coolingSystemPickerCasual {
+    display: none;
+}
+
+
+
+
+
+
+#cablePickerPleb {
+    display: none;
+}
+
+#coolingSystemPickerPleb {
+    display: none;
+}
+
+
+
+
+
+
+
 .container-fluid {
     margin-top: 66px;
 }
@@ -78,6 +114,9 @@ body {
 
 .row {
     margin-bottom: 2.7rem;
+}
+.partpicker-label{
+    color:#fff;
 }
 
 /* Wrapping element */

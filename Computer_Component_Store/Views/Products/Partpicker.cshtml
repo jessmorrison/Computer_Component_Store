@@ -4,22 +4,39 @@
 }
 
 <h2>Part Picker</h2>
+<div>
+    <label for="Hardcore" class="partpicker-label">Hardcore</label>
+    <input type="checkbox" name="Hardcore" id="Hardcore" data-on="Yes" data-off="No" />
+</div>
 
-<div class="row">
+<div>
+    <label for="Casual" class="partpicker-label">Casual</label>
+    <input type="checkbox" name="Casual" id="Casual" data-on="Yes" data-off="No" />
+</div>
+
+<div>
+    <label for="Pleb" class="partpicker-label">Pleb</label>
+    <input type="checkbox" name="Pleb" id="Pleb" data-on="Yes" data-off="No" />
+</div>
+
+
+
+@* Hardcore *@
+
+<div class="row" id="HardcorePicker" style="display:none;">
+    <h1>The Most Expensive Builds Only</h1>
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <select class="form-control form-control-lg" onchange="setMotherboardValue(event)" id="motherboardSelection">
+                <select class="form-control form-control-lg" onchange="setMotherboardValueHardcore(event)">
                     <option selected>Choose Motherboard</option>
-                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD"))
+                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
                     {
                         <option value="@product.ID">@product.Name</option>
-
                     }
                 </select>
-
                 <form asp-action="index">
-                    <input type="hidden" name="id" value="" id="motherboardID" />
+                    <input type="hidden" name="id" value="" id="motherboardIDHardcore" />
                     <label for="quantity">How many would you like?</label>
                     <select name="quantity" class="form-control">
                         @for (int i = 1; i <= 10; i++)
@@ -27,30 +44,26 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButton" value="Add To Cart" disabled />
+                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButtonHardcore" value="Add To Cart" disabled />
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-
-<div class="row" id="cablePicker">
+<div class="row" id="cablePickerHardcore">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-
-                <select class="form-control form-control-lg" onchange="setCableValue(event)">
+                <select class="form-control form-control-lg" onchange="setCableValueHardcore(event)">
                     <option selected>Choose Cable</option>
-                    @foreach (var product in Model.Where(x => x.Category == "CABLE")) /*for each product in the model where the category is CABLE and the compatibility is = to the compatibility set by Mother  */
+                    @foreach (var product in Model.Where(x => x.Category == "CABLE" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))//*for each product in the model where the category is CABLE and the compatibility is = to the compatibility set by Mother  */
                     {
 
                         <option value="@product.ID">@product.Name</option>
                     }
                 </select>
-
                 <form method="post" asp-action="index">
-                    <input type="hidden" name="id" value="" id="cableID" />
+                    <input type="hidden" name="id" value="" id="cableIDHardcore" />
                     <label for="quantity">How many would you like?</label>
                     <select name="quantity" class="form-control">
                         @for (int i = 1; i <= 10; i++)
@@ -58,7 +71,34 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButton" disabled />
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButtonHardcore" disabled />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="coolingSystemPickerHardcore">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCoolingSystemValueHardcore(event)">
+                    <option selected>Choose Cooling System</option>
+                    @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="CoolingSystemIDHardcore" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="coolingSystemSubmitButtonHardcore" disabled />
                 </form>
             </div>
         </div>
@@ -67,20 +107,24 @@
 
 
 
-<div class="row" id="coolingSystemPicker">
+
+
+@* Casual *@
+
+<div class="row" id="CasualPicker" style="display:none;">
+    <h1>Casual Builds Only</h1>
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <select class="form-control form-control-lg" onchange="setCoolingSystemValue(event)">
-                    <option selected>Choose Cooling System</option>
-                    @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM"))
+                <select class="form-control form-control-lg" onchange="setMotherboardValueCasual(event)">
+                    <option selected>Choose Motherboard</option>
+                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
                     {
                         <option value="@product.ID">@product.Name</option>
                     }
                 </select>
-
-                <form method="post" asp-action="index">
-                    <input type="hidden" name="id" value="" id="CoolingSystemID" />
+                <form asp-action="index">
+                    <input type="hidden" name="id" value="" id="motherboardIDCasual" />
                     <label for="quantity">How many would you like?</label>
                     <select name="quantity" class="form-control">
                         @for (int i = 1; i <= 10; i++)
@@ -88,7 +132,145 @@
                             <option value="@i">@i</option>
                         }
                     </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="coolingSystemSubmitButton" disabled />
+                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButtonCasual" value="Add To Cart" disabled />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="cablePickerCasual">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCableValueCasual(event)">
+                    <option selected>Choose Cable</option>
+                    @foreach (var product in Model.Where(x => x.Category == "CABLE" && (x.CompatibilityType == "ALL")))//*for each product in the model where the category is CABLE and the compatibility is = to the compatibility set by Mother  */
+                    {
+
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="cableIDCasual" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButtonCasual" disabled />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="coolingSystemPickerCasual">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCoolingSystemValueCasual(event)">
+                    <option selected>Choose Cooling System</option>
+                    @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="CoolingSystemIDCasual" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="coolingSystemSubmitButtonCasual" disabled />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Pleb *@
+
+<div class="row" id="PlebPicker" style="display:none;">
+    <h1>Pleb Builds Only</h1>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setMotherboardValuePleb(event)">
+                    <option selected>Choose Motherboard</option>
+                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "D" || x.CompatibilityType == "D")))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+                <form asp-action="index">
+                    <input type="hidden" name="id" value="" id="motherboardIDPleb" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" id="motherboardSubmitButtonPleb" value="Add To Cart" disabled />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="cablePickerPleb">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCableValuePleb(event)">
+                    <option selected>Choose Cable</option>
+                    @foreach (var product in Model.Where(x => x.Category == "CABLE" && x.CompatibilityType == "ALL"))//*for each product in the model where the category is CABLE and the compatibility is = to the compatibility set by Mother  */
+                    {
+
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="cableIDPleb" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="cableSubmitButtonPleb" disabled />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="coolingSystemPickerPleb">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control form-control-lg" onchange="setCoolingSystemValuePleb(event)">
+                    <option selected>Choose Cooling System</option>
+                    @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && x.CompatibilityType == "D"))
+                    {
+                        <option value="@product.ID">@product.Name</option>
+                    }
+                </select>
+
+                <form method="post" asp-action="index">
+                    <input type="hidden" name="id" value="" id="CoolingSystemIDPleb" />
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Add To Cart" id="coolingSystemSubmitButtonPleb" disabled />
                 </form>
             </div>
         </div>
@@ -99,22 +281,97 @@
 
 
 <script type="text/javascript">
-    function setMotherboardValue(e) {
-        document.getElementById("motherboardID").value = e.target.value;
-        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButton").disabled = true : document.getElementById("motherboardSubmitButton").disabled = false;
-        document.getElementById("cablePicker").style.display = "flex";
+
+
+    /* High Roller */
+    var Hardcore = document.getElementById('Hardcore');
+
+    Hardcore.addEventListener('click', function () {
+        var Hardcorepicker = document.getElementById('HardcorePicker');
+        if (this.checked) {
+            Hardcorepicker.style.display = 'block';
+        }
+        else {
+            Hardcorepicker.style.display = 'none';
+        }
+    });
+
+    function setMotherboardValueHardcore(e) {
+        document.getElementById("motherboardIDHardcore").value = e.target.value;
+        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButtonHardcore").disabled = true : document.getElementById("motherboardSubmitButtonHardcore").disabled = false;
+        document.getElementById("cablePickerHardcore").style.display = "flex";
     }
-
-
-    function setCableValue(e) {
-        document.getElementById("cableID").value = e.target.value;
-        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButton").disabled = true : document.getElementById("cableSubmitButton").disabled = false;
-        document.getElementById("coolingSystemPicker").style.display = "flex";
+    function setCableValueHardcore(e) {
+        document.getElementById("cableIDHardcore").value = e.target.value;
+        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButtonHardcore").disabled = true : document.getElementById("cableSubmitButtonHardcore").disabled = false;
+        document.getElementById("coolingSystemPickerHardcore").style.display = "flex";
 
     }
-    function setCoolingSystemValue(e) {
-        document.getElementById("CoolingSystemID").value = e.target.value;
+    function setCoolingSystemValueHardcore(e) {
+        document.getElementById("CoolingSystemIDHardcore").value = e.target.value;
         console.log(e.target.value);
-        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButton").disabled = true : document.getElementById("coolingSystemSubmitButton").disabled = false;
+        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButtonHardcore").disabled = true : document.getElementById("coolingSystemSubmitButtonHardcore").disabled = false;
     }
+
+
+
+    /*Casual */
+    var Casual = document.getElementById('Casual');
+    Casual.addEventListener('click', function () {
+        var CasualPicker = document.getElementById('CasualPicker');
+        if (this.checked) {
+            CasualPicker.style.display = 'block';
+        }
+        else {
+            CasualPicker.style.display = 'none';
+        }
+    });
+
+    function setMotherboardValueCasual(e) {
+        document.getElementById("motherboardIDCasual").value = e.target.value;
+        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButtonCasual").disabled = true : document.getElementById("motherboardSubmitButtonCasual").disabled = false;
+        document.getElementById("cablePickerCasual").style.display = "flex";
+    }
+    function setCableValueCasual(e) {
+        document.getElementById("cableIDCasual").value = e.target.value;
+        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButtonCasual").disabled = true : document.getElementById("cableSubmitButtonCasual").disabled = false;
+        document.getElementById("coolingSystemPickerCasual").style.display = "flex";
+
+    }
+    function setCoolingSystemValueCasual(e) {
+        document.getElementById("CoolingSystemIDCasual").value = e.target.value;
+        console.log(e.target.value);
+        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButtonCasual").disabled = true : document.getElementById("coolingSystemSubmitButtonCasual").disabled = false;
+    }
+
+
+    /* Pleb */
+    var Pleb = document.getElementById('Pleb');
+    Pleb.addEventListener('click', function () {
+        var PlebPicker = document.getElementById('PlebPicker');
+        if (this.checked) {
+            PlebPicker.style.display = 'block';
+        }
+        else {
+            PlebPicker.style.display = 'none';
+        }
+    });
+
+    function setMotherboardValuePleb(e) {
+        document.getElementById("motherboardIDPleb").value = e.target.value;
+        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButtonPleb").disabled = true : document.getElementById("motherboardSubmitButtonPleb").disabled = false;
+        document.getElementById("cablePickerPleb").style.display = "flex";
+    }
+    function setCableValuePleb(e) {
+        document.getElementById("cableIDPleb").value = e.target.value;
+        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButtonPleb").disabled = true : document.getElementById("cableSubmitButtonPleb").disabled = false;
+        document.getElementById("coolingSystemPickerPleb").style.display = "flex";
+
+    }
+    function setCoolingSystemValuePleb(e) {
+        document.getElementById("CoolingSystemIDPleb").value = e.target.value;
+        console.log(e.target.value);
+        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButtonPleb").disabled = true : document.getElementById("coolingSystemSubmitButtonPleb").disabled = false;
+    }
+    
 </script>
