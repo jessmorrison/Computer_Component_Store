@@ -124,7 +124,7 @@ WriteAttributeValue("", 499, Url.Content(product.ImageURL), 499, 30, false);
             WriteLiteral("</p>\r\n                    ");
             EndContext();
             BeginContext(608, 612, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8333b8531bd741a7b16dbb7e7a8e4b96", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb4473f66c074ddb9bdef9f2c8dcf6f6", async() => {
                 BeginContext(647, 56, true);
                 WriteLiteral("\r\n                        <input type=\"hidden\" name=\"id\"");
                 EndContext();
@@ -148,7 +148,7 @@ WriteAttributeValue("", 711, product.ID, 711, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(1002, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d8518ae4141441f9e4d8c55b4adbea4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4ac03821294587bf161d09b75249ab", async() => {
                     BeginContext(1022, 1, false);
 #line 20 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Cables.cshtml"
                                               Write(i);

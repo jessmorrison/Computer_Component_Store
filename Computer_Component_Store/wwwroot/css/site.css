@@ -46,7 +46,7 @@ footer {
     border-top: 1px solid #9b333f;
     padding-top: 3.6rem;
 }
-h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     color: #e8e8e8;
 }
 .nav-link {
@@ -122,8 +122,9 @@ body {
 .row {
     margin-bottom: 2.7rem;
 }
-.partpicker-label{
-    color:#fff;
+.partpicker-label {
+    color: #9b333f;
+    font-size: 1.8em;
 }
 
 /* Wrapping element */

@@ -90,10 +90,11 @@ namespace Computer_Component_Store.Controllers
             int id, 
             int quantity, 
             int? MotherboardIDHardcore, 
-            int? cableIDHardcore, 
-            int? CoolingSystemIDHardcore, 
-            int? Peripheral, 
-            int? Processors
+            int? VideoCardIDHardcore,
+            int? ProcessorIDHardcore,
+            int? RAMIDHardcore,
+            int? StorageIDHardcore,
+            int? CoolingSystemIDHardcore
             )
         {
             ComputerComponentCart computerComponentCart = null;
@@ -154,11 +155,59 @@ namespace Computer_Component_Store.Controllers
                     mainboard.Quantity += quantity;
                     mainboard.LastModified = DateTime.UtcNow;
                 }
+                if (VideoCardIDHardcore.HasValue)
+                {
+                    var mainVideoCard = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(VideoCardIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(mainVideoCard);
+                    mainVideoCard.Quantity += quantity;
+                    mainVideoCard.LastModified = DateTime.UtcNow;
+                }
+                if (ProcessorIDHardcore.HasValue)
+                {
+                    var mainProcessor = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(ProcessorIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(mainProcessor);
+                    mainProcessor.Quantity += quantity;
+                    mainProcessor.LastModified = DateTime.UtcNow;
+                }
+                if (RAMIDHardcore.HasValue)
+                {
+                    var mainRAM = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(RAMIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(mainRAM);
+                    mainRAM.Quantity += quantity;
+                    mainRAM.LastModified = DateTime.UtcNow;
+                }
+                if (StorageIDHardcore.HasValue)
+                {
+                    var mainStorage = new ComputerComponentCartItem
+                    {
+                        Quantity = 1,
+                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(StorageIDHardcore.Value),
+                        Created = DateTime.UtcNow,
+                    };
+                    computerComponentCart.ComputerComponentCartItems.Add(mainStorage);
+                    mainStorage.Quantity += quantity;
+                    mainStorage.LastModified = DateTime.UtcNow;
+                }
                 if (CoolingSystemIDHardcore.HasValue)
                 {
                     var maincoolingsystem = new ComputerComponentCartItem
                     {
-                        Quantity = 1,
+                        Quantity = quantity,
                         ComputerComponentProduct = _context.ComputerComponentProducts.Find(CoolingSystemIDHardcore.Value),
                         Created = DateTime.UtcNow,
                     };
@@ -166,19 +215,7 @@ namespace Computer_Component_Store.Controllers
                     maincoolingsystem.Quantity += quantity;
                     maincoolingsystem.LastModified = DateTime.UtcNow;
                 }
-                if (cableIDHardcore.HasValue)
-                {
-                    var maincable = new ComputerComponentCartItem
-                    {
-                        Quantity = 1,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(cableIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(maincable);
-                    maincable.Quantity += quantity;
-                    maincable.LastModified = DateTime.UtcNow;
 
-                }
 
                 if (id > 0)
                 {
