@@ -80,7 +80,7 @@ using Computer_Component_Store.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(25, 659, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73b6165bfb9d4b30aa69a59e8fd7b201", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8317d578ba914228ac29390b6f9036bb", async() => {
                 BeginContext(31, 121, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
                 EndContext();
@@ -98,7 +98,7 @@ using Computer_Component_Store.Models;
     ");
                 EndContext();
                 BeginContext(628, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b292d577ef1c4b8c85c25695592eb8cf", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "36ecab0afd1f49e6af02728490f7e3aa", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -132,12 +132,12 @@ using Computer_Component_Store.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(686, 5271, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd7080aa487d42fd8cd1c25d85b1e17e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69e188a01e2e421a9d1e85c98570d395", async() => {
                 BeginContext(692, 83, true);
                 WriteLiteral("\r\n    <nav class=\"navbar fixed-top navbar-expand-lg navbar-dark bg-dark\">\r\n        ");
                 EndContext();
                 BeginContext(775, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55a558488ad2489b87995f034ad8b9a5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50d410d6896a4c929291d688b3d3677e", async() => {
                     BeginContext(843, 3, true);
                     WriteLiteral("HCP");
                     EndContext();
@@ -169,7 +169,7 @@ using Computer_Component_Store.Models;
                     ");
                 EndContext();
                 BeginContext(1314, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da22efc0b2e346c9a6295bc586fba387", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb3fab3343e46aa83a73cb8c62427a1", async() => {
                     BeginContext(1384, 15, true);
                     WriteLiteral("Build Custom PC");
                     EndContext();
@@ -201,7 +201,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(1809, 92, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79ce116988594c6ea9aeef233d0b7ca7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a143cf3443df4e0ebf447d5b02aa0f1c", async() => {
                     BeginContext(1885, 12, true);
                     WriteLiteral("All Products");
                     EndContext();
@@ -226,7 +226,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1927, 93, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ebfc3f7f89fe447c9e21f62103eb6d1b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2cddaefa27274fb18c39a9191f4df177", async() => {
                     BeginContext(2004, 12, true);
                     WriteLiteral("Motherboards");
                     EndContext();
@@ -251,7 +251,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2046, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "874011e9e6874bbb8e9335f089c86dbf", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9c44e3c1cd5491cbaf74b7b2f0c8a27", async() => {
                     BeginContext(2121, 10, true);
                     WriteLiteral("Processors");
                     EndContext();
@@ -276,7 +276,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2161, 90, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b35ecb95a944dca92ce6f025a444215", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf4ab04b1f274cd189e373f229e4863b", async() => {
                     BeginContext(2236, 11, true);
                     WriteLiteral("Video Cards");
                     EndContext();
@@ -301,7 +301,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2277, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e09383bf2424df3956035a15ae51a7f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "89b9bad33f5a42da91d2e7f60532226d", async() => {
                     BeginContext(2345, 3, true);
                     WriteLiteral("RAM");
                     EndContext();
@@ -326,7 +326,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2378, 83, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2b6e4967d2f4b24b3198e1d115ef202", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8cadb51ba4c048f2abca50cb016ec672", async() => {
                     BeginContext(2450, 7, true);
                     WriteLiteral("Storage");
                     EndContext();
@@ -351,7 +351,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2487, 98, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d468191a8ba24ee39aaf58c3bfdf348e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7168de8f0a234e58ab9dcd2becab52b5", async() => {
                     BeginContext(2566, 15, true);
                     WriteLiteral("Cooling Systems");
                     EndContext();
@@ -376,7 +376,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2611, 91, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f01a741589f245b19e0eeac63709e5f0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e97bb84977d84f419a6f74af4929284f", async() => {
                     BeginContext(2687, 11, true);
                     WriteLiteral("Peripherals");
                     EndContext();
@@ -401,7 +401,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2728, 81, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0e0f0148705840afb0f63668c1457ab6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d745a95b8064207a6b9bbf548cda75f", async() => {
                     BeginContext(2799, 6, true);
                     WriteLiteral("Cables");
                     EndContext();
@@ -426,7 +426,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n                        <div class=\"dropdown-divider\"></div>\r\n                        <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n                    </div>\r\n                </li>\r\n            </ul>\r\n            ");
                 EndContext();
                 BeginContext(3038, 32, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c660272493fd4799af6407c36e0f12ed", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1e09ae0c7e2345109fa738762438c579", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -445,7 +445,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n        </div>\r\n    </nav>\r\n    ");
                 EndContext();
                 BeginContext(3104, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b8912640a6c741bf81b0228c11d6127a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "95df145401cf4dbfa8df149745e5e5b8", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -474,7 +474,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <div class=\"row\">\r\n                <div class=\"col-sm\">\r\n                    <ul>\r\n                        <li>");
                 EndContext();
                 BeginContext(3374, 78, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a05567ee74a24f2a9f638099a0d3d079", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a793e86b50d45009baa8c25f06d7fe7", async() => {
                     BeginContext(3445, 3, true);
                     WriteLiteral("HCP");
                     EndContext();
@@ -499,7 +499,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li></li>\r\n                        <li></li>\r\n                    </ul>\r\n\r\n                </div>\r\n                <div class=\"col-sm\">\r\n                    <ul>\r\n                        <li>");
                 EndContext();
                 BeginContext(3674, 92, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5dd63c9117a480c9eb174dfba771c4a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57d71fa468ac4dcd802c1dbce698055d", async() => {
                     BeginContext(3750, 12, true);
                     WriteLiteral("All Products");
                     EndContext();
@@ -524,7 +524,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(3801, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11df1321a24740eeb54aa5808fbe92c1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "061f612c6b3e462496386c9132cff3f2", async() => {
                     BeginContext(3871, 15, true);
                     WriteLiteral("Build Custom PC");
                     EndContext();
@@ -549,7 +549,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li></li>\r\n                        <li></li>\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-sm\">\r\n                    <ul>\r\n                        <li>");
                 EndContext();
                 BeginContext(4110, 93, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6a4d05a2a8174a0fb525183d4d1f65a8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea1b3e6a77dc4db6a97f668cb3552bd5", async() => {
                     BeginContext(4187, 12, true);
                     WriteLiteral("Motherboards");
                     EndContext();
@@ -574,7 +574,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4238, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ef9351465c4bfb8141415bb1510459", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a950b8d2dcf047528e1c6e04cbf93877", async() => {
                     BeginContext(4313, 10, true);
                     WriteLiteral("Processors");
                     EndContext();
@@ -599,7 +599,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4362, 90, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d381319b85c94ee6bc06b10e18b22415", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9869191af794b58bb31aab96b2278ef", async() => {
                     BeginContext(4437, 11, true);
                     WriteLiteral("Video Cards");
                     EndContext();
@@ -624,7 +624,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4487, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aef9ae2576524cbb88aaad91b6496e06", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "304d1c678b99489d90936bfbb64a1033", async() => {
                     BeginContext(4555, 3, true);
                     WriteLiteral("RAM");
                     EndContext();
@@ -649,7 +649,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4597, 83, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f2e8a9e4d38d4853b50b7c6198042aa2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "28d4edd037f04800a2dbe9eedb5077f9", async() => {
                     BeginContext(4669, 7, true);
                     WriteLiteral("Storage");
                     EndContext();
@@ -674,7 +674,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4715, 98, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dbf2ef49cb2e41fcbcb4829b4bb64c33", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5b36bb0f3b34dc5af2199b9e1da983b", async() => {
                     BeginContext(4794, 15, true);
                     WriteLiteral("Cooling Systems");
                     EndContext();
@@ -699,7 +699,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4848, 91, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "517fbdb6d1014a55829a83392828d763", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d28c9cafe91d489eb58c9bf38a47bcfe", async() => {
                     BeginContext(4924, 11, true);
                     WriteLiteral("Peripherals");
                     EndContext();
@@ -724,7 +724,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("</li>\r\n                        <li>");
                 EndContext();
                 BeginContext(4974, 81, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3136f01e3bd4c6bbf8a67dc7cbb631a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a0aedd8356a4a54adad6a4f423c46bb", async() => {
                     BeginContext(5045, 6, true);
                     WriteLiteral("Cables");
                     EndContext();
@@ -761,7 +761,7 @@ using Computer_Component_Store.Models;
     ");
                 EndContext();
                 BeginContext(5838, 62, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "435cf35b16134244ba0fa480db4a70d4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "676a1634089540159289c4c2a6ee79b0", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

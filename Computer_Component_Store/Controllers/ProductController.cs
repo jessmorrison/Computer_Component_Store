@@ -86,9 +86,10 @@ namespace Computer_Component_Store.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(
+        public IActionResult Index
+            (
             int id, 
-            int quantity, 
+            int quantity,
             int? MotherboardIDHardcore, 
             int? VideoCardIDHardcore,
             int? ProcessorIDHardcore,
@@ -97,6 +98,8 @@ namespace Computer_Component_Store.Controllers
             int? CoolingSystemIDHardcore
             )
         {
+           
+
             ComputerComponentCart computerComponentCart = null;
             if (User.Identity.IsAuthenticated)
             {
@@ -124,7 +127,6 @@ namespace Computer_Component_Store.Controllers
                     computerComponentCart = _context.ComputerComponentCarts.Include(x => x.ComputerComponentCartItems).ThenInclude(x => x.ComputerComponentProduct).FirstOrDefault(x => x.CookieID == cookieId);
                 }
             }
-
             if (computerComponentCart == null) // either couldnt find the cart for the cookie or the user had no cookie
             {
                 computerComponentCart = new ComputerComponentCart
@@ -136,102 +138,152 @@ namespace Computer_Component_Store.Controllers
             }
             computerComponentCart.LastModified = DateTime.UtcNow;
 
+            
+
+
             ComputerComponentCartItem computerComponentCartItem = null;
             computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == id);
 
-            if (computerComponentCartItem == null) //if still null, this is the first time this item has been added to the cart
+            if (computerComponentCartItem != null)
             {
-               
-                /* HARDCORE */
-                if (MotherboardIDHardcore.HasValue)
-                {
-                    var mainboard = new ComputerComponentCartItem
-                    {
-                        Quantity = 1,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(MotherboardIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(mainboard);
-                    mainboard.Quantity += quantity;
-                    mainboard.LastModified = DateTime.UtcNow;
-                }
-                if (VideoCardIDHardcore.HasValue)
-                {
-                    var mainVideoCard = new ComputerComponentCartItem
-                    {
-                        Quantity = 1,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(VideoCardIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(mainVideoCard);
-                    mainVideoCard.Quantity += quantity;
-                    mainVideoCard.LastModified = DateTime.UtcNow;
-                }
-                if (ProcessorIDHardcore.HasValue)
-                {
-                    var mainProcessor = new ComputerComponentCartItem
-                    {
-                        Quantity = 1,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(ProcessorIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(mainProcessor);
-                    mainProcessor.Quantity += quantity;
-                    mainProcessor.LastModified = DateTime.UtcNow;
-                }
-                if (RAMIDHardcore.HasValue)
-                {
-                    var mainRAM = new ComputerComponentCartItem
-                    {
-                        Quantity = 1,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(RAMIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(mainRAM);
-                    mainRAM.Quantity += quantity;
-                    mainRAM.LastModified = DateTime.UtcNow;
-                }
-                if (StorageIDHardcore.HasValue)
-                {
-                    var mainStorage = new ComputerComponentCartItem
-                    {
-                        Quantity = 1,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(StorageIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(mainStorage);
-                    mainStorage.Quantity += quantity;
-                    mainStorage.LastModified = DateTime.UtcNow;
-                }
-                if (CoolingSystemIDHardcore.HasValue)
-                {
-                    var maincoolingsystem = new ComputerComponentCartItem
-                    {
-                        Quantity = quantity,
-                        ComputerComponentProduct = _context.ComputerComponentProducts.Find(CoolingSystemIDHardcore.Value),
-                        Created = DateTime.UtcNow,
-                    };
-                    computerComponentCart.ComputerComponentCartItems.Add(maincoolingsystem);
-                    maincoolingsystem.Quantity += quantity;
-                    maincoolingsystem.LastModified = DateTime.UtcNow;
-                }
-
-
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+                
+            }
+            if (
+                computerComponentCartItem == null &&
+                !MotherboardIDHardcore.HasValue &&
+                !VideoCardIDHardcore.HasValue &&
+                !ProcessorIDHardcore.HasValue &&
+                !RAMIDHardcore.HasValue &&
+                !StorageIDHardcore.HasValue &&
+                !CoolingSystemIDHardcore.HasValue
+                )
+            {
                 if (id > 0)
                 {
                     computerComponentCartItem = new ComputerComponentCartItem
                     {
-                        Quantity = quantity,
+                        Quantity = 1,
                         ComputerComponentProduct = _context.ComputerComponentProducts.Find(id),
                         Created = DateTime.UtcNow,
                     };
                     computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
-                    computerComponentCartItem.Quantity += quantity;
-                    computerComponentCartItem.LastModified = DateTime.UtcNow;
                 }
-
             }
-            
+
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == MotherboardIDHardcore);
+            if (computerComponentCartItem != null && MotherboardIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+                
+            }
+            if (computerComponentCartItem == null && MotherboardIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(MotherboardIDHardcore.Value),
+                    Created = DateTime.UtcNow
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
+
+
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == VideoCardIDHardcore);
+            if (computerComponentCartItem != null && VideoCardIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+            }
+            if (computerComponentCartItem == null && VideoCardIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(VideoCardIDHardcore.Value),
+                    Created = DateTime.UtcNow,
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
+
+
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == ProcessorIDHardcore);
+            if (computerComponentCartItem != null && ProcessorIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+            }
+            if (computerComponentCartItem == null && ProcessorIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(ProcessorIDHardcore.Value),
+                    Created = DateTime.UtcNow,
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
+
+
+
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == RAMIDHardcore);
+            if (computerComponentCartItem != null && RAMIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+                RAMIDHardcore = null;
+            }
+            if (computerComponentCartItem == null && RAMIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(RAMIDHardcore.Value),
+                    Created = DateTime.UtcNow,
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
+
+
+
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == StorageIDHardcore);
+            if (computerComponentCartItem != null && StorageIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+                StorageIDHardcore = null;
+            }
+            if (computerComponentCartItem == null && StorageIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(StorageIDHardcore.Value),
+                    Created = DateTime.UtcNow,
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == CoolingSystemIDHardcore);
+            if (computerComponentCartItem != null && CoolingSystemIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+                CoolingSystemIDHardcore = null;
+            }
+            if (computerComponentCartItem == null && CoolingSystemIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(CoolingSystemIDHardcore.Value),
+                    Created = DateTime.UtcNow,
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
+
+
             _context.SaveChanges();
 
 

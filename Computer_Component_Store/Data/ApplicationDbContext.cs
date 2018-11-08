@@ -40,6 +40,11 @@ namespace Computer_Component_Store.Data
         public DateTime? Created { get; set; }
         public DateTime? LastModified { get; set; }
         public ICollection<ComputerComponentCartItem> ComputerComponentCartItems { get; set; }
+
+        public static implicit operator int(ComputerComponentProduct v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class ComputerComponentCart
@@ -57,6 +62,7 @@ namespace Computer_Component_Store.Data
     public class ComputerComponentCartItem
     {
         public int ID { get; set; }
+        public int ComputerComponentProductID { get; }
         public ComputerComponentCart ComputerComponentCart { get; set; }
         public int Quantity { get; set; }
         public ComputerComponentProduct ComputerComponentProduct { get; set; }
