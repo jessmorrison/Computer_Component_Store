@@ -19,9 +19,9 @@
     </div>
 </div>
 
-@* Hardcore *@
-<form asp-action="index" method="post">
-    <div class="row" id="HardcorePicker" style="display:none;">
+@* Hardcore Form *@
+<form asp-action="index" method="post" id="HardcorePicker" style="display:none;">
+    <div class="row" >
         <h1>The Most Expensive Builds Only</h1>
         <div class="col-12">
             <div class="card">
@@ -33,8 +33,8 @@
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }
                     </select>
-                    <input type="hidden" value="1" name="quantity"/>
-                    <input type="hidden" id="MotherboardIDHardcore" name="MotherboardIDHardcore"/>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" id="MotherboardIDHardcore" name="MotherboardIDHardcore" />
                 </div>
             </div>
         </div>
@@ -124,8 +124,229 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-primary" id="HardcoreSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f;" disabled />
+    <input type="submit" class="btn btn-primary" id="HardcoreSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
 </form>
+
+@* Casual Form *@
+<form asp-action="index" method="post" id="CasualPicker" style="display:none;">
+    <div class="row">
+        <h1>Casual Builds For Casual Players</h1>
+        <h2>Holding out for a rainy day huh?</h2>
+        <h3>just buy a new pc LOL</h3>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setMotherboardValueCasual(event)">
+                        <option selected>Choose Motherboard</option>
+                        @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" id="MotherboardIDCasual" name="MotherboardIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="VideoCardPickerCasual" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setVideoCardValueCasual(event)">
+                        <option selected>Choose Video Card</option>
+                        @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="VideoCardIDCasual" id="VideoCardIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="ProcessorPickerCasual" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setProcessorValueCasual(event)">
+                        <option selected>Choose Processor</option>
+                        @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="ProcessorIDCasual" id="ProcessorIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="RAMPickerCasual" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setRAMValueCasual(event)">
+                        <option selected>Choose RAM</option>
+                        @foreach (var product in Model.Where(x => x.Category == "RAM" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="RAMIDCasual" id="RAMIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="StoragePickerCasual" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setStorageValueCasual(event)">
+                        <option selected>Choose Storage</option>
+                        @foreach (var product in Model.Where(x => x.Category == "STORAGE" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="StorageIDCasual" id="StorageIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="CoolingSystemPickerCasual" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setCoolingSystemValueCasual(event)">
+                        <option selected>Choose Cooling System</option>
+                        @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="CoolingSystemIDCasual" id="CoolingSystemIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" id="CasualSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
+</form>
+
+
+@* Pleb *@
+<form asp-action="index" method="post" id="PlebPicker" style="display:none;">
+    <div class="row">
+        <h1>A Pleb Build For Plebs.</h1>
+        <h2>There is only one option.</h2>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setMotherboardValuePleb(event)">
+                        <option selected>Choose Motherboard</option>
+                        @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" id="MotherboardIDPleb" name="MotherboardIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="VideoCardPickerPleb" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setVideoCardValuePleb(event)">
+                        <option selected>Choose Video Card</option>
+                        @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="VideoCardIDPleb" id="VideoCardIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="ProcessorPickerPleb" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setProcessorValuePleb(event)">
+                        <option selected>Choose Processor</option>
+                        @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="ProcessorIDPleb" id="ProcessorIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="RAMPickerPleb" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setRAMValuePleb(event)">
+                        <option selected>Choose RAM</option>
+                        @foreach (var product in Model.Where(x => x.Category == "RAM" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="RAMIDPleb" id="RAMIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="StoragePickerPleb" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setStorageValuePleb(event)">
+                        <option selected>Choose Storage</option>
+                        @foreach (var product in Model.Where(x => x.Category == "STORAGE" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="StorageIDPleb" id="StorageIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="CoolingSystemPickerPleb" style="display:none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setCoolingSystemValuePleb(event)">
+                        <option selected>Choose Cooling System</option>
+                        @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" name="CoolingSystemIDPleb" id="CoolingSystemIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" id="PlebSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
+</form>
+
 
 
 <script type="text/javascript">
@@ -134,15 +355,15 @@
     var Pleb = document.getElementById('Pleb');
 
     var Hardcorepicker = document.getElementById('HardcorePicker');
-    var CasualPicker = document.getElementById('CasualPicker');
-    var PlebPicker = document.getElementById('PlebPicker');   
+    var Casualpicker = document.getElementById('CasualPicker');
+    var Plebpicker = document.getElementById('PlebPicker');
 
     var disableHardcore = document.getElementById('Hardcore');
     var disableCasual = document.getElementById('Casual');
     var disablePleb = document.getElementById('Pleb');
-            
 
-    /* Hardcore */
+
+    /* Hardcore Form JS*/
     Hardcore.addEventListener('click', function () {
         if (this.checked) {
             Hardcorepicker.style.display = 'block';
@@ -151,12 +372,11 @@
         }
         else {
             Hardcorepicker.style.display = 'none';
+
             disableCasual.disabled = false;
             disablePleb.disabled = false;
         }
     });
-
-    
     function setMotherboardValueHardcore(e) {
         document.getElementById("MotherboardIDHardcore").value = e.target.value;
         e.target.value != "Choose Motherboard" ? document.getElementById("VideoCardPickerHardcore").style.display = "flex" : document.getElementById("VideoCardPickerHardcore").style.display = "none";
@@ -182,74 +402,97 @@
     function setCoolingSystemValueHardcore(e) {
         document.getElementById("CoolingSystemIDHardcore").value = e.target.value;
         e.target.value == "Choose Cooling System" ? document.getElementById("HardcoreSubmitButton").disabled = true : document.getElementById("HardcoreSubmitButton").disabled = false;
+        e.target.value != "Choose Cooling System" ? document.getElementById("HardcoreSubmitButton").style.display = "flex" : document.getElementById("HardcoreSubmitButton").style.display = "none";
+
     }
 
 
-
-
-    /*Casual */
-    
+    /* Casual Form JS */
     Casual.addEventListener('click', function () {
         if (this.checked) {
-            CasualPicker.style.display = 'block';
+            Casualpicker.style.display = 'block';
             disableHardcore.disabled = true;
             disablePleb.disabled = true;
         }
         else {
-            CasualPicker.style.display = 'none';
+            Casualpicker.style.display = 'none';
             disableHardcore.disabled = false;
             disablePleb.disabled = false;
         }
     });
-
     function setMotherboardValueCasual(e) {
-        document.getElementById("motherboardIDCasual").value = e.target.value;
-        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButtonCasual").disabled = true : document.getElementById("motherboardSubmitButtonCasual").disabled = false;
-        document.getElementById("cablePickerCasual").style.display = "flex";
+        document.getElementById("MotherboardIDCasual").value = e.target.value;
+        e.target.value != "Choose Motherboard" ? document.getElementById("VideoCardPickerCasual").style.display = "flex" : document.getElementById("VideoCardPickerCasual").style.display = "none";
     }
-    function setCableValueCasual(e) {
-        document.getElementById("cableIDCasual").value = e.target.value;
-        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButtonCasual").disabled = true : document.getElementById("cableSubmitButtonCasual").disabled = false;
-        document.getElementById("coolingSystemPickerCasual").style.display = "flex";
+    function setVideoCardValueCasual(e) {
+        document.getElementById("VideoCardIDCasual").value = e.target.value;
+        e.target.value != "Choose Video Card" ? document.getElementById("ProcessorPickerCasual").style.display = "flex" : document.getElementById("ProcessorSystemPickerCasual").style.display = "none";
+    }
 
+    function setProcessorValueCasual(e) {
+        document.getElementById("ProcessorIDCasual").value = e.target.value;
+        e.target.value != "Choose Processor" ? document.getElementById("RAMPickerCasual").style.display = "flex" : document.getElementById("RAMPickerCasual").style.display = "none";
     }
+    function setRAMValueCasual(e) {
+        document.getElementById("RAMIDCasual").value = e.target.value;
+        e.target.value != "Choose RAM" ? document.getElementById("StoragePickerCasual").style.display = "flex" : document.getElementById("StoragePickerCasual").style.display = "none";
+    }
+    function setStorageValueCasual(e) {
+        document.getElementById("StorageIDCasual").value = e.target.value;
+        e.target.value != "Choose Storage" ? document.getElementById("CoolingSystemPickerCasual").style.display = "flex" : document.getElementById("CoolingSystemPickerCasual").style.display = "none";
+    }
+
     function setCoolingSystemValueCasual(e) {
         document.getElementById("CoolingSystemIDCasual").value = e.target.value;
-        console.log(e.target.value);
-        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButtonCasual").disabled = true : document.getElementById("coolingSystemSubmitButtonCasual").disabled = false;
+        e.target.value == "Choose Cooling System" ? document.getElementById("CasualSubmitButton").disabled = true : document.getElementById("CasualSubmitButton").disabled = false;
+        e.target.value != "Choose Cooling System" ? document.getElementById("CasualSubmitButton").style.display = "flex" : document.getElementById("CasualSubmitButton").style.display = "none";
+
     }
 
 
-    /* Pleb */
-    
+
+    /* Pleb Form JS */
     Pleb.addEventListener('click', function () {
         if (this.checked) {
-            PlebPicker.style.display = 'block';
+            Plebpicker.style.display = 'block';
             disableHardcore.disabled = true;
             disableCasual.disabled = true;
         }
         else {
-            PlebPicker.style.display = 'none';
+            Plebpicker.style.display = 'none';
             disableHardcore.disabled = false;
             disableCasual.disabled = false;
         }
     });
-
     function setMotherboardValuePleb(e) {
-        document.getElementById("motherboardIDPleb").value = e.target.value;
-        e.target.value == "Choose Motherboard" ? document.getElementById("motherboardSubmitButtonPleb").disabled = true : document.getElementById("motherboardSubmitButtonPleb").disabled = false;
-        document.getElementById("cablePickerPleb").style.display = "flex";
+        document.getElementById("MotherboardIDPleb").value = e.target.value;
+        e.target.value != "Choose Motherboard" ? document.getElementById("VideoCardPickerPleb").style.display = "flex" : document.getElementById("VideoCardPickerPleb").style.display = "none";
     }
-    function setCableValuePleb(e) {
-        document.getElementById("cableIDPleb").value = e.target.value;
-        e.target.value == "Choose Cable" ? document.getElementById("cableSubmitButtonPleb").disabled = true : document.getElementById("cableSubmitButtonPleb").disabled = false;
-        document.getElementById("coolingSystemPickerPleb").style.display = "flex";
+    function setVideoCardValuePleb(e) {
+        document.getElementById("VideoCardIDPleb").value = e.target.value;
+        e.target.value != "Choose Video Card" ? document.getElementById("ProcessorPickerPleb").style.display = "flex" : document.getElementById("ProcessorSystemPickerPleb").style.display = "none";
+    }
 
+    function setProcessorValuePleb(e) {
+        document.getElementById("ProcessorIDPleb").value = e.target.value;
+        e.target.value != "Choose Processor" ? document.getElementById("RAMPickerPleb").style.display = "flex" : document.getElementById("RAMPickerPleb").style.display = "none";
     }
+    function setRAMValuePleb(e) {
+        document.getElementById("RAMIDPleb").value = e.target.value;
+        e.target.value != "Choose RAM" ? document.getElementById("StoragePickerPleb").style.display = "flex" : document.getElementById("StoragePickerPleb").style.display = "none";
+    }
+    function setStorageValuePleb(e) {
+        document.getElementById("StorageIDPleb").value = e.target.value;
+        e.target.value != "Choose Storage" ? document.getElementById("CoolingSystemPickerPleb").style.display = "flex" : document.getElementById("CoolingSystemPickerPleb").style.display = "none";
+    }
+
     function setCoolingSystemValuePleb(e) {
         document.getElementById("CoolingSystemIDPleb").value = e.target.value;
-        console.log(e.target.value);
-        e.target.value == "Choose Cooling System" ? document.getElementById("coolingSystemSubmitButtonPleb").disabled = true : document.getElementById("coolingSystemSubmitButtonPleb").disabled = false;
+        e.target.value == "Choose Cooling System" ? document.getElementById("PlebSubmitButton").disabled = true : document.getElementById("PlebSubmitButton").disabled = false;
+        e.target.value != "Choose Cooling System" ? document.getElementById("PlebSubmitButton").style.display = "flex" : document.getElementById("PlebSubmitButton").style.display = "none";
+
     }
-    
+
+
+
 </script>
