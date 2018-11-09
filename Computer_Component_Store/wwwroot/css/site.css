@@ -27,11 +27,6 @@ a:hover {
 .carousel-caption {
     bottom:13.5%;
 }
-.carousel-caption p {
-    font-weight: 900;
-    font-size: 4.5em !important;
-    margin-bottom: 0;
-}
 .dropdown-item {
     color: #9b333f;
     border-bottom: 1px solid #9b333f;
@@ -56,8 +51,18 @@ footer {
        color:#9b333f;
        text-decoration:none;
 }
+h1 {
+    font-size: 1.8rem;
+}
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     color: #e8e8e8;
+}
+.img-responsive {
+    width:100%;
+}
+label {
+    color: #1c1c1c;
+    opacity: 0.7;
 }
 .nav-link {
     display: block;
@@ -75,9 +80,10 @@ footer {
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
     color: #e8e8e8;
 }
-
-
-
+.navbar-brand {
+    font-size:1.8rem;
+    padding-bottom:.6rem;
+}
 /* custom ID */
 #cablePickerCasual {
     display: none;
@@ -106,7 +112,7 @@ footer {
     font-size: 2.7rem;
 }
 #homeCard {
-    margin-top: 3rem;
+    margin-top: 1.8rem;
 }
 #homepage-col-spacing {
     margin-top:30px;
@@ -126,7 +132,7 @@ body {
     padding-bottom: 20px;
     background-color: #1C1C1C !important;
     color: #e8e8e8;
-    font-family: 'Sawarabi Gothic', sans-serif;
+    font-family: 'Play', sans-serif;
 }
 .btn.btn-primary {
     margin-top: 15px;
@@ -154,8 +160,10 @@ body {
 
 /* Carousel */
 .carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+    line-height: 3rem;
+    font-weight: 900;
+    font-size: 4.5em;
+    margin-bottom: 0;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */

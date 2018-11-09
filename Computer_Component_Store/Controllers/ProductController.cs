@@ -23,7 +23,7 @@ namespace Computer_Component_Store.Controllers
             {
                 _context.ComputerComponentProducts.AddRange(new ComputerComponentProduct
                 {
-                    ImageURL = "~/images/motherboard_1.jpg",
+                    ImageURL = "~/images/motherboard_1.png",
                     Name = "Motherboard",
                     Description = "wow great motherboard! XD",
                     Price = 1.99m
@@ -31,7 +31,7 @@ namespace Computer_Component_Store.Controllers
 
                 }, new ComputerComponentProduct
                 {
-                    ImageURL = "~/images/video_card_1.jpg",
+                    ImageURL = "~/images/video_card_1.png",
                     Name = "ComputerComponent",
                     Description = "wow great ComputerComponent",
                     Price = 2.99m
@@ -90,18 +90,24 @@ namespace Computer_Component_Store.Controllers
             (
             int id, 
             int quantity,
+            /*Hardcore View Values*/
+            int? CaseIDHardcore,
             int? MotherboardIDHardcore,
             int? VideoCardIDHardcore,
             int? ProcessorIDHardcore,
             int? RAMIDHardcore,
             int? StorageIDHardcore,
             int? CoolingSystemIDHardcore,
+            /*Casual View Values*/
+            int? CaseIDCasual,
             int? MotherboardIDCasual,
             int? VideoCardIDCasual,
             int? ProcessorIDCasual,
             int? RAMIDCasual,
             int? StorageIDCasual,
             int? CoolingSystemIDCasual,
+            /*Pleb View Values*/
+            int? CaseIDPleb,
             int? MotherboardIDPleb,
             int? VideoCardIDPleb,
             int? ProcessorIDPleb,
@@ -197,12 +203,29 @@ namespace Computer_Component_Store.Controllers
             }
             /* END Individual Item Add To Cart */
             /* START Hardcore Part Picker Add To Cart */
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == CaseIDHardcore);
+            if (computerComponentCartItem != null && MotherboardIDHardcore.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+
+            }
+            if (computerComponentCartItem == null && CaseIDHardcore.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(CaseIDHardcore.Value),
+                    Created = DateTime.UtcNow
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
             computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == MotherboardIDHardcore);
             if (computerComponentCartItem != null && MotherboardIDHardcore.HasValue)
             {
                 computerComponentCartItem.Quantity += quantity;
                 computerComponentCartItem.LastModified = DateTime.UtcNow;
-                
+
             }
             if (computerComponentCartItem == null && MotherboardIDHardcore.HasValue)
             {
@@ -301,6 +324,23 @@ namespace Computer_Component_Store.Controllers
             /* END HARDCORE Part Picker Add To Cart */
 
             /* START CASUAL Part Picker Add To Cart */
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == CaseIDCasual);
+            if (computerComponentCartItem != null && CaseIDCasual.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+
+            }
+            if (computerComponentCartItem == null && CaseIDCasual.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(CaseIDCasual.Value),
+                    Created = DateTime.UtcNow
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
             computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == MotherboardIDCasual);
             if (computerComponentCartItem != null && MotherboardIDCasual.HasValue)
             {
@@ -404,6 +444,23 @@ namespace Computer_Component_Store.Controllers
 
             /* END CASUAL Part Picker Add To Cart */
             /* PLEB Part Picker Add To Cart */
+            computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == CaseIDPleb);
+            if (computerComponentCartItem != null && CaseIDPleb.HasValue)
+            {
+                computerComponentCartItem.Quantity += quantity;
+                computerComponentCartItem.LastModified = DateTime.UtcNow;
+
+            }
+            if (computerComponentCartItem == null && CaseIDPleb.HasValue)
+            {
+                computerComponentCartItem = new ComputerComponentCartItem
+                {
+                    Quantity = 1,
+                    ComputerComponentProduct = _context.ComputerComponentProducts.Find(CaseIDPleb.Value),
+                    Created = DateTime.UtcNow
+                };
+                computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
+            }
             computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == MotherboardIDPleb);
             if (computerComponentCartItem != null && MotherboardIDPleb.HasValue)
             {
@@ -530,6 +587,10 @@ namespace Computer_Component_Store.Controllers
         {
             return View(_context.ComputerComponentProducts);
         }
+        public IActionResult Cases()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
         public IActionResult Motherboards()
         {
             return View(_context.ComputerComponentProducts);
@@ -564,6 +625,10 @@ namespace Computer_Component_Store.Controllers
             return View(_context.ComputerComponentProducts);
         }
         public IActionResult Partpicker()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult HardcoreFeaturedBuild()
         {
             return View(_context.ComputerComponentProducts);
         }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -25,16 +26,16 @@
                         Products
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-controller="Products" asp-action="All Product">All Products</a>
+                        <a class="dropdown-item" asp-controller="Products" asp-action="AllProducts">All Products</a>
+                        <a class="dropdown-item" asp-controller="Products" asp-action="Cables">Cables</a>
+                        <a class="dropdown-item" asp-controller="Products" asp-action="Cases">Cases</a>
+                        <a class="dropdown-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Motherboards">Motherboards</a>
+                        <a class="dropdown-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Processors">Processors</a>
-                        <a class="dropdown-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="RAM">RAM</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Storage">Storage</a>
-                        <a class="dropdown-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a>
-                        <a class="dropdown-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a>
-                        <a class="dropdown-item" asp-controller="Products" asp-action="Cables">Cables</a>
-                      
+                        <a class="dropdown-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a>
                     </div>
                 </li>
             </ul>
@@ -65,23 +66,21 @@
                 </div>
                 <div class="col-sm">
                     <ul>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Cables">Cables</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
                         <li><a class="footer-item" asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
                         <li><a class="footer-item" asp-controller="Products" asp-action="Processors">Processors</a></li>
-                        <li><a class="footer-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
                         <li><a class="footer-item" asp-controller="Products" asp-action="RAM">RAM</a></li>
                         <li><a class="footer-item" asp-controller="Products" asp-action="Storage">Storage</a></li>
-                        <li><a class="footer-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
-                        <li><a class="footer-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
-                        <li><a class="footer-item" asp-controller="Products" asp-action="Cables">Cables</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
                     </ul>
                 </div>
-
             </div>
-
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

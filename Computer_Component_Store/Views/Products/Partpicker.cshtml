@@ -21,16 +21,35 @@
 
 @* Hardcore Form *@
 <form asp-action="index" method="post" id="HardcorePicker" style="display:none;">
-    <div class="row" >
+    <div class="row" id="CasePickerHardcore">
         <h1>The Most Expensive Builds Only</h1>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setCaseValueHardcore(event)">
+                        <option selected>Choose Case</option>
+                        @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
+                        {
+                            <option value="@product.ID">@product.Name, @product.Price, @product.Description</option>
+
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" id="CaseIDHardcore" name="CaseIDHardcore" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="MotherboardPickerHardcore" style="display:none;">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setMotherboardValueHardcore(event)">
                         <option selected>Choose Motherboard</option>
-                        @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                        @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
-                            <option value="@product.ID">@product.Name : @product.Price</option>
+                            <option value="@product.ID">@product.Name, @product.Price</option>
+
                         }
                     </select>
                     <input type="hidden" value="1" name="quantity" />
@@ -45,7 +64,7 @@
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setVideoCardValueHardcore(event)">
                         <option selected>Choose Video Card</option>
-                        @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                        @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }
@@ -62,7 +81,7 @@
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setProcessorValueHardcore(event)">
                         <option selected>Choose Processor</option>
-                        @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                        @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }
@@ -79,7 +98,7 @@
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setRAMValueHardcore(event)">
                         <option selected>Choose RAM</option>
-                        @foreach (var product in Model.Where(x => x.Category == "RAM" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                        @foreach (var product in Model.Where(x => x.Category == "RAM" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }
@@ -96,7 +115,7 @@
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setStorageValueHardcore(event)">
                         <option selected>Choose Storage</option>
-                        @foreach (var product in Model.Where(x => x.Category == "STORAGE" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                        @foreach (var product in Model.Where(x => x.Category == "STORAGE" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }
@@ -113,7 +132,7 @@
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setCoolingSystemValueHardcore(event)">
                         <option selected>Choose Cooling System</option>
-                        @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "ALL" || x.CompatibilityType == "A")))
+                        @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }
@@ -130,9 +149,23 @@
 @* Casual Form *@
 <form asp-action="index" method="post" id="CasualPicker" style="display:none;">
     <div class="row">
-        <h1>Casual Builds For Casual Players</h1>
-        <h2>Holding out for a rainy day huh?</h2>
-        <h3>just buy a new pc LOL</h3>
+         <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setCaseValueCasual(event)">
+                        <option selected>Choose Case</option>
+                        @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" id="CaseIDCasual" name="CaseIDCasual" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="MotherboardPickerCasual" style="display:none;">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
@@ -243,6 +276,23 @@
     <div class="row">
         <h1>A Pleb Build For Plebs.</h1>
         <h2>There is only one option.</h2>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <select class="form-control form-control-lg" onchange="setCaseValuePleb(event)">
+                        <option selected>Choose Case</option>
+                        @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.CompatibilityType == "D"))
+                        {
+                            <option value="@product.ID">@product.Name : @product.Price</option>
+                        }
+                    </select>
+                    <input type="hidden" value="1" name="quantity" />
+                    <input type="hidden" id="CaseIDPleb" name="CaseIDPleb" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="MotherboardPickerPleb" style="display:none;">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
@@ -372,11 +422,14 @@
         }
         else {
             Hardcorepicker.style.display = 'none';
-
             disableCasual.disabled = false;
             disablePleb.disabled = false;
         }
     });
+    function setCaseValueHardcore(e) {
+        document.getElementById("CaseIDHardcore").value = e.target.value;
+        e.target.value != "Choose Case" ? document.getElementById("MotherboardPickerHardcore").style.display = "flex" : document.getElementById("MotherboardPickerHardcore").style.display = "none";
+    }
     function setMotherboardValueHardcore(e) {
         document.getElementById("MotherboardIDHardcore").value = e.target.value;
         e.target.value != "Choose Motherboard" ? document.getElementById("VideoCardPickerHardcore").style.display = "flex" : document.getElementById("VideoCardPickerHardcore").style.display = "none";
@@ -420,6 +473,10 @@
             disablePleb.disabled = false;
         }
     });
+    function setCaseValueCasual(e) {
+        document.getElementById("CaseIDCasual").value = e.target.value;
+        e.target.value != "Choose Case" ? document.getElementById("MotherboardPickerCasual").style.display = "flex" : document.getElementById("MotherboardPickerCasual").style.display = "none";
+    }
     function setMotherboardValueCasual(e) {
         document.getElementById("MotherboardIDCasual").value = e.target.value;
         e.target.value != "Choose Motherboard" ? document.getElementById("VideoCardPickerCasual").style.display = "flex" : document.getElementById("VideoCardPickerCasual").style.display = "none";
@@ -464,6 +521,10 @@
             disableCasual.disabled = false;
         }
     });
+    function setCaseValuePleb(e) {
+        document.getElementById("CaseIDPleb").value = e.target.value;
+        e.target.value != "Choose Caseboard" ? document.getElementById("MotherboardPickerPleb").style.display = "flex" : document.getElementById("MotherboardPickerPleb").style.display = "none";
+    }
     function setMotherboardValuePleb(e) {
         document.getElementById("MotherboardIDPleb").value = e.target.value;
         e.target.value != "Choose Motherboard" ? document.getElementById("VideoCardPickerPleb").style.display = "flex" : document.getElementById("VideoCardPickerPleb").style.display = "none";
