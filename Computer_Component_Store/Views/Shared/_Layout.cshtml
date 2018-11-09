@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -33,8 +34,7 @@
                         <a class="dropdown-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a>
                         <a class="dropdown-item" asp-controller="Products" asp-action="Cables">Cables</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                      
                     </div>
                 </li>
             </ul>
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-sm">
                     <ul>
-                        <li><a class="navbar-brand" asp-controller="Home" asp-action="AllProducts">HCP</a></li>
+                        <li><a id="footer-logo" asp-controller="Home" asp-action="AllProducts">HCP</a></li>
                         <li></li>
                         <li></li>
                     </ul>
@@ -57,22 +57,22 @@
                 </div>
                 <div class="col-sm">
                     <ul>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="All Product">All Products</a></li>
-                        <li><a class="nav-link" asp-controller="Products" asp-action="Partpicker">Build Custom PC</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="All Product">All Products</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Partpicker">Build Custom PC</a></li>
                         <li></li>
                         <li></li>
                     </ul>
                 </div>
                 <div class="col-sm">
                     <ul>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Processors">Processors</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="RAM">RAM</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Storage">Storage</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
-                        <li><a class="dropdown-item" asp-controller="Products" asp-action="Cables">Cables</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Motherboards">Motherboards</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Processors">Processors</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="VideoCards">Video Cards</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="RAM">RAM</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Storage">Storage</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Peripherals">Peripherals</a></li>
+                        <li><a class="footer-item" asp-controller="Products" asp-action="Cables">Cables</a></li>
                     </ul>
                 </div>
 
