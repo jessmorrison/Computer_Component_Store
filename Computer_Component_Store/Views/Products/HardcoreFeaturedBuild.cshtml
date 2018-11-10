@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Computer_Component_Store.Data.ComputerComponentProduct>
+﻿@model IEnumerable<Computer_Component_Store.Data.ComputerComponentProduct>
 
 @{
     ViewData["Title"] = "HardcoreFeaturedBuild";
@@ -14,13 +13,13 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "S")))
+                    @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "S")))
                     {
                         <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                         <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                         <p>@product.Description</p>
-
-                        <input type="hidden" name="MotherboardIDHardcore" value="@product.ID" />
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="CaseIDHardcore" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
                         <select name="quantity" class="form-control">
                             @for (int i = 1; i <= 10; i++)
@@ -35,13 +34,13 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "S")))
+                    @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "S")))
                     {
                         <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                         <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                         <p>@product.Description</p>
-
-                        <input type="hidden" name="CaseIDHardcore" value="@product.ID" />
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="MotherboardIDHardcore" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
                         <select name="quantity" class="form-control">
                             @for (int i = 1; i <= 10; i++)
@@ -61,7 +60,7 @@
                         <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                         <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                         <p>@product.Description</p>
-
+                        <p>$@product.Price</p>
                         <input type="hidden" name="VideoCardIDHardcore" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
                         <select name="quantity" class="form-control">
@@ -79,12 +78,33 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && (x.CompatibilityType == "S")))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="ProcessorIDHardcore" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
                     @foreach (var product in Model.Where(x => x.Category == "RAM" && (x.CompatibilityType == "S")))
                     {
                         <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                         <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                         <p>@product.Description</p>
-
+                        <p>$@product.Price</p>
                         <input type="hidden" name="RAMIDHardcore" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
                         <select name="quantity" class="form-control">
@@ -105,7 +125,7 @@
                         <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                         <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                         <p>@product.Description</p>
-
+                        <p>$@product.Price</p>
                         <input type="hidden" name="CoolingSystemIDHardcore" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
                         <select name="quantity" class="form-control">
@@ -118,7 +138,9 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     @foreach (var product in Model.Where(x => x.Category == "STORAGE" && (x.CompatibilityType == "S")))
@@ -126,6 +148,7 @@
                         <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
                         <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                         <p>@product.Description</p>
+                        <p>$@product.Price</p>
                         <input type="hidden" name="StorageIDHardcore" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
                         <select name="quantity" class="form-control">

@@ -1,7 +1,164 @@
-﻿
+﻿@model IEnumerable<Computer_Component_Store.Data.ComputerComponentProduct>
 @{
     ViewData["Title"] = "PlebFeaturedBuild";
 }
 
 <h2>PlebFeaturedBuild</h2>
 
+@* Casual Form *@
+<form asp-action="index" method="post" id="PlebPicker">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 1011))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="CaseIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 9))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="MotherboardIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 19))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="VideoCardIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 29))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="ProcessorIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 36))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="RAMIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 59))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="CoolingSystemIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    @foreach (var product in Model.Where(x => x.ID == 46))
+                    {
+                        <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                        <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                        <p>@product.Description</p>
+                        <p>$@product.Price</p>
+                        <input type="hidden" name="StorageIDPleb" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" id="PlebSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f;" />
+</form>

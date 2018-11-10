@@ -50,7 +50,7 @@
 </div>
 
 <div id="homepage-divider"></div>
-<h1 style="text-align: center;">FEATURED HARDCORE ITEMS</h1>
+<h6>FEATURED HARDCORE ITEMS</h6>
 <div class="row">
     <div class="col-sm">
         <h2><a href="/products/Motherboards">Motherboards</a></h2>
@@ -61,7 +61,7 @@
                     <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
-                    <p>@product.Price</p>
+                    <p>$@product.Price</p>
                     <form method="post" asp-action="index">
                         <input type="hidden" name="id" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
@@ -87,7 +87,7 @@
                     <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
-                    <p>@product.Price</p>
+                    <p>$@product.Price</p>
                     <form method="post" asp-action="index">
                         <input type="hidden" name="id" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
@@ -113,7 +113,7 @@
                     <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
-                    <p>@product.Price</p>
+                    <p>$@product.Price</p>
                     <form method="post" asp-action="index">
                         <input type="hidden" name="id" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
@@ -132,18 +132,18 @@
 </div>
 
 <div id="homepage-divider"></div>
-<h1 style="text-align: center;">FEATURED CASUAL ITEMS</h1>
+<h6>FEATURED CASUAL ITEMS</h6>
 <div class="row">
     <div class="col-sm">
-        <h1><a href="/products/Motherboards">Motherboards</a></h1>
+        <h2><a href="/products/Motherboards">Motherboards</a></h2>
         @foreach (var product in Model.Where(x => x.Category == "CASE" && x.CompatibilityType == "A"))
         {
             <div class="card" id="homeCard">
                 <div class="card-body">
-                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
-                    <p>@product.Price</p>
+                    <p>$@product.Price</p>
                     <form method="post" asp-action="index">
                         <input type="hidden" name="id" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
@@ -160,17 +160,16 @@
             </div>
         }
     </div>
-
     <div class="col-sm">
-        <h1><a href="/products/VideoCards">Video Cards</a></h1>
+        <h2><a href="/products/VideoCards">Video Cards</a></h2>
         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.CompatibilityType == "A"))
         {
             <div class="card" id="homeCard">
                 <div class="card-body">
-                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
-                    <p>@product.Price</p>
+                    <p>$@product.Price</p>
                     <form method="post" asp-action="index">
                         <input type="hidden" name="id" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
@@ -188,15 +187,15 @@
         }
     </div>
     <div class="col-sm">
-        <h1><a href="/products/CoolingSystems">Cooling Systems</a></h1>
+        <h2><a href="/products/CoolingSystems">Cooling Systems</a></h2>
         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && x.CompatibilityType == "A"))
         {
             <div class="card" id="homeCard">
                 <div class="card-body">
-                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
-                    <p>@product.Price</p>
+                    <p>$@product.Price</p>
                     <form method="post" asp-action="index">
                         <input type="hidden" name="id" value="@product.ID" />
                         <label for="quantity">How many would you like?</label>
@@ -208,7 +207,6 @@
                         </select>
                         <input type="submit" class="btn btn-primary" value="Add To Cart" />
                     </form>
-
                 </div>
             </div>
         }

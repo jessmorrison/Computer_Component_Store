@@ -30,7 +30,7 @@
                         <option selected>Choose Case</option>
                         @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
-                            <option value="@product.ID">@product.Name, @product.Price, @product.Description</option>
+                            <option value="@product.ID">@product.Name, $@product.Price</option>
 
                         }
                     </select>
@@ -48,7 +48,7 @@
                         <option selected>Choose Motherboard</option>
                         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
-                            <option value="@product.ID">@product.Name, @product.Price</option>
+                            <option value="@product.ID">@product.Name, $@product.Price</option>
 
                         }
                     </select>
@@ -66,7 +66,7 @@
                         <option selected>Choose Video Card</option>
                         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
                         {
-                            <option value="@product.ID">@product.Name : @product.Price</option>
+                            <option value="@product.ID">@product.Name, $@product.Price</option>
                         }
                     </select>
                     <input type="hidden" value="1" name="quantity" />

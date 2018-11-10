@@ -55,10 +55,9 @@
     <partial name="_CookieConsentPartial" />
     <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
         <footer>
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm" style="border-right:1px solid #9b333f; border-left:1px solid #9b333f;">
                     <ul>
                         <li><a id="footer-logo" asp-controller="Home" asp-action="AllProducts">HCP</a></li>
                         <li></li>
@@ -66,15 +65,16 @@
                     </ul>
 
                 </div>
-                <div class="col-sm">
+                <div class="col-sm" style="border-right:1px solid #9b333f;">
                     <ul>
+
                         <li><a class="footer-item" asp-controller="Products" asp-action="All Product">All Products</a></li>
                         <li><a class="footer-item" asp-controller="Products" asp-action="Partpicker">Build Custom PC</a></li>
                         <li></li>
                         <li></li>
                     </ul>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm" style="border-right:1px solid #9b333f;">
                     <ul>
                         <li><a class="footer-item" asp-controller="Products" asp-action="Cables">Cables</a></li>
                         <li><a class="footer-item" asp-controller="Products" asp-action="CoolingSystems">Cooling Systems</a></li>
@@ -87,6 +87,8 @@
                     </ul>
                 </div>
             </div>
+            <div id="homepage-divider" style="border-bottom:1px solid #9b333f;"></div>
+            <div id="footer-disclaimer"><a>Policy & Agreement</a> | <a>Privacy Policy</a>  "© 2018 HCP Inc. All rights reserved."</div>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

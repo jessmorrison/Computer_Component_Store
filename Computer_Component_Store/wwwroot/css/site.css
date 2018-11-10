@@ -1,17 +1,26 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-
-/* custom class */
+﻿/* custom class */
 a {
     color: #9b333f;
 }
 a:hover {
     color: #e8e8e8;
     text-decoration: none;
+    background-color:#1C1C1C;
 }
 .bg-dark {
     background-color: #1C1C1C !important;
     border-bottom: .1px solid #9b333f;
+}
+.btn-primary {
+    color: #E8E8E8;
+    background-color: #9b333f;
+    border-color: #9b333f;
+    
+}
+.btn-primary:hover {
+    color: #E8E8E8;
+    background-color: #1C1C1C;
+    border-color: #1C1C1C;
 }
 .card p {
     color: #1C1C1C;
@@ -29,11 +38,13 @@ a:hover {
     background-color: #1c1c1c;
     padding: 10px;
 }
-
 .carousel-subheader:hover {
-    color: #1c1c1c;
+    color: #E8E8E8;
     background-color: #9b333f;
     padding: 10px;
+}
+.col {
+    margin-top: 27px;
 }
 .col-12.col-sm-4 {
     margin-bottom: 33px;
@@ -53,42 +64,83 @@ a:hover {
 }
 .dropdown-menu {
     background-color: #1C1C1C;
-    margin: 0px;
-    padding: 0px; 
+    margin: 0;
+    padding: 0; 
     border-radius:0;
 }
 
 footer {
     border-top: 1px solid #9b333f;
     padding-top: 3.6rem;
+    border-bottom: 1px solid #9b333f;
+    padding-bottom: 1.8rem;
 }
 .footer-item {
-       color:#9b333f;
-       text-decoration:none;
+    color: #9b333f;
+    text-decoration: none;
+}
+.footer-item:hover {
+    color: #E8E8E8;
+    background-color: #9b333f;
+    text-decoration: none;
 }
 h1 {
     font-size: 1.8rem;
 }
+h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom:.9rem;
+}
+
 h3 {
     color:#1c1c1c;
     opacity:.6;
 }
+h6 {
+    font-size: 2.1rem;
+    border-bottom:1px solid #9b333f;
+    font-weight:900;
+    font-family:inherit;
+    color:#E8E8E8;
+    padding-top:27px;
+    padding-bottom:9px;
+    text-align:center;
+}
 .h1, .h2, .h4, .h5, .h6, h1, h2, h4, h5, h6 {
     color: #e8e8e8;
+    margin-bottom: .9rem;
 }
 .homepage-h1 {
     color: #9b333f;
+    padding: 9px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-right: auto;
+    margin-bottom:9px;
+    margin-left: auto;
+    display: block;
 }
 .homepage-h1:hover {
-    color: #e8e8e8;
+    color: #E8E8E8;
+    background-color: #9b333f;
+    padding: 9px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 9px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
 }
-
+hr {
+    border-top: 1px solid #9b333f;
+}
 .img-responsive {
     width: 100%;
 }
 label {
-    color: #e8e8e8;
-    opacity: 0.7;
+    color: #9b333f;
+    opacity: 0.9890;
 }
 .nav-link {
     display: block;
@@ -102,13 +154,17 @@ label {
 }
 .navbar-dark .navbar-nav .nav-link:hover {
     background-color: #9b333f;
+    color: #e8e8e8;
+    text-decoration: none;
+    padding: 1.5rem .5rem;
 }
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
     color: #e8e8e8;
 }
-.navbar-brand {
-    font-size:1.8rem;
-    padding-bottom:.6rem;
+.navbar-dark .navbar-brand {
+    font-size: 1.8rem;
+    padding-bottom: .6rem;
+    color: #E8E8E8;
 }
 /* custom ID */
 #cablePickerCasual {
@@ -129,16 +185,19 @@ label {
 #coolingSystemPickerPleb {
     display: none;
 }
+#footer-disclaimer {
+    text-align: center;
+}
 #footer-logo {
-    color: #9b333f;
+    color: #e8e8e8;
     font-size: 2.7rem;
 }
-#footer-logo:hover {
-    color: #e3e3e3;
-    font-size: 2.7rem;
-}
+    #footer-logo:hover {
+        color: #9b333f;
+        font-size: 2.7rem;
+    }
 #homeCard {
-    margin-top: 1.8rem;
+    margin-top: 1.2rem;
 }
 #homepage-col-spacing {
     margin-top:30px;
@@ -161,8 +220,7 @@ body {
     font-family: 'Play', sans-serif;
 }
 .btn.btn-primary {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 27px;
 }
 
 .card {
