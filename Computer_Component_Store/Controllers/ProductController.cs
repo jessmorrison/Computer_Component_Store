@@ -166,14 +166,16 @@ namespace Computer_Component_Store.Controllers
             }
             if (
                 computerComponentCartItem == null &&
+                !CaseIDHardcore.HasValue &&
                 !MotherboardIDHardcore.HasValue &&
                 !VideoCardIDHardcore.HasValue &&
                 !ProcessorIDHardcore.HasValue &&
                 !RAMIDHardcore.HasValue &&
                 !StorageIDHardcore.HasValue &&
-                !CoolingSystemIDHardcore.HasValue
+                !CoolingSystemIDHardcore.HasValue 
                 || 
                 computerComponentCartItem == null &&
+                !CaseIDCasual.HasValue &&
                 !MotherboardIDCasual.HasValue &&
                 !VideoCardIDCasual.HasValue &&
                 !ProcessorIDCasual.HasValue &&
@@ -182,6 +184,7 @@ namespace Computer_Component_Store.Controllers
                 !CoolingSystemIDCasual.HasValue
                 ||
                 computerComponentCartItem == null &&
+                !CaseIDPleb.HasValue &&
                 !MotherboardIDPleb.HasValue &&
                 !VideoCardIDPleb.HasValue &&
                 !ProcessorIDPleb.HasValue &&
@@ -204,7 +207,7 @@ namespace Computer_Component_Store.Controllers
             /* END Individual Item Add To Cart */
             /* START Hardcore Part Picker Add To Cart */
             computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == CaseIDHardcore);
-            if (computerComponentCartItem != null && MotherboardIDHardcore.HasValue)
+            if (computerComponentCartItem != null && CaseIDHardcore.HasValue)
             {
                 computerComponentCartItem.Quantity += quantity;
                 computerComponentCartItem.LastModified = DateTime.UtcNow;
@@ -320,16 +323,13 @@ namespace Computer_Component_Store.Controllers
                 };
                 computerComponentCart.ComputerComponentCartItems.Add(computerComponentCartItem);
             }
-
             /* END HARDCORE Part Picker Add To Cart */
-
             /* START CASUAL Part Picker Add To Cart */
             computerComponentCartItem = computerComponentCart.ComputerComponentCartItems.FirstOrDefault(x => x.ComputerComponentProduct.ID == CaseIDCasual);
             if (computerComponentCartItem != null && CaseIDCasual.HasValue)
             {
                 computerComponentCartItem.Quantity += quantity;
                 computerComponentCartItem.LastModified = DateTime.UtcNow;
-
             }
             if (computerComponentCartItem == null && CaseIDCasual.HasValue)
             {
@@ -346,7 +346,6 @@ namespace Computer_Component_Store.Controllers
             {
                 computerComponentCartItem.Quantity += quantity;
                 computerComponentCartItem.LastModified = DateTime.UtcNow;
-
             }
             if (computerComponentCartItem == null && MotherboardIDCasual.HasValue)
             {
@@ -629,6 +628,14 @@ namespace Computer_Component_Store.Controllers
             return View(_context.ComputerComponentProducts);
         }
         public IActionResult HardcoreFeaturedBuild()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult CasualFeaturedBuild()
+        {
+            return View(_context.ComputerComponentProducts);
+        }
+        public IActionResult PlebFeaturedBuild()
         {
             return View(_context.ComputerComponentProducts);
         }

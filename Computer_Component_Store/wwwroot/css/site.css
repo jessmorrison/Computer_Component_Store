@@ -17,6 +17,23 @@ a:hover {
     color: #1C1C1C;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-size: 19px;
+    text-align: left;
+}
+
+.carousel-caption {
+    bottom:2rem;
+}
+.carousel-subheader {
+    color: #9b333f;
+    background-color: #1c1c1c;
+    padding: 10px;
+}
+
+.carousel-subheader:hover {
+    color: #1c1c1c;
+    background-color: #9b333f;
+    padding: 10px;
 }
 .col-12.col-sm-4 {
     margin-bottom: 33px;
@@ -24,9 +41,7 @@ a:hover {
 .container-fluid {
     margin-top: 66px;
 }
-.carousel-caption {
-    bottom:13.5%;
-}
+
 .dropdown-item {
     color: #9b333f;
     border-bottom: 1px solid #9b333f;
@@ -54,14 +69,25 @@ footer {
 h1 {
     font-size: 1.8rem;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+h3 {
+    color:#1c1c1c;
+    opacity:.6;
+}
+.h1, .h2, .h4, .h5, .h6, h1, h2, h4, h5, h6 {
     color: #e8e8e8;
 }
+.homepage-h1 {
+    color: #9b333f;
+}
+.homepage-h1:hover {
+    color: #e8e8e8;
+}
+
 .img-responsive {
-    width:100%;
+    width: 100%;
 }
 label {
-    color: #1c1c1c;
+    color: #e8e8e8;
     opacity: 0.7;
 }
 .nav-link {
@@ -160,7 +186,7 @@ body {
 
 /* Carousel */
 .carousel-caption p {
-    line-height: 3rem;
+    line-height: 5rem;
     font-weight: 900;
     font-size: 4.5em;
     margin-bottom: 0;

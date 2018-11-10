@@ -281,7 +281,7 @@
                 <div class="card-body">
                     <select class="form-control form-control-lg" onchange="setCaseValuePleb(event)">
                         <option selected>Choose Case</option>
-                        @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.CompatibilityType == "D"))
+                        @foreach (var product in Model.Where(x => x.Category == "CASE" && x.CompatibilityType == "D"))
                         {
                             <option value="@product.ID">@product.Name : @product.Price</option>
                         }

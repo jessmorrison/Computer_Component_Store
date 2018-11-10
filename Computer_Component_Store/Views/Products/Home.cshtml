@@ -11,33 +11,32 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/images/banner/banner_1.jpg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p class="carousel-h1">HARDCORE</p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                    This PC Is Only For The Most Hardcore Of Consumers
-                </a>
-            </div>
+            <a class="btn btn-default" asp-controller="Products" asp-action="HardcoreFeaturedBuild">
+                <img src="~/images/banner/banner_1.jpg" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p class="carousel-h1">HARDCORE</p>
+                    <span class="carousel-subheader">Hardcore Build For Hardcore Gamer.</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="carousel-item">
+            <a class="btn btn-default" asp-controller="Products" asp-action="CasualFeaturedBuild">
+                <img src="~/images/banner/banner_2.jpg" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p class="carousel-h1">Casual</p>
+                    <span class="carousel-subheader">This PC Is For Casual Consumers</span>
+                </div>
+            </a>
         </div>
         <div class="carousel-item">
-            <img src="~/images/banner/banner_2.jpg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p class="carousel-h1">Casual</p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                    This PC Is For Casual Consumers
-                </a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/images/banner/banner_3.jpg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p class="carousel-h1">
-                    Pleb
-                </p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                    A Pleb PC for Plebs
-                </a>
-            </div>
+            <a class="btn btn-default" asp-controller="Products" asp-action="PlebFeaturedBuild">
+                <img src="~/images/banner/banner_3.jpg" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p class="carousel-h1">Pleb</p>
+                        <span class="carousel-subheader">A Pleb PC for Plebs</span>
+                </div>
+            </a>
         </div>
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -51,15 +50,15 @@
 </div>
 
 <div id="homepage-divider"></div>
-<h1 style="text-align: center;">FEATURED HARDCORE ITEMS</h1style="text-align:>
+<h1 style="text-align: center;">FEATURED HARDCORE ITEMS</h1>
 <div class="row">
     <div class="col-sm">
-        <h1><a href="/products/Motherboards">Motherboards</a></h1>
+        <h2><a href="/products/Motherboards">Motherboards</a></h2>
         @foreach (var product in Model.Where(x => x.Category == "CASE" && x.CompatibilityType == "S"))
         {
             <div class="card" id="homeCard">
                 <div class="card-body">
-                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
                     <p>@product.Price</p>
@@ -80,12 +79,12 @@
         }
     </div>
     <div class="col-sm">
-        <h1><a href="/products/VideoCards">Video Cards</a></h1>
+        <h2><a href="/products/VideoCards">Video Cards</a></h2>
         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.CompatibilityType == "S"))
         {
             <div class="card" id="homeCard">
                 <div class="card-body">
-                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
                     <p>@product.Price</p>
@@ -106,12 +105,12 @@
         }
     </div>
     <div class="col-sm">
-        <h1 <a href="/products/CoolingSystems">Cooling Systems</a></h1>
+        <h2><a href="/products/CoolingSystems">Cooling Systems</a></h2>
         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && x.CompatibilityType == "S"))
         {
             <div class="card" id="homeCard">
                 <div class="card-body">
-                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a class="homepage-h1" href="/products/index/@product.ID">@product.Name</a>
                     <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
                     <p>@product.Description</p>
                     <p>@product.Price</p>
