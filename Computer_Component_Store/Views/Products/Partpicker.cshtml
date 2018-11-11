@@ -3,29 +3,48 @@
     ViewData["Title"] = "Part Picker";
 }
 
-<h2>Part Picker</h2>
+<h2>CUSTOM PC PART PICKER</h2>
+<p>Select the option that best fits your budget:</p>
 <div class="row">
     <div class="col">
-        <label for="Hardcore" class="partpicker-label">Hardcore</label>
-        <input type="checkbox" name="Hardcore" id="Hardcore" data-on="Yes" data-off="No" />
+        <button type="button" class="btn btn-danger" name="Hardcore" id="Hardcore" style="margin-top:0;" onclick="DisplayHardcorePicker()">
+            HARDCORE
+            <div class="btn-text-divider"></div>
+            <p>Money is not an issue.</p>
+            <p>This build is for <strong>HARDCORE</strong> gamers only</p>
+            <p>Only S-Tier options are presented.</p>
+        </button>
     </div>
     <div class="col">
-        <label for="Casual" class="partpicker-label">Casual</label>
-        <input type="checkbox" name="Casual" id="Casual" data-on="Yes" data-off="No" />
-    </div>
+        <button type="button" class="btn btn-danger" name="Casual" id="Casual" style="margin-top:0;" onclick="DisplayCasualPicker()">
+            Casual
+            <div class="btn-text-divider"></div>
+    <p>You are on a budget and in the market for serious gear.</p>
+    <p>This build is to hold you over until you level up in life.</p>
+    <p>Many options are available to <strong>Casuals</strong></p>
+    </button>
+</div>
     <div class="col">
-        <label for="Pleb" class="partpicker-label">Pleb</label>
-        <input type="checkbox" name="Pleb" id="Pleb" data-on="Yes" data-off="No" />
+        <button type="button" class="btn btn-danger" name="Pleb" id="Pleb" style="margin-top:0;" onclick="DisplayPlebPicker()">
+            pleb
+            <div class="btn-text-divider"></div>
+            <p>You have Limited funds but nothing can stop you.</p>
+            <p>This build is good enough to get the job done.</p>
+            <p>Only one build is available for <strong>plebs</strong></p>
+        </button>
+
     </div>
 </div>
 
 @* Hardcore Form *@
 <form asp-action="index" method="post" id="HardcorePicker" style="display:none;">
-    <div class="row" id="CasePickerHardcore">
-        <h1>The Most Expensive Builds Only</h1>
+    <div class="row">
+
+        <h1>HARDCORE <br />(THE MOST EXPENSIVE BUILD)</h1>
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Case</h3>
                     <select class="form-control form-control-lg" onchange="setCaseValueHardcore(event)">
                         <option selected>Choose Case</option>
                         @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -44,6 +63,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Motherboard</h3>
                     <select class="form-control form-control-lg" onchange="setMotherboardValueHardcore(event)">
                         <option selected>Choose Motherboard</option>
                         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -62,6 +82,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Video Card</h3>
                     <select class="form-control form-control-lg" onchange="setVideoCardValueHardcore(event)">
                         <option selected>Choose Video Card</option>
                         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -79,6 +100,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Processor</h3>
                     <select class="form-control form-control-lg" onchange="setProcessorValueHardcore(event)">
                         <option selected>Choose Processor</option>
                         @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -96,6 +118,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>RAM</h3>
                     <select class="form-control form-control-lg" onchange="setRAMValueHardcore(event)">
                         <option selected>Choose RAM</option>
                         @foreach (var product in Model.Where(x => x.Category == "RAM" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -113,6 +136,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Storage</h3>
                     <select class="form-control form-control-lg" onchange="setStorageValueHardcore(event)">
                         <option selected>Choose Storage</option>
                         @foreach (var product in Model.Where(x => x.Category == "STORAGE" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -130,6 +154,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Cooling System</h3>
                     <select class="form-control form-control-lg" onchange="setCoolingSystemValueHardcore(event)">
                         <option selected>Choose Cooling System</option>
                         @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "S" || x.CompatibilityType == "A")))
@@ -143,15 +168,17 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-primary" id="HardcoreSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
+    <input type="submit" class="btn btn-danger" id="HardcoreSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
 </form>
 
 @* Casual Form *@
 <form asp-action="index" method="post" id="CasualPicker" style="display:none;">
     <div class="row">
-         <div class="col-12">
+        <h1>Casuals <br />(Casual Builds For Casuals)</h1>
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Case</h3>
                     <select class="form-control form-control-lg" onchange="setCaseValueCasual(event)">
                         <option selected>Choose Case</option>
                         @foreach (var product in Model.Where(x => x.Category == "CASE" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -169,6 +196,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Motherboard</h3>
                     <select class="form-control form-control-lg" onchange="setMotherboardValueCasual(event)">
                         <option selected>Choose Motherboard</option>
                         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -186,6 +214,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Video Card</h3>
                     <select class="form-control form-control-lg" onchange="setVideoCardValueCasual(event)">
                         <option selected>Choose Video Card</option>
                         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -203,6 +232,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Processor</h3>
                     <select class="form-control form-control-lg" onchange="setProcessorValueCasual(event)">
                         <option selected>Choose Processor</option>
                         @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -220,6 +250,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>RAM</h3>
                     <select class="form-control form-control-lg" onchange="setRAMValueCasual(event)">
                         <option selected>Choose RAM</option>
                         @foreach (var product in Model.Where(x => x.Category == "RAM" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -237,6 +268,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Storage</h3>
                     <select class="form-control form-control-lg" onchange="setStorageValueCasual(event)">
                         <option selected>Choose Storage</option>
                         @foreach (var product in Model.Where(x => x.Category == "STORAGE" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -254,6 +286,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Cooling System</h3>
                     <select class="form-control form-control-lg" onchange="setCoolingSystemValueCasual(event)">
                         <option selected>Choose Cooling System</option>
                         @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && (x.CompatibilityType == "B" || x.CompatibilityType == "C")))
@@ -267,18 +300,18 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-primary" id="CasualSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
+    <input type="submit" class="btn btn-danger" id="CasualSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
 </form>
 
 
 @* Pleb *@
 <form asp-action="index" method="post" id="PlebPicker" style="display:none;">
     <div class="row">
-        <h1>A Pleb Build For Plebs.</h1>
-        <h2>There is only one option.</h2>
+        <h1>plebs <br />(a pleb build for plebs)</h1>
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Case</h3>
                     <select class="form-control form-control-lg" onchange="setCaseValuePleb(event)">
                         <option selected>Choose Case</option>
                         @foreach (var product in Model.Where(x => x.Category == "CASE" && x.CompatibilityType == "D"))
@@ -296,6 +329,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Motherboard</h3>
                     <select class="form-control form-control-lg" onchange="setMotherboardValuePleb(event)">
                         <option selected>Choose Motherboard</option>
                         @foreach (var product in Model.Where(x => x.Category == "MOTHERBOARD" && x.CompatibilityType == "D"))
@@ -313,6 +347,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Video Card</h3>
                     <select class="form-control form-control-lg" onchange="setVideoCardValuePleb(event)">
                         <option selected>Choose Video Card</option>
                         @foreach (var product in Model.Where(x => x.Category == "VIDEOCARD" && x.CompatibilityType == "D"))
@@ -330,6 +365,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Processor</h3>
                     <select class="form-control form-control-lg" onchange="setProcessorValuePleb(event)">
                         <option selected>Choose Processor</option>
                         @foreach (var product in Model.Where(x => x.Category == "PROCESSOR" && x.CompatibilityType == "D"))
@@ -347,6 +383,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>RAM</h3>
                     <select class="form-control form-control-lg" onchange="setRAMValuePleb(event)">
                         <option selected>Choose RAM</option>
                         @foreach (var product in Model.Where(x => x.Category == "RAM" && x.CompatibilityType == "D"))
@@ -364,6 +401,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Storage</h3>
                     <select class="form-control form-control-lg" onchange="setStorageValuePleb(event)">
                         <option selected>Choose Storage</option>
                         @foreach (var product in Model.Where(x => x.Category == "STORAGE" && x.CompatibilityType == "D"))
@@ -381,6 +419,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <h3>Cooling System</h3>
                     <select class="form-control form-control-lg" onchange="setCoolingSystemValuePleb(event)">
                         <option selected>Choose Cooling System</option>
                         @foreach (var product in Model.Where(x => x.Category == "COOLINGSYSTEM" && x.CompatibilityType == "D"))
@@ -394,7 +433,7 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-primary" id="PlebSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
+    <input type="submit" class="btn btn-danger" id="PlebSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f; display:none;" disabled />
 </form>
 
 
@@ -408,24 +447,28 @@
     var Casualpicker = document.getElementById('CasualPicker');
     var Plebpicker = document.getElementById('PlebPicker');
 
-    var disableHardcore = document.getElementById('Hardcore');
-    var disableCasual = document.getElementById('Casual');
-    var disablePleb = document.getElementById('Pleb');
-
-
     /* Hardcore Form JS*/
-    Hardcore.addEventListener('click', function () {
-        if (this.checked) {
-            Hardcorepicker.style.display = 'block';
-            disableCasual.disabled = true;
-            disablePleb.disabled = true;
+
+    function DisplayHardcorePicker() {
+        if (Hardcorepicker.style.display === "none" || Casualpicker.style.display === "block" || Plebpicker.style.display === "block")
+        {
+            Casualpicker.style.display = "none";
+            Plebpicker.style.display = "none";
+            Hardcorepicker.style.display = "block";
+            Hardcore.style.backgroundColor = "#9b333f";
+            Hardcore.style.color = "#E8E8E8";
+            Casual.style.backgroundColor = "#1c1c1c";
+            Casual.style.color = "#9b333f";
+            Pleb.style.backgroundColor = "#1c1c1c";
+            Pleb.style.color = "#9b333f";
         }
         else {
-            Hardcorepicker.style.display = 'none';
-            disableCasual.disabled = false;
-            disablePleb.disabled = false;
+            Hardcorepicker.style.display = "none";
+            Hardcore.style.backgroundColor = "#1c1c1c";
+            Hardcore.style.color = "#9b333f";
+
         }
-    });
+    }
     function setCaseValueHardcore(e) {
         document.getElementById("CaseIDHardcore").value = e.target.value;
         e.target.value != "Choose Case" ? document.getElementById("MotherboardPickerHardcore").style.display = "flex" : document.getElementById("MotherboardPickerHardcore").style.display = "none";
@@ -461,18 +504,24 @@
 
 
     /* Casual Form JS */
-    Casual.addEventListener('click', function () {
-        if (this.checked) {
-            Casualpicker.style.display = 'block';
-            disableHardcore.disabled = true;
-            disablePleb.disabled = true;
+    function DisplayCasualPicker() {
+        if (Casualpicker.style.display === "none" || Hardcorepicker.style.display === "block" || Plebpicker.style.display === "block") {
+            Hardcorepicker.style.display = "none";
+            Plebpicker.style.display = "none";
+            Casualpicker.style.display = "block";
+            Hardcore.style.backgroundColor = "#1c1c1c";
+            Hardcore.style.color = "#9b333f";
+            Casual.style.backgroundColor = "#9b333f";
+            Casual.style.color = "#e8e8e8";
+            Pleb.style.backgroundColor = "#1c1c1c";
+            Pleb.style.color = "#9b333f";
         }
         else {
-            Casualpicker.style.display = 'none';
-            disableHardcore.disabled = false;
-            disablePleb.disabled = false;
+            Casualpicker.style.display = "none";
+            Casual.style.backgroundColor = "#1c1c1c";
+            Casual.style.color = "#9b333f";
         }
-    });
+    }
     function setCaseValueCasual(e) {
         document.getElementById("CaseIDCasual").value = e.target.value;
         e.target.value != "Choose Case" ? document.getElementById("MotherboardPickerCasual").style.display = "flex" : document.getElementById("MotherboardPickerCasual").style.display = "none";
@@ -503,24 +552,29 @@
         document.getElementById("CoolingSystemIDCasual").value = e.target.value;
         e.target.value == "Choose Cooling System" ? document.getElementById("CasualSubmitButton").disabled = true : document.getElementById("CasualSubmitButton").disabled = false;
         e.target.value != "Choose Cooling System" ? document.getElementById("CasualSubmitButton").style.display = "flex" : document.getElementById("CasualSubmitButton").style.display = "none";
-
     }
 
 
 
     /* Pleb Form JS */
-    Pleb.addEventListener('click', function () {
-        if (this.checked) {
-            Plebpicker.style.display = 'block';
-            disableHardcore.disabled = true;
-            disableCasual.disabled = true;
+    function DisplayPlebPicker() {
+        if (Plebpicker.style.display === "none" || Hardcorepicker.style.display === "block" || Casualpicker.style.display === "block") {
+            Hardcorepicker.style.display = "none";
+            Casualpicker.style.display = "none";
+            Plebpicker.style.display = "block";
+            Hardcore.style.backgroundColor = "#1c1c1c";
+            Hardcore.style.color = "#9b333f";
+            Casual.style.backgroundColor = "#1c1c1c";
+            Casual.style.color = "#9b333f";
+            Pleb.style.backgroundColor = "#9b333f";
+            Pleb.style.color = "#e8e8e8";
         }
         else {
-            Plebpicker.style.display = 'none';
-            disableHardcore.disabled = false;
-            disableCasual.disabled = false;
+            Plebpicker.style.display = "none";
+            Pleb.style.backgroundColor = "#1c1c1c";
+            Pleb.style.color = "#9b333f";
         }
-    });
+    }
     function setCaseValuePleb(e) {
         document.getElementById("CaseIDPleb").value = e.target.value;
         e.target.value != "Choose Caseboard" ? document.getElementById("MotherboardPickerPleb").style.display = "flex" : document.getElementById("MotherboardPickerPleb").style.display = "none";
@@ -533,7 +587,6 @@
         document.getElementById("VideoCardIDPleb").value = e.target.value;
         e.target.value != "Choose Video Card" ? document.getElementById("ProcessorPickerPleb").style.display = "flex" : document.getElementById("ProcessorSystemPickerPleb").style.display = "none";
     }
-
     function setProcessorValuePleb(e) {
         document.getElementById("ProcessorIDPleb").value = e.target.value;
         e.target.value != "Choose Processor" ? document.getElementById("RAMPickerPleb").style.display = "flex" : document.getElementById("RAMPickerPleb").style.display = "none";
@@ -546,7 +599,6 @@
         document.getElementById("StorageIDPleb").value = e.target.value;
         e.target.value != "Choose Storage" ? document.getElementById("CoolingSystemPickerPleb").style.display = "flex" : document.getElementById("CoolingSystemPickerPleb").style.display = "none";
     }
-
     function setCoolingSystemValuePleb(e) {
         document.getElementById("CoolingSystemIDPleb").value = e.target.value;
         e.target.value == "Choose Cooling System" ? document.getElementById("PlebSubmitButton").disabled = true : document.getElementById("PlebSubmitButton").disabled = false;
@@ -555,5 +607,9 @@
     }
 
 
-
+    $("Hardcore").hover(function () {
+        $(this).css("background-color", "#9b333f");
+    }, function () {
+        $(this).css("background-color", "#e8e8e8");
+    });
 </script>

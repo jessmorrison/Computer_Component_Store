@@ -3,6 +3,7 @@
     ViewData["Title"] = "All Products";
 }
 <h2>ALL PRODUCTS</h2>
+<div class="btn-text-divider"></div>
 <div class="row">
     @foreach (var product in Model)
     {
@@ -12,7 +13,7 @@
         <div class="col-12 col-sm-4">
             <a href="/products/index/@product.ID">
                 <img src="@Url.Content(@product.ImageURL)" alt="@product.Name" class="img-fluid" />
-                </a>
+            </a>
         </div>
         <div class="col-12 col-sm-8">
             <div class="card">
@@ -28,10 +29,10 @@
                                 <option value="@i">@i</option>
                             }
                         </select>
-                        <input type="submit" class="btn btn-block btn-primary" value="Add To Cart" />
+                        <input type="submit" class="btn btn-block btn-danger" value="Add To Cart" />
                     </form>
                 </div>
             </div>
         </div>
     }
-    </div>
+</div>

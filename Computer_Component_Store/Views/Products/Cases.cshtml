@@ -3,8 +3,8 @@
     ViewData["Title"] = "Cases";
 }
 
-<h2>Cases</h2>
-
+<h2>CASES</h2>
+<div class="btn-text-divider"></div>
 <div class="row">
     @foreach (var product in Model.Where(x => x.Category == "CASE"))
     {
@@ -24,7 +24,7 @@
                                 <option value="@i">@i</option>
                             }
                         </select>
-                        <input type="submit" class="btn btn-primary" value="Add To Cart" />
+                        <input type="submit" class="btn btn-danger" value="Add To Cart" />
                     </form>
                 </div>
             </div>

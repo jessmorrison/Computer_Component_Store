@@ -2,29 +2,31 @@
 @{
     ViewData["Title"] = "RAM";
 }
+<h2>RAM</h2>
+<div class="btn-text-divider"></div>
 <div class="row">
     @foreach (var product in Model.Where(x => x.Category == "RAM"))
     {
-    <div class="col-12 col-sm-4">
-        <div class="card">
-            <div class="card-body">
-                <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
-                <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
-                <p>@product.Description</p>
-                <p>$@product.Price</p>
-                <form method="post" asp-action="index">
-                    <input type="hidden" name="id" value="@product.ID" />
-                    <label for="quantity">How many would you like?</label>
-                    <select name="quantity" class="form-control">
-                        @for (int i = 1; i <= 10; i++)
-                        {
-                            <option value="@i">@i</option>
-                        }
-                    </select>
-                    <input type="submit" class="btn btn-primary" value="Add To Cart" />
-                </form>
+        <div class="col-12 col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2><a href="/products/index/@product.ID">@product.Name</a></h2>
+                    <a href="/products/index/@product.ID"><img class="img-fluid" src="@Url.Content(product.ImageURL)" /></a>
+                    <p>@product.Description</p>
+                    <p>$@product.Price</p>
+                    <form method="post" asp-action="index">
+                        <input type="hidden" name="id" value="@product.ID" />
+                        <label for="quantity">How many would you like?</label>
+                        <select name="quantity" class="form-control">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                        <input type="submit" class="btn btn-danger" value="Add To Cart" />
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     }
 </div>
