@@ -450,22 +450,24 @@
     /* Hardcore Form JS*/
 
     function DisplayHardcorePicker() {
-        if (Hardcorepicker.style.display === "none" || Casualpicker.style.display === "block" || Plebpicker.style.display === "block")
+        if (Hardcorepicker.style.display === "none" /*|| Casualpicker.style.display === "block" || Plebpicker.style.display === "block"*/)
         {
             Casualpicker.style.display = "none";
             Plebpicker.style.display = "none";
             Hardcorepicker.style.display = "block";
-            Hardcore.style.backgroundColor = "#9b333f";
-            Hardcore.style.color = "#E8E8E8";
-            Casual.style.backgroundColor = "#1c1c1c";
-            Casual.style.color = "#9b333f";
-            Pleb.style.backgroundColor = "#1c1c1c";
-            Pleb.style.color = "#9b333f";
+
+
+            //Hardcore.style.backgroundColor = "#9b333f";
+            //Hardcore.style.color = "#E8E8E8";
+            //Casual.style.backgroundColor = "#1c1c1c";
+            //Casual.style.color = "#9b333f";
+            //Pleb.style.backgroundColor = "#1c1c1c";
+            //Pleb.style.color = "#9b333f";
         }
         else {
             Hardcorepicker.style.display = "none";
-            Hardcore.style.backgroundColor = "#1c1c1c";
-            Hardcore.style.color = "#9b333f";
+            //Hardcore.style.backgroundColor = "#1c1c1c";
+            //Hardcore.style.color = "#9b333f";
 
         }
     }
@@ -505,21 +507,21 @@
 
     /* Casual Form JS */
     function DisplayCasualPicker() {
-        if (Casualpicker.style.display === "none" || Hardcorepicker.style.display === "block" || Plebpicker.style.display === "block") {
+        if (Casualpicker.style.display === "none" /*|| Hardcorepicker.style.display === "block" || Plebpicker.style.display === "block"*/) {
             Hardcorepicker.style.display = "none";
             Plebpicker.style.display = "none";
             Casualpicker.style.display = "block";
-            Hardcore.style.backgroundColor = "#1c1c1c";
-            Hardcore.style.color = "#9b333f";
-            Casual.style.backgroundColor = "#9b333f";
-            Casual.style.color = "#e8e8e8";
-            Pleb.style.backgroundColor = "#1c1c1c";
-            Pleb.style.color = "#9b333f";
+            //Hardcore.style.backgroundColor = "#1c1c1c";
+            //Hardcore.style.color = "#9b333f";
+            //Casual.style.backgroundColor = "#9b333f";
+            //Casual.style.color = "#e8e8e8";
+            //Pleb.style.backgroundColor = "#1c1c1c";
+            //Pleb.style.color = "#9b333f";
         }
         else {
             Casualpicker.style.display = "none";
-            Casual.style.backgroundColor = "#1c1c1c";
-            Casual.style.color = "#9b333f";
+            //Casual.style.backgroundColor = "#1c1c1c";
+            //Casual.style.color = "#9b333f";
         }
     }
     function setCaseValueCasual(e) {
@@ -558,21 +560,21 @@
 
     /* Pleb Form JS */
     function DisplayPlebPicker() {
-        if (Plebpicker.style.display === "none" || Hardcorepicker.style.display === "block" || Casualpicker.style.display === "block") {
+        if (Plebpicker.style.display === "none" /*|| Hardcorepicker.style.display === "block" || Casualpicker.style.display === "block"*/) {
             Hardcorepicker.style.display = "none";
             Casualpicker.style.display = "none";
             Plebpicker.style.display = "block";
-            Hardcore.style.backgroundColor = "#1c1c1c";
-            Hardcore.style.color = "#9b333f";
-            Casual.style.backgroundColor = "#1c1c1c";
-            Casual.style.color = "#9b333f";
-            Pleb.style.backgroundColor = "#9b333f";
-            Pleb.style.color = "#e8e8e8";
+            //Hardcore.style.backgroundColor = "#1c1c1c";
+            //Hardcore.style.color = "#9b333f";
+            //Casual.style.backgroundColor = "#1c1c1c";
+            //Casual.style.color = "#9b333f";
+            //Pleb.style.backgroundColor = "#9b333f";
+            //Pleb.style.color = "#e8e8e8";
         }
         else {
             Plebpicker.style.display = "none";
-            Pleb.style.backgroundColor = "#1c1c1c";
-            Pleb.style.color = "#9b333f";
+            //Pleb.style.backgroundColor = "#1c1c1c";
+            //Pleb.style.color = "#9b333f";
         }
     }
     function setCaseValuePleb(e) {
@@ -605,11 +607,4 @@
         e.target.value != "Choose Cooling System" ? document.getElementById("PlebSubmitButton").style.display = "flex" : document.getElementById("PlebSubmitButton").style.display = "none";
 
     }
-
-
-    $("Hardcore").hover(function () {
-        $(this).css("background-color", "#9b333f");
-    }, function () {
-        $(this).css("background-color", "#e8e8e8");
-    });
 </script>
