@@ -35,7 +35,7 @@ else
                     <td>@Model.ComputerComponentCartItems.ElementAt(i).ComputerComponentProduct.Description</td>
                     <td>
                         <input type="hidden" name="ComputerComponentCartItems[@i].id" value="@Model.ComputerComponentCartItems.ElementAt(i).ID" />
-                        <select class="form-control" name="ComputerComponentCartItems[@i].quantity">
+                        <select class="form-control" name="ComputerComponentCartItems[@i].quantity" onchange="this.form.submit()">
                             @for (int j = 0; j <= Model.ComputerComponentCartItems.ElementAt(i).Quantity + 10; j++)
                             {
                                 if (j == Model.ComputerComponentCartItems.ElementAt(i).Quantity)
@@ -49,12 +49,14 @@ else
                             }
                         </select>
                     </td>
-                    <td>@((Model.ComputerComponentCartItems.ElementAt(i).Quantity * (Model.ComputerComponentCartItems.ElementAt(i).ComputerComponentProduct.Price ?? 0)).ToString("c"))</td>
+                    <td>
+                        @((Model.ComputerComponentCartItems.ElementAt(i).Quantity * (Model.ComputerComponentCartItems.ElementAt(i).ComputerComponentProduct.Price ?? 0)).ToString("c"))
+                    </td>
                 </tr>
                 }
             </tbody>
         </table>
-        <input type="submit" class="btn btn-danger" value="Update Cart Quantities" />
+        @*<input type="submit" class="btn btn-danger" value="Update Cart Quantities" />*@
     </form>
     <a style="margin-bottom:27px;" asp-controller="checkout" asp-action="index" class="btn btn-danger">Checkout</a>
  }

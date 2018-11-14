@@ -45,11 +45,10 @@ a:hover {
 .carousel-caption {
     bottom:2rem;
 }
-
 .carousel-caption p {
-    line-height: 5rem;
+     
     font-weight: 900;
-    font-size: 7.2em;
+    font-size: 6em;
     margin-bottom: .9rem;
     background-color: #1c1c1c;
     opacity: .9;
@@ -205,6 +204,10 @@ label {
     font-size: 1.8rem;
     padding: .9rem;
     color: #E8E8E8;
+    margin-right: 0;
+}
+.navbar-dark .navbar-brand:hover {
+    background-color: #9b333f;
 }
 /* custom ID */
 #cablePickerCasual {

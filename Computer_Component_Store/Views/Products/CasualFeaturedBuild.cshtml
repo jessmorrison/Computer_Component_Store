@@ -4,12 +4,25 @@
     ViewData["Title"] = "CasualFeaturedBuild";
 }
 
-<h2>Featured Build - Casual</h2>
-<div class="btn-text-divider"></div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom:3rem;">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+
+            <img src="~/images/banner/banner_2.jpg" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p class="carousel-h1">Casual</p>
+                <span class="carousel-subheader" style="background-color:#9b333f; color:#e8e8e8;">Hardcore Build For Hardcore Gamer.</span>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 @* Casual Form *@
 <form asp-action="index" method="post" id="CasualPicker">
+    <h1>This Build contains the following items:</h1>
+    <div class="btn-text-divider"></div>
     <div class="row">
         <div class="col">
             <div class="card">
@@ -163,5 +176,5 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-danger" id="CasualSubmitButton" value="Add To Cart" style="width:100%; background-color:#9b333f;" />
+    <input type="submit" class="btn btn-danger" id="CasualSubmitButton" value="Add Complete Build To Cart" style="width:100%; height:9rem; margin-bottom:3rem;" />
 </form>

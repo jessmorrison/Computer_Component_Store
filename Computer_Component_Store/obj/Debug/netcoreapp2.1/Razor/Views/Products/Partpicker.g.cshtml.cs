@@ -102,7 +102,7 @@ using Computer_Component_Store.Models;
 ");
             EndContext();
             BeginContext(1623, 7057, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e86c288f99f84af49d3df3a908ef4179", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4aeedd2876b240ff82310d169447ceb2", async() => {
                 BeginContext(1704, 355, true);
                 WriteLiteral(@"
     <div class=""row"">
@@ -116,7 +116,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(2059, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "948544f986ea4a9a9e4cefd98806f761", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98bf76d660614f06b3c02228c10a5973", async() => {
                     BeginContext(2076, 11, true);
                     WriteLiteral("Choose Case");
                     EndContext();
@@ -148,7 +148,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(2305, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c59bcce9d398475abac50cc4e8167a97", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "60ac88235e564cdcb787a4a9af0b61ed", async() => {
                     BeginContext(2334, 12, false);
 #line 52 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -213,7 +213,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(3022, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc19ed0f97b146609ffca23cf0be1985", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f4282650ec0d4e0f8d93fcc2eadf1339", async() => {
                     BeginContext(3039, 18, true);
                     WriteLiteral("Choose Motherboard");
                     EndContext();
@@ -245,7 +245,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(3282, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7b83145f57204a1aa2dc0db4fd5e76b6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "441780e1e97449de892c78398ca6d4d8", async() => {
                     BeginContext(3311, 12, false);
 #line 71 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -310,7 +310,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(4008, 43, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "942a276e2afc49b7bbd88ef7b0b8f09a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4164e36da0d047d48b9245cdcf6a81aa", async() => {
                     BeginContext(4025, 17, true);
                     WriteLiteral("Choose Video Card");
                     EndContext();
@@ -342,7 +342,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(4265, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0981bb40787445ce98225b7385ee12b6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "040c817c992a4914b22084b51860ff6c", async() => {
                     BeginContext(4294, 12, false);
 #line 90 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -406,7 +406,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(4984, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7df2ec2cc09a41e8937f630d3e5c9c6c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00261b6199334977b673f1bee3681de3", async() => {
                     BeginContext(5001, 16, true);
                     WriteLiteral("Choose Processor");
                     EndContext();
@@ -438,7 +438,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(5240, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a3d712688274cf78fa957217e9649e5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b8a1e91bfa5b4f2eb26e60d0a9a3bcd0", async() => {
                     BeginContext(5269, 12, false);
 #line 108 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -502,7 +502,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(5941, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd5ccf20de594d2eab131ade5002538f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "284e144ad99a4cc2907df876ef25acbe", async() => {
                     BeginContext(5958, 10, true);
                     WriteLiteral("Choose RAM");
                     EndContext();
@@ -534,7 +534,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(6185, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7eaf88a7e038461498e26497e157a83e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f39c91e8a114a779dc31c572e34770a", async() => {
                     BeginContext(6214, 12, false);
 #line 126 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -598,7 +598,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(6886, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85bc6ed912d14a77a5e936319a0fb7b1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d16d6ed8f564ff2b45f7703530cbdb6", async() => {
                     BeginContext(6903, 14, true);
                     WriteLiteral("Choose Storage");
                     EndContext();
@@ -630,7 +630,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(7138, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad26e4f5a35146968ba146e191a77230", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9175d6c665db4fe8b8cb6ac756539271", async() => {
                     BeginContext(7167, 12, false);
 #line 144 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -694,7 +694,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(7866, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc192f7d9068427eab5fe40b2cfe0a46", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "229051820ac94d7b9bbec70cdd388c89", async() => {
                     BeginContext(7883, 21, true);
                     WriteLiteral("Choose Cooling System");
                     EndContext();
@@ -726,7 +726,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(8131, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "133132f11e7d4b85930c852186706a26", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "32a670d180b9465989c3fb7f2455b827", async() => {
                     BeginContext(8160, 12, false);
 #line 162 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -808,7 +808,7 @@ using Computer_Component_Store.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(8703, 6993, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4fc525ee395b4d548c19b7c02ee50d44", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "defcbed368f14bfe8644b238e5004696", async() => {
                 BeginContext(8782, 351, true);
                 WriteLiteral(@"
     <div class=""row"">
@@ -821,7 +821,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(9133, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a1e77e80d97b460ab235ed29b83800a5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6be5389af1824405bcb66050043525cd", async() => {
                     BeginContext(9150, 11, true);
                     WriteLiteral("Choose Case");
                     EndContext();
@@ -853,7 +853,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(9379, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a6948b0cc864ec98ba067955b4fd131", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0842347f691b48d9bbd35995695bcc11", async() => {
                     BeginContext(9408, 12, false);
 #line 186 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -917,7 +917,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(10086, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "002c4998b12d4b0ca824aae252c0de98", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25b0bba5ef60419e94240a9773b4c451", async() => {
                     BeginContext(10103, 18, true);
                     WriteLiteral("Choose Motherboard");
                     EndContext();
@@ -949,7 +949,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(10346, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1732664d517c4dec9a60f9637cedf258", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "369b139753e94633acc6e4cf7f279330", async() => {
                     BeginContext(10375, 12, false);
 #line 204 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1013,7 +1013,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(11062, 43, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a14123e4416b4a71bbffefd83d067a4b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e6cc40e51c6403789f8209de0c41309", async() => {
                     BeginContext(11079, 17, true);
                     WriteLiteral("Choose Video Card");
                     EndContext();
@@ -1045,7 +1045,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(11319, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4031718c96df487db933e862518ab0ad", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d90cf189609b4d8d84512f3c77aba27f", async() => {
                     BeginContext(11348, 12, false);
 #line 222 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1109,7 +1109,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(12030, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8538b3a547094e0e8efac35d31ebafeb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51cbd9e39dc1487296a5ccad65a79807", async() => {
                     BeginContext(12047, 16, true);
                     WriteLiteral("Choose Processor");
                     EndContext();
@@ -1141,7 +1141,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(12286, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf0b2b34049e41d09cd97d25efa8fabb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b29be0bb155a4812a641e8a7589bd6a1", async() => {
                     BeginContext(12315, 12, false);
 #line 240 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1205,7 +1205,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(12979, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af29f25fb6fb423187333c99b36aaac0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34575c5ca93f4692ad4f9575600f8a88", async() => {
                     BeginContext(12996, 10, true);
                     WriteLiteral("Choose RAM");
                     EndContext();
@@ -1237,7 +1237,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(13223, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69198d6951a24c1d882022ed566abe85", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2aa982eaaba4be685a1ad18b8314e56", async() => {
                     BeginContext(13252, 12, false);
 #line 258 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1301,7 +1301,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(13916, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb857f6f70794ce58ee9c60420339459", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14881e8a81354e33af7e83b6c1572fb7", async() => {
                     BeginContext(13933, 14, true);
                     WriteLiteral("Choose Storage");
                     EndContext();
@@ -1333,7 +1333,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(14168, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f802ec047353487c84e3ddc509ad221b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6254aa3a30446d985acc5cb85cf6a1c", async() => {
                     BeginContext(14197, 12, false);
 #line 276 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1397,7 +1397,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(14888, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc94d051d02b43aeb7d5066272fea34e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7bfd1958770445b5bd05ee8fae513b1b", async() => {
                     BeginContext(14905, 21, true);
                     WriteLiteral("Choose Cooling System");
                     EndContext();
@@ -1429,7 +1429,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(15153, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ff57cb3f97240d0ab11065fc3e32adb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83d878b7ec3046388f2a58a07e4747c6", async() => {
                     BeginContext(15182, 12, false);
 #line 294 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1511,7 +1511,7 @@ using Computer_Component_Store.Models;
             WriteLiteral("\r\n\r\n\r\n");
             EndContext();
             BeginContext(15714, 6706, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6af253f4b0344373a39283b9d5db63d4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5870af15baa34f7a9acc15b0e9ebc4cd", async() => {
                 BeginContext(15791, 344, true);
                 WriteLiteral(@"
     <div class=""row"">
@@ -1524,7 +1524,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(16135, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "752c01f8b8744156b5aa0626e7f1e6f2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "127afaac62fd453f9168908a4ed6023f", async() => {
                     BeginContext(16152, 11, true);
                     WriteLiteral("Choose Case");
                     EndContext();
@@ -1556,7 +1556,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(16349, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3341f751ea8b4f41b45a841b0f20c8e5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dff54609871141d1bd523af8a96d76d9", async() => {
                     BeginContext(16378, 12, false);
 #line 319 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1620,7 +1620,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(17048, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46ad7d23b3e9483c9078caef5c46a39f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b987f9fd49474f1b83400e81f6beb408", async() => {
                     BeginContext(17065, 18, true);
                     WriteLiteral("Choose Motherboard");
                     EndContext();
@@ -1652,7 +1652,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(17276, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aef7a674ee494267a43fd56bbd8cd0ab", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fd614e53e2a4fffb73158cd439235e9", async() => {
                     BeginContext(17305, 12, false);
 #line 337 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1716,7 +1716,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(17984, 43, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ce69830c4ba406fbe981afce0b1ac94", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44dbca20719349ff940d7e23e11dc8e1", async() => {
                     BeginContext(18001, 17, true);
                     WriteLiteral("Choose Video Card");
                     EndContext();
@@ -1748,7 +1748,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(18209, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbebff930e3d4dec9a7c43dc8008f34f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c678f4a67799439c8b93244e7f2cd315", async() => {
                     BeginContext(18238, 12, false);
 #line 355 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1812,7 +1812,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(18912, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09a021415a8f492b95cea9dd467e8abb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a5c29c3037f1456e8500f0174e59c611", async() => {
                     BeginContext(18929, 16, true);
                     WriteLiteral("Choose Processor");
                     EndContext();
@@ -1844,7 +1844,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(19136, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a7bc51e53b54a8c9d29ded776ce5525", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4b27f8a5cb54ec6acb9954301367935", async() => {
                     BeginContext(19165, 12, false);
 #line 373 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -1908,7 +1908,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(19821, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "550ec510462c4e91a0ad08b075341ec0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae6782ba9ed4491885601c17d6477cff", async() => {
                     BeginContext(19838, 10, true);
                     WriteLiteral("Choose RAM");
                     EndContext();
@@ -1940,7 +1940,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(20033, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b989d6fe66d42ddbbe2cbb381130217", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e53bba2b9b7d4fd3a10b84698a689b61", async() => {
                     BeginContext(20062, 12, false);
 #line 391 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -2004,7 +2004,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(20718, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee0e2d2159de4e9fa929986087e807c9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "96ba2fb1e34d41468332fffc1d224aa4", async() => {
                     BeginContext(20735, 14, true);
                     WriteLiteral("Choose Storage");
                     EndContext();
@@ -2036,7 +2036,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(20938, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb7cc8501de54632aa68e2b7ba88ba93", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e66dd30dd9714af792ae9419c173f2fa", async() => {
                     BeginContext(20967, 12, false);
 #line 409 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
@@ -2100,7 +2100,7 @@ using Computer_Component_Store.Models;
                         ");
                 EndContext();
                 BeginContext(21650, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be837e2e8b3049d381256ae3682cf414", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e14bf04b5db42bdba56e39f3fcf0dda", async() => {
                     BeginContext(21667, 21, true);
                     WriteLiteral("Choose Cooling System");
                     EndContext();
@@ -2132,7 +2132,7 @@ using Computer_Component_Store.Models;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(21883, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5cc57fba49c8411ca9105890c9ad8ce0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa371424ad734c10a959501259b1f413", async() => {
                     BeginContext(21912, 12, false);
 #line 427 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\Partpicker.cshtml"
                                                    Write(product.Name);
