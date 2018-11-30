@@ -197,7 +197,7 @@ namespace Computer_Component_Store.Controllers
                 {
                     computerComponentCartItem = new ComputerComponentCartItem
                     {
-                        Quantity = 1,
+                        Quantity = quantity,
                         ComputerComponentProduct = _context.ComputerComponentProducts.Find(id),
                         Created = DateTime.UtcNow,
                     };

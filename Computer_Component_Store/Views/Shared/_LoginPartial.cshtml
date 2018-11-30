@@ -6,7 +6,6 @@
 @{ 
     var computerUser = await UserManager.GetUserAsync(User);
 }
-
 <ul class="nav navbar-nav navbar-right">
     <li><a asp-controller="Cart" asp-action="Index" class="nav-link">Cart</a></li>
     @if (SignInManager.IsSignedIn(User))
@@ -15,16 +14,14 @@
             <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="nav-link">Hello @computerUser.FirstName @computerUser.LastName!</a>
         </li>
         <li>
-            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Home", "Products", new { area = "" })" method="post" id="logoutForm">
                 <button type="submit" class="btn btn-link navbar-btn nav-link" style="margin-top: -2px;">Logout</button>
             </form>
         </li>
     }
     else
     {
-
         <li><a asp-area="Identity" asp-page="/Account/Register" class="nav-link">Register</a></li>
         <li><a asp-area="Identity" asp-page="/Account/Login" class="nav-link">Login</a></li>
     }
-
 </ul>

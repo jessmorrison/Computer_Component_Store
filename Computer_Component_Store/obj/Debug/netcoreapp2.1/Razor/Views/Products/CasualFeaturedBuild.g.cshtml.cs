@@ -70,7 +70,7 @@ using Computer_Component_Store.Models;
             WriteLiteral("\r\n<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"margin-bottom:3rem;\">\r\n    <div class=\"carousel-inner\">\r\n        <div class=\"carousel-item active\">\r\n\r\n            ");
             EndContext();
             BeginContext(322, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "599c0a5fcfe24ac28cbfbf084427d422", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "97333a2f586348e9b5ea0291698d864d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -100,7 +100,7 @@ using Computer_Component_Store.Models;
 ");
             EndContext();
             BeginContext(720, 7914, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "369f8cad1b6c4c34a99de7a9790eccb2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a32b414cb354db8a04a250be0c10773", async() => {
                 BeginContext(777, 222, true);
                 WriteLiteral("\r\n    <h1>This Build contains the following items:</h1>\r\n    <div class=\"btn-text-divider\"></div>\r\n    <div class=\"row\">\r\n        <div class=\"col\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n");
                 EndContext();
@@ -195,7 +195,7 @@ WriteAttributeValue("", 1493, product.ID, 1493, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(1784, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9544f27452f64b97bfa8e122f2154cd6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b9cd1c1282bf4eabb5097330fd4592cf", async() => {
                     BeginContext(1804, 1, false);
 #line 41 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
@@ -334,7 +334,7 @@ WriteAttributeValue("", 2563, product.ID, 2563, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(2854, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "549c06a22f2546d3869a1a9be9cae5a8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a58fc46ffe7744008e9a08ccf649f04e", async() => {
                     BeginContext(2874, 1, false);
 #line 62 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
@@ -473,7 +473,7 @@ WriteAttributeValue("", 3632, product.ID, 3632, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(3923, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ec3c0cba0874c6a8fa82ee73e57d94f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a83b257888bc4a08834d197825aff87c", async() => {
                     BeginContext(3943, 1, false);
 #line 83 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
@@ -612,7 +612,7 @@ WriteAttributeValue("", 4736, product.ID, 4736, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(5027, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb6f006d63fe48ea8ab29614b13a74dc", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "941fce78cb6f4ae79a2fb0bac9ae68db", async() => {
                     BeginContext(5047, 1, false);
 #line 106 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
@@ -751,7 +751,7 @@ WriteAttributeValue("", 5799, product.ID, 5799, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(6090, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "004963b70be0428f9200f0a1fb078441", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6ba4987608243a4947044799db2555a", async() => {
                     BeginContext(6110, 1, false);
 #line 127 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
@@ -890,7 +890,7 @@ WriteAttributeValue("", 6872, product.ID, 6872, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(7163, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7abe1bf08ee84100925f5a6d907ef52a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92dffba7712b4eddb8411cc80b464058", async() => {
                     BeginContext(7183, 1, false);
 #line 148 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
@@ -1029,7 +1029,7 @@ WriteAttributeValue("", 7979, product.ID, 7979, 11, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(8270, 30, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbf4d012b0b64237abafd8b3d67ef049", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "efedeba75ca74725ac8b2813e602e5e7", async() => {
                     BeginContext(8290, 1, false);
 #line 171 "C:\Users\jessm\Documents\CodingTemple\Computer_Component_Store\Computer_Component_Store\Views\Products\CasualFeaturedBuild.cshtml"
                                               Write(i);
